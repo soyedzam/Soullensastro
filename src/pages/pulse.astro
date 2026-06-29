@@ -161,7 +161,7 @@ import '../styles/pages/pulse.css';
 
 <script is:inline>
 // ─── GHL WEBHOOK (reemplazar con URL real de CX/GHL) ───────────────────────
-const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/[VALIDAR_LOCATION_ID]/webhook-trigger/[VALIDAR_WORKFLOW_ID]";
+const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Pk7lx6MEDetFV7K5y2nD/webhook-trigger/dcec687b-bd8c-4d16-884e-ebb4bf18b260";
 
 // ─── PREGUNTAS ──────────────────────────────────────────────────────────────
 const QS = [
@@ -329,19 +329,25 @@ async function submitEmail(){
   const L=LEVELS[lvlKey];
 
   try{
-    await fetch(GHL_WEBHOOK,{
-      method:"POST", mode:"no-cors",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({
-        firstName:name, email, newsletter:nl,
-        pulse_score:tot, pulse_level:L.label,
-        pulse_weak_dim:weakDimName,
-        pulse_rec:PRODS[weakDimKey].prod,
-        pulse_vis:sc.vis, pulse_nar:sc.nar, pulse_sis:sc.sis, pulse_pro:sc.pro,
-        source:"Pulse™ Soul Lens — Diagnóstico de Presencia",
-        date:new Date().toISOString()
-      })
-    });
+    // GHL (GoHighLevel) inbound webhook — datos en form-data (multipart/form-data).
+    // No se fija Content-Type manualmente: el navegador lo pone con el boundary correcto.
+    const fd=new FormData();
+    fd.append("firstName", name);
+    fd.append("name", name);
+    fd.append("email", email);
+    fd.append("newsletter", nl ? "true" : "false");
+    fd.append("pulse_score", tot);
+    fd.append("pulse_level", L.label);
+    fd.append("pulse_weak_dim", weakDimName);
+    fd.append("pulse_rec", PRODS[weakDimKey].prod);
+    fd.append("pulse_vis", sc.vis);
+    fd.append("pulse_nar", sc.nar);
+    fd.append("pulse_sis", sc.sis);
+    fd.append("pulse_pro", sc.pro);
+    fd.append("source", "Pulse™ Soul Lens — Diagnóstico de Presencia");
+    fd.append("page", location.href);
+    fd.append("date", new Date().toISOString());
+    await fetch(GHL_WEBHOOK,{ method:"POST", mode:"no-cors", body:fd });
   } catch(e){}
 
   document.getElementById("email-form-wrap").style.display="none";
