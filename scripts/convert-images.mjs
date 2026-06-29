@@ -16,7 +16,7 @@ for (const url of urls) {
   const meta = await sharp(src).metadata();
   await sharp(src)
     .resize({ width: Math.min(meta.width, 1920), withoutEnlargement: true })
-    .webp({ quality: 82 })
+    .webp({ quality: 75 })
     .toFile(`${OUT}/${outName}`);
   map[url] = `/img/portfolio/${outName}`;
   console.log(`[${num}] ${meta.width}x${meta.height} -> ${outName}`);
