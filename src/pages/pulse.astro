@@ -1,0 +1,354 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/pages/pulse.css';
+---
+<BaseLayout
+  title={"Pulse™ · Diagnóstico de Presencia Digital · Soul Lens Studios"}
+  description={"Descubre qué tan fuerte es tu marca en el mercado. 6 preguntas, score inmediato, reporte por email. Gratis. Soul Lens Studios · Mérida · LATAM."}
+  canonical={"https://soullensstudios.live/pulse.html"}
+  ogImage={"https://soullensstudios.live/og-image.webp"}
+  ogType={"website"}
+  themeColor={"#0A0A0B"}
+  robots={"index,follow,max-image-preview:large"}>
+<a class="wa-float" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20saber%20m%C3%A1s." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 00.613.613l6.058-1.466A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.373l-.36-.213-3.728.902.917-3.637-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
+  <span class="wa-float-txt">Escríbenos →</span>
+</a>
+
+<div class="announce">Pulse™ · Diagnóstico de Presencia · Gratis · Resultado en 3 minutos</div>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">soul<span class="lens">lens</span><span class="st">studios</span></a>
+    <span class="pulse-badge">Pulse™</span>
+    <a href="index.html" class="nav-back">← Inicio</a>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+<!-- INTRO -->
+<section id="intro" class="screen active">
+  <div class="eyebrow-wrap"><span class="pulse-dot"></span><span class="eyebrow">Pulse™ · Diagnóstico de Presencia · Soul Lens</span></div>
+  <h1>¿Qué tan fuerte<br>está tu <span class="mark">marca</span><br>en el mercado?</h1>
+  <p class="sub">6 preguntas estratégicas. Resultado inmediato con tu Índice de Presencia, diagnóstico por dimensión y las recomendaciones exactas para tu caso.</p>
+  <button class="btn-start" onclick="startQ()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    Iniciar diagnóstico gratuito
+  </button>
+  <div class="chips">
+    <span class="chip">3 minutos</span>
+    <span class="chip">Sin registro</span>
+    <span class="chip">Resultado instantáneo</span>
+    <span class="chip">100% gratis</span>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="screen">
+  <div class="prog-wrap">
+    <div class="prog-bar"><div class="prog-fill" id="prog"></div></div>
+    <div class="prog-txt"><span id="prog-n">1 de 6</span><span id="prog-dim"></span></div>
+  </div>
+  <span class="q-dim" id="qdim"></span>
+  <div class="q-text" id="qtext"></div>
+  <div class="opts" id="qopts"></div>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="screen">
+
+  <!-- Score Card -->
+  <div class="score-card" id="score-card">
+    <div class="sc-header">
+      <span class="sc-brand">SOUL LENS STUDIOS</span>
+      <span class="sc-pulse">Pulse™ Diagnóstico</span>
+    </div>
+    <div class="sc-ring">
+      <div class="ring-wrap">
+        <svg width="140" height="140" viewBox="0 0 140 140">
+          <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="8"/>
+          <circle id="ring-circle" cx="70" cy="70" r="60" fill="none" stroke="#0653FF" stroke-width="8" stroke-linecap="round" stroke-dasharray="376.99" stroke-dashoffset="376.99" style="transition:stroke-dashoffset 1.3s ease"/>
+        </svg>
+        <div class="ring-num"><span class="ring-n" id="ring-n">0</span><span class="ring-out">/100</span></div>
+      </div>
+      <div class="sc-level">
+        <div class="level-badge" id="lvl-badge"></div>
+        <div class="sc-tagline" id="sc-tagline"></div>
+        <div class="sc-desc" id="sc-desc"></div>
+      </div>
+    </div>
+    <div class="sc-dims">
+      <div class="dim"><div class="dim-top"><span class="dim-name">Visibilidad</span><span class="dim-sc" id="ds-vis"></span></div><div class="dim-bar"><div class="dim-fill" id="df-vis" style="background:#0653FF;width:0%"></div></div></div>
+      <div class="dim"><div class="dim-top"><span class="dim-name">Narrativa</span><span class="dim-sc" id="ds-nar"></span></div><div class="dim-bar"><div class="dim-fill" id="df-nar" style="background:#448AFF;width:0%"></div></div></div>
+      <div class="dim"><div class="dim-top"><span class="dim-name">Conversión</span><span class="dim-sc" id="ds-sis"></span></div><div class="dim-bar"><div class="dim-fill" id="df-sis" style="background:#00C9A7;width:0%"></div></div></div>
+      <div class="dim"><div class="dim-top"><span class="dim-name">Producción</span><span class="dim-sc" id="ds-pro"></span></div><div class="dim-bar"><div class="dim-fill" id="df-pro" style="background:#7C4DFF;width:0%"></div></div></div>
+    </div>
+    <div class="sc-footer">
+      <span class="sc-url">soullensstudios.live/pulse</span>
+      <span class="sc-date" id="sc-date"></span>
+    </div>
+  </div>
+
+  <!-- Recomendaciones -->
+  <div class="recs-head">Qué necesita tu marca ahora</div>
+  <div class="recs-sub" id="recs-sub"></div>
+  <div class="rec-list" id="rec-list"></div>
+
+  <!-- Email Capture -->
+  <div class="email-sec">
+    <h3>Recibe tu diagnóstico completo por email</h3>
+    <p>Te enviamos tu informe Pulse™ con el análisis de tus 4 dimensiones y el plan de acción para tu marca. También te suscribes a lo último en marketing audiovisual e IA para LATAM.</p>
+    <div id="email-form-wrap">
+      <div class="form-row">
+        <input type="text" id="inp-name" placeholder="Tu nombre" autocomplete="given-name">
+        <input type="email" id="inp-email" placeholder="Tu email" autocomplete="email">
+      </div>
+      <label class="check-row">
+        <input type="checkbox" id="chk-nl" checked>
+        <span>Sí, quiero recibir tendencias de marketing audiovisual, producción con IA y estrategias de presencia para marcas en LATAM. Puedo darme de baja cuando quiera.</span>
+      </label>
+      <button class="btn-email" id="btn-email" onclick="submitEmail()">Enviar mi diagnóstico Pulse™ →</button>
+      <p class="email-note">Sin spam. Sin venta disfrazada de newsletter. Solo contenido real.</p>
+    </div>
+    <div class="email-ok" id="email-ok">
+      <div class="ok-ico">✅</div>
+      <h4>¡Listo! Revisa tu inbox.</h4>
+      <p>En los próximos minutos recibirás tu diagnóstico Pulse™ completo. Si no lo ves, revisa tu carpeta de spam.</p>
+    </div>
+  </div>
+
+
+  <!-- Google Calendar booking (post-email) -->
+  <div class="gcal-cta" id="gcal-cta" style="display:none">
+    <p>¿Prefieres agendar directamente una sesión de 30 minutos?</p>
+    <a id="gcal-link" class="btn-gcal" href="https://calendar.google.com/calendar/appointments/schedules/[VALIDAR_GOOGLE_CALENDAR_ID]" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="17" rx="2" fill="#fff" stroke="#dadce0" stroke-width="1.5"/>
+              <rect x="3" y="4" width="18" height="5" rx="2" fill="#1967D2"/>
+              <rect x="3" y="7" width="18" height="2" fill="#1967D2"/>
+              <line x1="8" y1="4" x2="8" y2="2" stroke="#5F6368" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="16" y1="4" x2="16" y2="2" stroke="#5F6368" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="12" y="17.5" font-family="Arial" font-size="7" font-weight="700" fill="#1967D2" text-anchor="middle">23</text>
+            </svg>
+      Agendar sesión con el equipo Soul Lens
+    </a>
+  </div>
+  <div class="gcal-sep" id="gcal-sep" style="display:none">— o —</div>
+
+  <!-- WA CTA (aparece tras enviar email) -->
+  <div class="wa-post" id="wa-post">
+    <p>¿Quieres que el equipo Soul Lens revise tu diagnóstico y te diga exactamente qué hacer primero?</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center">
+      <a id="wa-link" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-family:var(--mono);font-size:13px;letter-spacing:.08em;padding:14px 26px;border-radius:40px;text-decoration:none;transition:.2s;font-weight:500">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 00.613.613l6.058-1.466A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.373l-.36-.213-3.728.902.917-3.637-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
+        Escríbenos por WhatsApp
+      </a>
+      <a href="[VALIDAR_GOOGLE_CALENDAR_URL]" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:rgba(6,83,255,.12);border:1px solid rgba(6,83,255,.35);color:var(--et);font-family:var(--mono);font-size:13px;letter-spacing:.08em;padding:14px 26px;border-radius:40px;text-decoration:none;transition:.2s;font-weight:500" onmouseover="this.style.background='rgba(6,83,255,.22)'" onmouseout="this.style.background='rgba(6,83,255,.12)'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Agendar en Google Calendar
+      </a>
+    </div>
+    <p style="margin-top:12px;font-family:var(--mono);font-size:11px;color:var(--humo);letter-spacing:.04em">El equipo responde en &lt; 2 horas · Lunes a Viernes</p>
+  </div>
+
+  <button class="retry" onclick="resetAll()">↺ Repetir diagnóstico</button>
+</section>
+
+</div>
+</main>
+
+<script is:inline>
+// ─── GHL WEBHOOK (reemplazar con URL real de CX/GHL) ───────────────────────
+const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/[VALIDAR_LOCATION_ID]/webhook-trigger/[VALIDAR_WORKFLOW_ID]";
+
+// ─── PREGUNTAS ──────────────────────────────────────────────────────────────
+const QS = [
+  { dim:"Visibilidad", dk:"vis",
+    q:"Cuando alguien busca lo que ofreces, ¿tu marca aparece?",
+    opts:[
+      {t:"Sí — aparecemos fácilmente y nos reconocen", pts:{vis:24}},
+      {t:"A veces — en algunas búsquedas o redes, pero no siempre", pts:{vis:14}},
+      {t:"Muy poco — casi no nos encuentran digitalmente", pts:{vis:5}},
+      {t:"No aparecemos — nadie nos encuentra en internet", pts:{vis:0}}
+    ]},
+  { dim:"Narrativa", dk:"nar",
+    q:"¿Tienes claro qué hace especial a tu marca y lo comunicas bien?",
+    opts:[
+      {t:"Sí — lo decimos claramente y de forma consistente en todo", pts:{nar:24}},
+      {t:"Más o menos — sabemos quiénes somos pero no lo comunicamos bien", pts:{nar:13}},
+      {t:"No del todo — cada quien dice algo distinto de la marca", pts:{nar:6}},
+      {t:"No — todavía no tenemos un mensaje claro de marca", pts:{nar:0}}
+    ]},
+  { dim:"Conversión", dk:"sis",
+    q:"¿Tu presencia en internet te trae clientes nuevos de forma regular?",
+    opts:[
+      {t:"Sí — recibimos clientes de digital de forma consistente", pts:{sis:24}},
+      {t:"A veces — llegan clientes, pero no de manera predecible", pts:{sis:13}},
+      {t:"Rara vez — casi todos nuestros clientes vienen por referidos o contacto directo", pts:{sis:6}},
+      {t:"No — el internet aún no nos genera clientes", pts:{sis:0}}
+    ]},
+  { dim:"Producción", dk:"pro",
+    q:"¿Tienes video o contenido audiovisual profesional de tu marca publicado?",
+    opts:[
+      {t:"Sí — video, podcast o contenido de buena calidad y actualizado", pts:{pro:24}},
+      {t:"Tenemos algo, pero no es muy profesional o está desactualizado", pts:{pro:13}},
+      {t:"Tenemos muy poco — no publicamos contenido con regularidad", pts:{pro:5}},
+      {t:"No tenemos contenido audiovisual activo en este momento", pts:{pro:0}}
+    ]},
+  { dim:"Conversión", dk:"sis",
+    q:"¿Tienes algún video donde presentes tu servicio o muestres resultados reales?",
+    opts:[
+      {t:"Sí — tenemos video de ventas o testimonios en video y funcionan bien", pts:{sis:1}},
+      {t:"Tenemos uno pero no lo usamos estratégicamente", pts:{sis:0}},
+      {t:"Estamos en proceso de crearlo", pts:{sis:0}},
+      {t:"No tenemos ningún video de presentación o testimonio", pts:{sis:0}}
+    ]},
+  { dim:"Visibilidad", dk:"vis",
+    q:"¿En cuántos lugares de internet está presente tu marca actualmente?",
+    opts:[
+      {t:"En varios — redes sociales, YouTube, podcast y más", pts:{vis:1}},
+      {t:"En dos o tres redes sociales, pero publicamos poco", pts:{vis:0}},
+      {t:"Solo en una red social", pts:{vis:0}},
+      {t:"Todavía no estamos presentes activamente en internet", pts:{vis:0}}
+    ]}
+];
+
+let cur=0, ans=[], sc={vis:0,nar:0,sis:0,pro:0}, tot=0, lvlKey="";
+const LETTERS=["A","B","C","D"];
+
+function show(id){["intro","quiz","results"].forEach(s=>document.getElementById(s).classList.remove("active")); document.getElementById(id).classList.add("active"); window.scrollTo(0,0);}
+
+function startQ(){ cur=0; ans=[]; sc={vis:0,nar:0,sis:0,pro:0}; renderQ(); show("quiz"); }
+
+function renderQ(){
+  const q=QS[cur];
+  const pct=Math.round((cur/QS.length)*100);
+  document.getElementById("prog").style.width=pct+"%";
+  document.getElementById("prog-n").textContent=(cur+1)+" de "+QS.length;
+  document.getElementById("prog-dim").textContent=q.dim;
+  document.getElementById("qdim").textContent=q.dim;
+  document.getElementById("qtext").textContent=q.q;
+  const el=document.getElementById("qopts"); el.innerHTML="";
+  q.opts.forEach((o,i)=>{
+    const btn=document.createElement("button");
+    btn.className="opt"+(ans[cur]===i?" picked":"");
+    btn.innerHTML=`<span class="ol">${LETTERS[i]}</span><span>${o.t}</span><span class="opt-chk">✓</span>`;
+    btn.onclick=()=>pick(i);
+    el.appendChild(btn);
+  });
+}
+
+function pick(i){
+  ans[cur]=i;
+  document.querySelectorAll(".opt").forEach((b,j)=>{b.className="opt lock"+(j===i?" picked":"");});
+  setTimeout(()=>{ cur<QS.length-1?(cur++,renderQ()):showResults(); },420);
+}
+
+// ─── RESULTADOS ─────────────────────────────────────────────────────────────
+const LEVELS={
+  elite:{label:"Presencia Élite",color:"#0E8060",tag:"Tu marca lidera. El objetivo ahora es consolidar y escalar.",desc:"Tienes una base sólida en todas las dimensiones. El siguiente paso es optimizar cada activo para que trabaje solo."},
+  activa:{label:"Presencia Activa",color:"#185FA5",tag:"Tienes potencial real. Faltan piezas clave para convertir.",desc:"Tu marca existe y tiene presencia, pero hay brechas importantes en conversión o producción que te cuestan clientes que sí podrías cerrar."},
+  emergente:{label:"Presencia Emergente",color:"#BA7517",tag:"Tu marca empieza a tomar forma. Necesitas un sistema.",desc:"Tienes elementos aislados pero sin conexión estratégica. El riesgo es seguir invirtiendo sin un sistema que convierta en clientes reales."},
+  invisible:{label:"Presencia Invisible",color:"#A32D2D",tag:"Tu marca no existe digitalmente aún. Tiene solución.",desc:"La buena noticia: construir desde cero permite hacerlo bien desde el principio. Muchas marcas sólidas empezaron exactamente aquí."}
+};
+const PRODS={
+  vis:{ico:"📺",prod:"Spots IA",why:"Comerciales de pantalla grande que te ponen en el mapa — en todas las pantallas, sin el costo de una gran producción.",price:"Desde $2,990 MXN"},
+  nar:{ico:"🎬",prod:"Films de Marca",why:"Un Film estratégico que cuenta quién eres y por qué elegirte — en 90 segundos, con narrativa psicológica.",price:"Desde $17,800 MXN"},
+  sis:{ico:"🔗",prod:"Smart Pass",why:"Tu ecosistema de presencia digital que trabaja solo — micrositio, QR dinámico y sistema de seguimiento.",price:"Desde $3,800 MXN"},
+  pro:{ico:"🎙",prod:"Soul Caps",why:"Sistema de producción de contenido de autoridad — voz, cámara y estrategia, episodio a episodio.",price:"Desde $2,990 MXN"}
+};
+
+function showResults(){
+  sc={vis:0,nar:0,sis:0,pro:0};
+  ans.forEach((ai,qi)=>{Object.entries(QS[qi].opts[ai].pts).forEach(([k,v])=>sc[k]+=v);});
+  Object.keys(sc).forEach(k=>sc[k]=Math.min(25,sc[k]));
+  tot=Object.values(sc).reduce((a,b)=>a+b,0);
+
+  const lvl=tot>=80?"elite":tot>=60?"activa":tot>=35?"emergente":"invisible";
+  lvlKey=lvl;
+  const L=LEVELS[lvl];
+
+  // Ring
+  const circ=376.99;
+  const off=circ-(tot/100)*circ;
+  const ring=document.getElementById("ring-circle");
+  ring.style.stroke=L.color;
+  setTimeout(()=>ring.style.strokeDashoffset=off,120);
+  // count up
+  let n=0;const nd=document.getElementById("ring-n");
+  const iv=setInterval(()=>{n=Math.min(n+2,tot);nd.textContent=n;if(n>=tot)clearInterval(iv);},22);
+
+  // Badge
+  const lb=document.getElementById("lvl-badge");
+  lb.textContent=L.label; lb.style.background=L.color+"22"; lb.style.color=L.color; lb.style.border="1px solid "+L.color+"55";
+  document.getElementById("sc-tagline").textContent=L.tag;
+  document.getElementById("sc-desc").textContent=L.desc;
+
+  // Dims
+  [["vis","#0653FF"],["nar","#448AFF"],["sis","#00C9A7"],["pro","#7C4DFF"]].forEach(([k,c])=>{
+    document.getElementById("ds-"+k).textContent=sc[k]+"/25";
+    setTimeout(()=>document.getElementById("df-"+k).style.width=(sc[k]/25*100)+"%",250);
+  });
+
+  // Date
+  document.getElementById("sc-date").textContent=new Date().toLocaleDateString("es-MX",{day:"numeric",month:"long",year:"numeric"});
+
+  // Recs
+  const sorted=Object.entries(sc).sort((a,b)=>a[1]-b[1]);
+  document.getElementById("recs-sub").textContent=`Con un Índice de ${tot}/100 (${L.label}), estas son las 3 prioridades que más impacto tendrán:`;
+  const rl=document.getElementById("rec-list"); rl.innerHTML="";
+  sorted.slice(0,3).forEach((r,i)=>{
+    const p=PRODS[r[0]];
+    const d=document.createElement("div"); d.className="rec";
+    d.innerHTML=`<div class="rec-ico">${p.ico}</div><div><div class="rec-prod">${i===0?"⭐ Prioridad #1 · ":""}${p.prod}</div><div class="rec-why">${p.why}</div><div class="rec-p">${p.price}</div></div>`;
+    rl.appendChild(d);
+  });
+
+  // WA link
+  const weakDim={vis:"Visibilidad",nar:"Narrativa",sis:"Conversión",pro:"Producción"}[sorted[0][0]];
+  const waMsg=encodeURIComponent(`Hola Soul Lens. Completé el diagnóstico Pulse™ y obtuve ${tot}/100 (${L.label}). Mi mayor área de mejora es ${weakDim}. Me interesa saber cómo mejorarla.`);
+  document.getElementById("wa-link").href="https://wa.me/5215644844928?text="+waMsg;
+
+  show("results");
+}
+
+// ─── EMAIL + GHL ────────────────────────────────────────────────────────────
+async function submitEmail(){
+  const name=document.getElementById("inp-name").value.trim();
+  const email=document.getElementById("inp-email").value.trim();
+  const nl=document.getElementById("chk-nl").checked;
+  if(!email||!email.includes("@")){document.getElementById("inp-email").focus();return;}
+  const btn=document.getElementById("btn-email");
+  btn.disabled=true; btn.textContent="Enviando...";
+
+  const sorted=Object.entries(sc).sort((a,b)=>a[1]-b[1]);
+  const weakDimKey=sorted[0][0];
+  const weakDimName={vis:"Visibilidad",nar:"Narrativa",sis:"Conversión",pro:"Producción"}[weakDimKey];
+  const L=LEVELS[lvlKey];
+
+  try{
+    await fetch(GHL_WEBHOOK,{
+      method:"POST", mode:"no-cors",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        firstName:name, email, newsletter:nl,
+        pulse_score:tot, pulse_level:L.label,
+        pulse_weak_dim:weakDimName,
+        pulse_rec:PRODS[weakDimKey].prod,
+        pulse_vis:sc.vis, pulse_nar:sc.nar, pulse_sis:sc.sis, pulse_pro:sc.pro,
+        source:"Pulse™ Soul Lens — Diagnóstico de Presencia",
+        date:new Date().toISOString()
+      })
+    });
+  } catch(e){}
+
+  document.getElementById("email-form-wrap").style.display="none";
+  document.getElementById("email-ok").style.display="block";
+  document.getElementById("wa-post").style.display="block";
+}
+
+function resetAll(){ ans=[]; sc={vis:0,nar:0,sis:0,pro:0}; cur=0; document.getElementById("email-form-wrap").style.display="block"; document.getElementById("email-ok").style.display="none"; document.getElementById("wa-post").style.display="none"; document.getElementById("btn-email").disabled=false; document.getElementById("btn-email").textContent="Enviar mi diagnóstico Pulse™ →"; startQ(); }
+</script>
+</BaseLayout>

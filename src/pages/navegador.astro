@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/pages/navegador.css';
+---
+<BaseLayout
+  title={"Soul Lens · Navegador de Ecosistema"}
+  description={"Soul Lens Studios — sistemas que hacen que tu negocio sea elegido. Mérida · Yucatán · LATAM."}
+  canonical={"https://soullensstudios.live/navegador.html"}
+  ogImage={"https://soullensstudios.live/og-image.webp"}
+  ogType={"website"}
+  themeColor={"#0A0A0B"}
+  robots={"noindex,nofollow"}>
+<header class="top">
+  <div class="brand"><span class="s">soul</span><span class="l">lens</span><small>Navegador de ecosistema</small></div>
+  <div class="seg" id="seg">
+    <button data-d="desktop" class="on">Escritorio</button>
+    <button data-d="tablet">Tablet</button>
+    <button data-d="movil">Móvil</button>
+  </div>
+  <div class="right">
+    <button class="tbtn" id="mapBtn">◇ Mapa de flujo</button>
+    <a class="tbtn" id="openTab" target="_blank" rel="noopener">Abrir en pestaña ↗</a>
+  </div>
+</header>
+
+<div class="stage">
+  <aside class="side">
+    <p class="lbl">Páginas del ecosistema</p>
+    <div id="pglist"></div>
+    <p class="hint">Vista previa <b>pre-deploy</b>. Usa ← → para cambiar de página. Abre este archivo <b>dentro de la carpeta descomprimida</b> para que cargue cada página real.</p>
+  </aside>
+
+  <main class="main">
+    <div class="toolbar">
+      <div class="nav-arrows"><button id="prev">‹</button><button id="next">›</button></div>
+      <div class="urlbar"><span class="lock">●</span><span>soullensstudios.live/</span><span class="u" id="urlfile">index.html</span></div>
+      <span class="dims" id="dims">100%</span>
+    </div>
+
+    <div class="frame-wrap">
+      <div class="frame" id="frame"><iframe id="view" title="Vista previa"></iframe></div>
+    </div>
+
+    <div class="map">
+      <div class="inner">
+        <h2>Mapa del ecosistema Soul Lens</h2>
+        <p class="sub">Cómo navega el visitante — desde el Home hasta la conversión.</p>
+        <div class="node home-node" data-go="index.html">
+          <span class="bar" style="background:var(--blue)"></span>
+          <span class="k">/ 00 · Núcleo</span><h3>Home · Ecosistema</h3>
+          <p>Promesa → percepción → casos → líneas → psicología → equipo → propósito → prueba social Google → garantía → conversión.</p>
+        </div>
+        <div class="connector">↓ enlaza a las 5 líneas ↓</div>
+        <div class="grid5" id="mapgrid"></div>
+        <div class="exit">
+          <span class="k">Toda ruta termina en conversión</span>
+          <p>Agendar · WhatsApp — precio fijo · garantía 90 días · ecosistema en 35 días</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">Designed by <b>Soul Lens</b>&nbsp;·&nbsp;Powered by <b>Xplorers Startups</b></div>
+  </main>
+</div>
+
+<script is:inline>
+const PAGES=[
+ {file:"index.html",        nm:"Home",            ty:"Ecosistema · Inicio",      no:"00", ac:"var(--blue)"},
+ {file:"soul-caps.html",    nm:"Soul Caps",       ty:"Podcasts & Voz",           no:"01", ac:"var(--blue)"},
+ {file:"films-de-marca.html",nm:"Films de Marca", ty:"Films cinematográficos",   no:"02", ac:"var(--blue)"},
+ {file:"spots-ia.html",     nm:"Spots IA",        ty:"Comerciales con IA",       no:"03", ac:"var(--blue)"},
+ {file:"smart-pass.html",   nm:"Smart Pass",      ty:"Activo digital premium",   no:"09", ac:"var(--red)"},
+ {file:"soul-story-kids.html",nm:"Soul Story Kids",ty:"Historias para niños",    no:"12", ac:"var(--purple)"},
+ {file:"nosotros.html",   nm:"Nosotros",       ty:"Fundadores & Propósito",  no:"07", ac:"var(--blue)"}
+];
+let active=0;
+const view=document.getElementById('view'),frame=document.getElementById('frame'),
+      urlfile=document.getElementById('urlfile'),openTab=document.getElementById('openTab'),
+      dims=document.getElementById('dims'),pglist=document.getElementById('pglist'),
+      mapgrid=document.getElementById('mapgrid');
+let device='desktop';
+
+function load(i){
+  active=i; const p=PAGES[i];
+  view.src=p.file; urlfile.textContent=p.file; openTab.href=p.file;
+  document.querySelectorAll('.pg').forEach((el,k)=>el.classList.toggle('on',k===i));
+  document.body.classList.remove('mapview'); mapBtn.classList.remove('on');
+  setDims();
+}
+function setDims(){
+  frame.className='frame'+(device==='tablet'?' tablet':device==='movil'?' movil':'');
+  dims.textContent = device==='tablet'?'834 px':device==='movil'?'390 px':'100%';
+}
+
+// sidebar
+PAGES.forEach((p,i)=>{
+  const d=document.createElement('div'); d.className='pg'+(i===0?' on':'');
+  d.innerHTML=`<span class="dot" style="background:${p.ac}"></span>
+    <span class="meta"><span class="nm">${p.nm}</span><span class="ty">${p.ty}</span></span>
+    <span class="no">${p.no}</span>`;
+  d.onclick=()=>load(i); pglist.appendChild(d);
+});
+// map cards
+PAGES.slice(1).forEach(p=>{
+  const i=PAGES.indexOf(p);
+  const d=document.createElement('div'); d.className='node'; d.dataset.go=p.file;
+  d.innerHTML=`<span class="bar" style="background:${p.ac}"></span>
+    <span class="k">/ ${p.no} · Línea</span><h3>${p.nm}</h3>
+    <p>${p.ty}<br>→ #precios · WhatsApp · Agendar</p>`;
+  d.onclick=()=>load(i); mapgrid.appendChild(d);
+});
+document.querySelector('.home-node').onclick=()=>load(0);
+
+// device toggle
+document.getElementById('seg').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('#seg button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); device=b.dataset.d; setDims();
+});
+// map toggle
+const mapBtn=document.getElementById('mapBtn');
+mapBtn.onclick=()=>{const on=document.body.classList.toggle('mapview');mapBtn.classList.toggle('on',on);};
+// arrows
+document.getElementById('prev').onclick=()=>load((active-1+PAGES.length)%PAGES.length);
+document.getElementById('next').onclick=()=>load((active+1)%PAGES.length);
+addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft')load((active-1+PAGES.length)%PAGES.length);
+  if(e.key==='ArrowRight')load((active+1)%PAGES.length);
+});
+
+load(0);
+</script>
+</BaseLayout>

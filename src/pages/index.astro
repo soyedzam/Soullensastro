@@ -1,0 +1,594 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/pages/index.css';
+---
+<BaseLayout
+  title={"Soul Lens Studios · Sistemas que hacen que tu negocio sea elegido · Mérida"}
+  description={"No producimos contenido. Construimos la razón por la que te eligen. Arquitectura psicológica, audiovisual e IA convertida en activos. Mérida · Yucatán · LATAM. Garantía 90 días."}
+  canonical={"https://soullensstudios.live/"}
+  ogImage={"https://soullensstudios.live/og-image.webp"}
+  ogType={"website"}
+  themeColor={"#0A0A0B"}
+  robots={"index,follow,max-image-preview:large"}>
+  <Fragment slot="head" set:html={"<script type=\"application/ld+json\">\n{\n \"@context\": \"https://schema.org\",\n \"@graph\": [\n  {\n   \"@type\": \"WebSite\",\n   \"@id\": \"https://soullensstudios.live/#website\",\n   \"url\": \"https://soullensstudios.live/\",\n   \"name\": \"Soul Lens Studios\",\n   \"inLanguage\": \"es-MX\",\n   \"publisher\": {\n    \"@id\": \"https://soullensstudios.live/#org\"\n   }\n  },\n  {\n   \"@type\": \"WebPage\",\n   \"@id\": \"https://soullensstudios.live/#webpage\",\n   \"url\": \"https://soullensstudios.live/\",\n   \"name\": \"Soul Lens Studios · Sistemas que hacen que tu negocio sea elegido · Mérida\",\n   \"description\": \"No producimos contenido. Construimos la razón por la que te eligen. Arquitectura psicológica, audiovisual e IA convertida en activos. Mérida · Yucatán · LATAM. Garantía 90 días.\",\n   \"inLanguage\": \"es-MX\",\n   \"isPartOf\": {\n    \"@id\": \"https://soullensstudios.live/#website\"\n   },\n   \"about\": {\n    \"@id\": \"https://soullensstudios.live/#org\"\n   }\n  },\n  {\n   \"@type\": \"Organization\",\n   \"@id\": \"https://soullensstudios.live/#org\",\n   \"name\": \"Soul Lens Studios\",\n   \"alternateName\": \"SLS\",\n   \"url\": \"https://soullensstudios.live\",\n   \"logo\": \"https://soullensstudios.live/logo.png\",\n   \"email\": \"hola@soullensstudios.live\",\n   \"description\": \"Productora audiovisual y de marca en Mérida, Yucatán. Operación LATAM. Producción profesional + neuromarketing 3 niveles + IA aplicada. Garantía 90 días por componente.\",\n   \"foundingLocation\": {\n    \"@type\": \"Place\",\n    \"name\": \"Mérida, Yucatán, México\"\n   },\n   \"areaServed\": [\n    {\n     \"@type\": \"Place\",\n     \"name\": \"México\"\n    },\n    {\n     \"@type\": \"Place\",\n     \"name\": \"LATAM\"\n    }\n   ],\n   \"address\": {\n    \"@type\": \"PostalAddress\",\n    \"addressLocality\": \"Mérida\",\n    \"addressRegion\": \"Yucatán\",\n    \"addressCountry\": \"MX\"\n   },\n   \"aggregateRating\": {\n    \"@type\": \"AggregateRating\",\n    \"ratingValue\": \"5\",\n    \"reviewCount\": \"22\",\n    \"bestRating\": \"5\"\n   }\n  },\n  {\n   \"@type\": \"LocalBusiness\",\n   \"@id\": \"https://soullensstudios.live/#biz\",\n   \"name\": \"Soul Lens Studios\",\n   \"image\": \"https://soullensstudios.live/og-image.webp\",\n   \"priceRange\": \"$99-$19,990 USD\",\n   \"telephone\": \"+52-56-4484-4928\",\n   \"address\": {\n    \"@type\": \"PostalAddress\",\n    \"addressLocality\": \"Mérida\",\n    \"addressRegion\": \"Yucatán\",\n    \"addressCountry\": \"MX\"\n   },\n   \"geo\": {\n    \"@type\": \"GeoCoordinates\",\n    \"latitude\": \"20.9674\",\n    \"longitude\": \"-89.5926\"\n   },\n   \"url\": \"https://soullensstudios.live\",\n   \"openingHoursSpecification\": {\n    \"@type\": \"OpeningHoursSpecification\",\n    \"dayOfWeek\": [\n     \"Monday\",\n     \"Tuesday\",\n     \"Wednesday\",\n     \"Thursday\",\n     \"Friday\"\n    ],\n    \"opens\": \"09:00\",\n    \"closes\": \"19:00\"\n   }\n  },\n  {\n   \"@type\": \"Service\",\n   \"name\": \"Producción de Podcasts\",\n   \"provider\": {\n    \"@id\": \"https://soullensstudios.live/#org\"\n   },\n   \"areaServed\": \"LATAM\",\n   \"offers\": [\n    {\n     \"@type\": \"Offer\",\n     \"name\": \"Voice\",\n     \"price\": \"249\",\n     \"priceCurrency\": \"USD\"\n    },\n    {\n     \"@type\": \"Offer\",\n     \"name\": \"Presence\",\n     \"price\": \"490\",\n     \"priceCurrency\": \"USD\"\n    },\n    {\n     \"@type\": \"Offer\",\n     \"name\": \"Authority\",\n     \"price\": \"990\",\n     \"priceCurrency\": \"USD\"\n    }\n   ]\n  },\n  {\n   \"@type\": \"Service\",\n   \"name\": \"Films de Marca\",\n   \"provider\": {\n    \"@id\": \"https://soullensstudios.live/#org\"\n   },\n   \"offers\": [\n    {\n     \"@type\": \"Offer\",\n     \"name\": \"Voice Film\",\n     \"price\": \"890\",\n     \"priceCurrency\": \"USD\"\n    },\n    {\n     \"@type\": \"Offer\",\n     \"name\": \"Presence Film\",\n     \"price\": \"1490\",\n     \"priceCurrency\": \"USD\"\n    },\n    {\n     \"@type\": \"Offer\",\n     \"name\": \"Authority Film\",\n     \"price\": \"2490\",\n     \"priceCurrency\": \"USD\"\n    }\n   ]\n  },\n  {\n   \"@type\": \"Service\",\n   \"name\": \"Spots IA\",\n   \"provider\": {\n    \"@id\": \"https://soullensstudios.live/#org\"\n   },\n   \"offers\": [\n    {\n     \"@type\": \"Offer\",\n     \"name\": \"Voice\",\n     \"price\": \"149\",\n     \"priceCurrency\": \"USD\"\n    },\n    {\n     \"@type\": \"Offer\",\n     \"name\": \"Presence\",\n     \"price\": \"299\",\n     \"priceCurrency\": \"USD\"\n    },\n    {\n     \"@type\": \"Offer\",\n     \"name\": \"Authority\",\n     \"price\": \"590\",\n     \"priceCurrency\": \"USD\"\n    }\n   ]\n  },\n  {\n   \"@type\": \"Service\",\n   \"name\": \"Soul Stage\",\n   \"provider\": {\n    \"@id\": \"https://soullensstudios.live/#org\"\n   }\n  },\n  {\n   \"@type\": \"Service\",\n   \"name\": \"Identidad de Marca\",\n   \"provider\": {\n    \"@id\": \"https://soullensstudios.live/#org\"\n   }\n  },\n  {\n   \"@type\": \"Service\",\n   \"name\": \"Soul Engine SEO+GEO+LLMO+AEO\",\n   \"provider\": {\n    \"@id\": \"https://soullensstudios.live/#org\"\n   }\n  },\n  {\n   \"@type\": \"FAQPage\",\n   \"mainEntity\": [\n    {\n     \"@type\": \"Question\",\n     \"name\": \"¿Qué es Soul Lens Studios?\",\n     \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"SLS es una productora audiovisual y de marca en Mérida que opera en toda LATAM. Combina producción profesional, neuromarketing en 3 niveles (reptiliano, límbico, neocórtex) e IA aplicada. 12 líneas: podcasts, films, spots IA, producción en vivo, Soul Stage, identidad, Soul Engine, Hub Intelligence, Smart Pass, Team Pack, Proyectos, Soul Story Kids.\"\n     }\n    },\n    {\n     \"@type\": \"Question\",\n     \"name\": \"¿Cuánto cuesta un podcast?\",\n     \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"3 tiers: Voice $249 USD, Presence $490 USD, Authority $990 USD. Series con 20% off, Plan Mensual desde $219 USD con precio bloqueado, Episodio Piloto de entrada $99 USD.\"\n     }\n    },\n    {\n     \"@type\": \"Question\",\n     \"name\": \"¿Cuál es la garantía SLS?\",\n     \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Cada producto tiene garantía 90 días específica. Sin resultados, seguimos sin costo.\"\n     }\n    },\n    {\n     \"@type\": \"Question\",\n     \"name\": \"¿SLS trabaja fuera de Mérida?\",\n     \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Mérida sin costo. Resto MX con viáticos. LATAM con viáticos + logística. Producciones digitales sin restricción.\"\n     }\n    },\n    {\n     \"@type\": \"Question\",\n     \"name\": \"¿Qué es Soul Stage?\",\n     \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Escenario virtual con IA. Modelo Estudio: setup $2,990 + Pass $1,490/mes. Modelo Propio llave en mano: Voice $7,990, Presence $12,990, Authority $19,990 USD.\"\n     }\n    },\n    {\n     \"@type\": \"Question\",\n     \"name\": \"¿Cuál es el proyecto más completo?\",\n     \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Lanzamiento Total $8,990 USD: Authority Marca con brandbook impreso + Authority Engine con IA + Podcast Authority 3 ep + Authority Film. Plan 40/30/30. Solo 1/mes.\"\n     }\n    }\n   ]\n  }\n ]\n}\n</script>"} />
+<div class="announce">Solo <b>3 proyectos nuevos</b> disponibles en julio — <a href="pulse.html">Haz tu diagnóstico gratuito →</a></div>
+<header class="nav"><div class="nav-in">
+  <a href="index.html" class="brand" aria-label="Soul Lens Studios — inicio">soul<span class="lens">lens</span><span class="st">studios</span></a>
+  <nav class="nav-links" aria-label="Líneas de solución">
+    <a href="soul-caps.html"><span class="num">01</span>Soul Caps</a>
+    <a href="films-de-marca.html"><span class="num">02</span>Films</a>
+    <a href="spots-ia.html"><span class="num">03</span>Spots IA</a>
+    <a href="smart-pass.html"><span class="num">09</span>Smart Pass</a>
+    <a href="soul-story-kids.html"><span class="num">12</span>Kids</a>
+    <a href="aniversario.html"><span class="num">11</span>Proyectos</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="pulse.html" class="nav-pulse">Pulse™</a>
+  </nav>
+  <a class="nav-cta" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico." target="_blank" rel="noopener">AGENDAR</a>
+  <button class="burger" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('open')">≡</button>
+</div></header>
+<main id="main"><a id="top"></a>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero"><canvas id="aperture" aria-hidden="true"></canvas>
+<div class="hero-in"><div class="hero-grid">
+  <div class="gbadge-wrap reveal">
+    <a class="gbadge" href="https://share.google/QYAmgKn9vYrwC1oPn" target="_blank" rel="noopener" aria-label="Ver reseñas en Google">
+      <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      <span class="gbadge-score">5.0</span>
+      <span class="gbadge-stars">★★★★★</span>
+      <span class="gbadge-label">22 reseñas en Google</span>
+    </a>
+  </div>
+  <span class="divtag">ESTRATEGIA · MÉRIDA · YUCATÁN · LATAM</span>
+  <h1>Tu empresa no necesita más contenido. Necesita <span class="mark">sistemas que generen resultados.</span></h1>
+  <p class="sub">Transformamos marcas, contenido, tecnología e inteligencia artificial en activos que ayudan a tu empresa a ser elegido una y otra vez.</p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico%20gratuito." target="_blank" rel="noopener">AGENDAR DIAGNÓSTICO →</a>
+    <a class="btn btn-ghost" href="#lineas">VER PROYECTOS</a>
+  </div>
+  <div class="risk">
+    <span><i>✓</i> Garantía 90 días</span>
+    <span><i>✓</i> Precio fijo, sin sorpresas</span>
+    <span><i>✓</i> Entrega en fecha definida</span>
+  </div>
+</div></div></section>
+
+<!-- ======================= CLIENTES ======================= -->
+<section class="sec" style="background:var(--ux);border-block:1px solid var(--linea-2);padding-block:clamp(32px,4vh,52px)">
+<div class="wrap">
+  <p class="eyebrow reveal" style="text-align:center;margin-bottom:18px">Confiaron en Soul Lens</p>
+  <div class="halo-grid reveal">
+    <div class="halo-name">VICEROY</div>
+    <div class="halo-sep">·</div>
+    <div class="halo-name">CIPRIANI</div>
+    <div class="halo-sep">·</div>
+    <div class="halo-name">THOMPSON</div>
+  </div>
+  <div class="market-chips reveal" style="margin-top:18px">
+    <span class="mchip">MIAMI 🇺🇸</span>
+    <span class="mchip">CDMX 🇲🇽</span>
+    <span class="mchip">YUCATÁN 🌴</span>
+  </div>
+</div>
+</section>
+
+<!-- ======================= MARQUEE ======================= -->
+<div class="marquee-wrap" aria-label="Clientes Soul Lens Studios">
+  <div class="marquee"><span class="marquee-inner">
+    WAYIL &nbsp;·&nbsp; MARENA &nbsp;·&nbsp; URBANA &nbsp;·&nbsp; GRUPO COPRI &nbsp;·&nbsp; ETANA &nbsp;·&nbsp; DISTUM &nbsp;·&nbsp; GRUPO ANTHAM &nbsp;·&nbsp; CHIHUAHUA STARTUPS &nbsp;·&nbsp; VICEROY &nbsp;·&nbsp; CIPRIANI &nbsp;·&nbsp; THOMPSON &nbsp;·&nbsp; WAYIL &nbsp;·&nbsp; MARENA &nbsp;·&nbsp; URBANA &nbsp;·&nbsp; GRUPO COPRI &nbsp;·&nbsp; ETANA &nbsp;·&nbsp; DISTUM &nbsp;·&nbsp; GRUPO ANTHAM &nbsp;·&nbsp; CHIHUAHUA STARTUPS &nbsp;·&nbsp;
+  </span></div>
+</div>
+
+<!-- ======================= PROBLEMA DE PERCEPCIÓN ======================= -->
+<section class="sec percep"><div class="wrap percep-grid">
+<div class="reveal">
+  <p class="eyebrow">El problema que nadie nombra</p>
+  <p class="big" style="margin-top:20px">Tu marca <span class="mark">no tiene un problema de contenido.</span> Tiene un problema de percepción.</p>
+  <div class="body"><p>La mayoría de las empresas producen contenido constantemente y no convierten. El problema no es la frecuencia — es la arquitectura. Sin un sistema de presencia bien construido, todo el contenido del mundo no cambia quién te elige ni por qué.</p>
+  <p>Soul Lens no produce contenido. Construye el sistema que hace que tu marca sea la opción obvia.</p></div>
+</div>
+<div class="reveal">
+  <p class="big" style="font-size:clamp(20px,2.4vw,30px)">Publicar sin sistema es como construir sin cimientos. <b>Todo se ve bien hasta que nadie llega.</b></p>
+</div>
+</div></section>
+
+<!-- Early CTA post-problem -->
+<div class="wrap" style="text-align:center;padding-block:clamp(24px,3vh,36px)">
+  <p class="reveal" style="font-size:14px;color:var(--humo);margin-bottom:14px;font-family:var(--mono);letter-spacing:.04em">¿Ya sabes lo que necesitas?</p>
+  <a class="reveal" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20vi%20los%20casos%20y%20quiero%20hablar%20sobre%20mi%20proyecto." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-family:var(--mono);font-size:13px;letter-spacing:.07em;padding:12px 24px;border-radius:40px;text-decoration:none;transition:.2s;font-weight:500">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 00.613.613l6.058-1.466A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.373l-.36-.213-3.728.902.917-3.637-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
+    Escríbenos directo →
+  </a>
+</div>
+
+<!-- ======================= FOUNDER STRIP ======================= -->
+<section class="sec" style="background:var(--ux);border-block:1px solid var(--linea-2)">
+<div class="wrap">
+  <div class="founder-strip reveal">
+    <div class="founder-photo-wrap">
+      <img src="img/val-mosquera-fundadora-soul-lens-studios.webp" alt="Val Mosquera, Co-Fundadora y CEO de Soul Lens Studios, Mérida Yucatán" loading="lazy" width="480" height="640" class="founder-photo">
+    </div>
+    <div class="founder-body">
+      <p class="eyebrow">Val Mosquera · Co-Fundadora · CEO</p>
+      <blockquote class="founder-quote reveal">"Cada proyecto me enseñó algo: las marcas no pierden clientes por falta de contenido. Los pierden porque nadie construyó la razón para elegirlas. Eso es lo que hacemos en Soul Lens."</blockquote>
+      <div class="founder-stats reveal">
+        <div class="fstat"><b>+10</b><span>Proyectos premium</span></div>
+        <div class="fstat"><b>3</b><span>Mercados activos</span></div>
+        <div class="fstat"><b>2</b><span>Países</span></div>
+        <div class="fstat"><b>5.0★</b><span>22 reseñas Google</span></div>
+      </div>
+      <div class="founder-ampi reveal">
+        <img src="https://ampimerida.com/assets/img/logo.webp" alt="AMPI Mérida — Foro Siglo XXI" loading="lazy" width="40" height="40">
+        <span>Productora oficial · 8° Foro AMPI Mérida Siglo XXI · 1,200 asistentes</span>
+      </div>
+    </div>
+  </div>
+  <!-- BTS AMPI -->
+  <div class="ampi-proof-strip reveal" style="margin-top:28px">
+    <div class="ampi-proof-label"><span class="ampi-proof-dot"></span>Soul Lens · Productora Oficial · 8° Foro AMPI Mérida</div>
+    <div class="ampi-proof-imgs">
+      <div class="ampi-img-wrap"><img src="img/team-soul-lens-foro-ampi-siglo-xxi-merida.webp" alt="Equipo Soul Lens en el 8° Foro AMPI Mérida Siglo XXI — productora oficial del evento" loading="lazy" width="700" height="415"></div>
+      <div class="ampi-img-wrap ampi-img-tall"><img src="img/soul-lens-productora-oficial-foro-ampi-merida.webp" alt="Soul Lens Studios como productora oficial de cobertura audiovisual del Foro AMPI Mérida" loading="lazy" width="600" height="800"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ======================= PRUEBA WHATSAPP ======================= -->
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <p class="eyebrow">WhatsApp · Conversaciones reales</p>
+    <h2>No lo decimos nosotros. <span class="mark">Lo dicen ellos.</span></h2>
+  </div>
+  <div class="wa-grid reveal">
+
+    <div class="wa-chat">
+      <div class="wa-head"><span class="wa-ava"><img src="/img/portfolio/portfolio-30.webp" alt="Marco Morales" loading="lazy" width="40" height="40"></span><span class="wa-id"><b>Marco Morales</b><span>en línea</span></span><span class="wa-call">📞</span></div>
+      <div class="wa-body">
+        <div class="msg in"><div class="bubble">Llevamos años buscando alguien que entendiera el mercado premium de real estate. Soul Lens no solo entiende — produce activos que cierran operaciones.</div><span class="ts">16:42 ✓✓</span></div>
+        <div class="msg in"><div class="bubble">El film habló solo. Cerramos una operación de $10M MXN y el cliente ni fue presencial. Vio el video y firmó.</div><span class="ts">16:44 ✓✓</span></div>
+      </div>
+      <div class="wa-footer"><span class="wa-context">Real estate premium · Mérida · Reseña verificada Google ★★★★★</span></div>
+    </div>
+
+    <div class="wa-chat">
+      <div class="wa-head"><span class="wa-ava"><img src="/img/portfolio/portfolio-31.webp" alt="Bety Márquez" loading="lazy" width="40" height="40"></span><span class="wa-id"><b>Bety Márquez</b><span>en línea</span></span><span class="wa-call">📞</span></div>
+      <div class="wa-body">
+        <div class="msg in"><div class="bubble">Yo no sabía exactamente qué esperar. Contratar un estudio de este nivel me daba miedo.</div><span class="ts">11:20 ✓✓</span></div>
+        <div class="msg in"><div class="bubble">Soul Lens Studios llevó mi marca a otro nivel. Mi comunidad cambió completamente su percepción desde el primer video.</div><span class="ts">11:22 ✓✓</span></div>
+      </div>
+      <div class="wa-footer"><span class="wa-context">Marca personal · Mérida · Reseña verificada Google ★★★★★</span></div>
+    </div>
+
+    <div class="wa-chat">
+      <div class="wa-head"><span class="wa-ava" style="background:#fff;padding:2px"><img src="https://ampimerida.com/assets/img/logo.webp" alt="AMPI Mérida" loading="lazy" width="36" height="36" style="object-fit:contain"></span><span class="wa-id"><b>Foro AMPI Siglo XXI</b><span>en línea</span></span><span class="wa-call">📞</span></div>
+      <div class="wa-body">
+        <div class="msg in"><div class="bubble">La cobertura fue impecable. El equipo de Soul Lens llegó antes que nadie y terminó después que todos.</div><span class="ts">20:15 ✓✓</span></div>
+        <div class="msg in"><div class="bubble">Gracias al equipo por su excelente dedicación.</div><span class="ts">20:17 ✓✓</span></div>
+      </div>
+      <div class="wa-footer"><span class="wa-context">Foro AMPI Siglo XXI · 1,200 asistentes · Reseña verificada Google ★★★★★</span></div>
+    </div>
+
+  </div>
+  <p class="wa-disc reveal" style="font-family:var(--mono);font-size:11px;color:var(--humo);text-align:center;margin-top:18px">Capturas reales · textos editados por extensión · identidades con permiso</p>
+</div>
+</section>
+
+<!-- ======================= TESTIMONIO VIDEO ======================= -->
+<section class="sec" style="background:var(--ux);border-block:1px solid var(--linea-2);padding-block:clamp(36px,5vh,64px)">
+<div class="wrap" style="text-align:center;max-width:780px;margin-inline:auto">
+  <p class="eyebrow reveal">Video testimonial</p>
+  <h2 class="reveal" style="margin-bottom:24px">El resultado que <span class="mark">habla por sí solo.</span></h2>
+  <div class="yt-facade reveal" data-yt-id="slkz16cAsmA" style="border-radius:16px;overflow:hidden;border:1px solid var(--linea-2);cursor:pointer;aspect-ratio:16/9;background:#000;position:relative">
+    <img src="https://img.youtube.com/vi/slkz16cAsmA/maxresdefault.jpg" alt="Testimonio de cliente Soul Lens Studios — resultados reales" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;opacity:.8">
+    <div class="play-overlay" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div class="play-btn-yt" style="width:72px;height:72px;border-radius:50%;background:rgba(255,0,0,.88);display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ======================= VIDEOS SOCIALES ======================= -->
+<section class="sec vids-sec">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center;max-width:640px;margin-inline:auto;margin-bottom:clamp(28px,4vh,44px)">
+      <p class="eyebrow">Soul Lens en acción</p>
+      <h2>El trabajo habla <span class="mark">solo.</span></h2>
+    </div>
+    <div class="vids-grid">
+      <a class="vid-card reveal" href="https://www.tiktok.com/@soullensstudios/video/7608675603197283601" target="_blank" rel="noopener" aria-label="Ver video Soul Lens en TikTok">
+        <div class="vid-brand-bg"><div class="vid-brand-logo">soul<span class="lens">lens</span></div><div class="vid-brand-tag">@soullensstudios</div></div>
+        <div class="vid-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="vid-meta"><div class="vid-label">¿Qué es Soul Lens?</div><div class="vid-title">El sistema de presencia que trabaja por tu marca</div><div class="vid-src"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg> TikTok · @soullensstudios</div></div></div>
+      </a>
+      <a class="vid-card reveal" href="https://www.tiktok.com/@soullensstudios/video/7606448006367399185" target="_blank" rel="noopener" aria-label="Ver podcast Soul Lens en TikTok">
+        <div class="vid-brand-bg" style="background:linear-gradient(145deg,#0A0A0B,#0D0A20,#0A0A0B)"><div class="vid-brand-logo">soul<span class="lens">caps</span></div><div class="vid-brand-tag">🎙 Podcast de Autoridad</div></div>
+        <div class="vid-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="vid-meta"><div class="vid-label">Soul Caps</div><div class="vid-title">Tu voz como activo de autoridad</div><div class="vid-src"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg> TikTok · @soullensstudios</div></div></div>
+      </a>
+      <div class="vid-card reveal" onclick="openVid('Bxk_HCdR40E')" style="cursor:pointer" role="button" aria-label="Ver Soul Stage en YouTube">
+        <img class="vid-thumb" src="https://img.youtube.com/vi/Bxk_HCdR40E/maxresdefault.jpg" alt="Soul Stage — Estudio de producción Soul Lens Studios" loading="lazy" width="1280" height="720">
+        <div class="vid-overlay"><div class="play-btn" style="background:rgba(255,0,0,.85)"><svg fill="#fff" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="vid-meta"><div class="vid-label">Soul Stage</div><div class="vid-title">El estudio que eleva tu producción a otro nivel</div><div class="vid-src" style="color:rgba(255,100,100,.8)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M23.5 6.19a3 3 0 00-2.12-2.12C19.58 3.5 12 3.5 12 3.5s-7.58 0-9.38.57A3 3 0 00.5 6.19C0 7.98 0 12 0 12s0 4.02.5 5.81a3 3 0 002.12 2.12C4.42 20.5 12 20.5 12 20.5s7.58 0 9.38-.57a3 3 0 002.12-2.12C24 16.02 24 12 24 12s0-4.02-.5-5.81zM9.75 15.5v-7l6.25 3.5-6.25 3.5z"/></svg> YouTube · Soul Lens Studios</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="vid-modal" id="vid-modal" onclick="closeVid(event)">
+  <div class="vid-modal-inner"><button class="vid-modal-close" onclick="closeVid()" aria-label="Cerrar video">✕</button>
+  <iframe id="vid-iframe" src="" allow="autoplay; fullscreen" allowfullscreen title="Soul Lens Studios — Video"></iframe></div>
+</div>
+<script is:inline>function openVid(id){document.getElementById("vid-modal").classList.add("open");document.getElementById("vid-iframe").src="https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0";}
+function closeVid(e){if(!e||e.target.id==="vid-modal"||e.target.classList.contains("vid-modal-close")){document.getElementById("vid-modal").classList.remove("open");document.getElementById("vid-iframe").src="";}}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeVid();});</script>
+
+<!-- ======================= CASOS ======================= -->
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head reveal">
+    <p class="eyebrow">Casos de éxito · Resultados reales</p>
+    <h2>El trabajo que <span class="mark">se defiende solo.</span></h2>
+  </div>
+  <div class="casos-grid">
+    <article class="caso reveal">
+      <div class="caso-tag">01 · FILM DE MARCA</div>
+      <h3 class="story-h">El film que trabajaba solo</h3>
+      <div class="story-stat">$10M MXN <span>en operaciones</span></div>
+      <p>Un broker de real estate premium necesitaba convertir sin depender de reuniones presenciales. Produjimos un Film de Marca de 3 minutos. Resultado: cerró 3 operaciones en 30 días. El cliente firmó sin conocerlo en persona — solo con el video.</p>
+    </article>
+    <article class="caso reveal">
+      <div class="caso-tag">02 · SOUL CAPS</div>
+      <h3 class="story-h">La voz que posicionó al experto</h3>
+      <div class="story-stat">+300% <span>en solicitudes</span></div>
+      <p>Un consultor de planeación financiera quería ser referente en su industria pero no sabía cómo. Con Soul Caps Authority lanzamos 8 episodios en 2 meses. Las solicitudes de consultoría triplicaron sin invertir en publicidad.</p>
+    </article>
+    <article class="caso reveal">
+      <div class="caso-tag">03 · LIVE EXPERIENCE · AMPI</div>
+      <h3 class="story-h">El evento que sigue activo</h3>
+      <div class="story-stat">1,200 <span>asistentes cubiertos</span></div>
+      <p>El Foro AMPI Mérida Siglo XXI necesitaba cobertura de nivel. Soul Lens llegó como productora oficial con equipo multicámara y drone. El material se sigue usando meses después del evento para posicionamiento digital.</p>
+    </article>
+    <article class="caso reveal">
+      <div class="caso-tag">04 · CAMPAIGN PACK · SPOTS IA</div>
+      <h3 class="story-h">El ROAS que se mantuvo</h3>
+      <div class="story-stat">4.5x <span>retorno en 90 días</span></div>
+      <p>Una marca de bienes raíces necesitaba spots que convirtieran en Meta. Produjimos 3 versiones con IA para identificar cuál conectaba mejor. El activo que funcionó mantuvo 4.5x el retorno durante más de 90 días.</p>
+    </article>
+    <article class="caso reveal">
+      <div class="caso-tag">05 · SMART PASS</div>
+      <h3 class="story-h">La presencia que abrió puertas</h3>
+      <div class="story-stat">12 <span>reuniones en 30 días</span></div>
+      <p>Un empresario que viajaba constantemente necesitaba una presencia digital que lo representara en cualquier networking. Con el Smart Pass activado en NFC, generó 12 reuniones calificadas en su primer mes de uso.</p>
+    </article>
+    <article class="caso reveal">
+      <div class="caso-tag">06 · SOUL STAGE</div>
+      <h3 class="story-h">El estudio que transformó la marca</h3>
+      <div class="story-stat">0→30 <span>episodios en 6 meses</span></div>
+      <p>Una empresa de servicios B2B quería producir contenido semanal pero no tenía infraestructura. Instalamos Soul Stage en sus oficinas. Pasaron de 0 a 30 piezas de contenido mensuales sin depender de producción externa.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- ======================= DATOS QUE RESPALDAN ======================= -->
+<section class="sec" style="background:var(--ux);border-block:1px solid var(--linea-2)">
+<div class="wrap">
+  <div class="sec-head reveal" style="margin-bottom:clamp(24px,3vh,36px)">
+    <p class="eyebrow">Lo que dice la ciencia del marketing</p>
+    <h2>No lo decimos nosotros. <span class="mark">Lo dice la data.</span></h2>
+  </div>
+  <div class="prensa-grid reveal">
+    <a class="prensa-card" href="https://www.entrepreneur.com/growing-a-business/5-video-content-strategies-businesses-need-to-use-in-2026/500810" target="_blank" rel="noopener">
+      <div class="prensa-source">Entrepreneur</div>
+      <p class="prensa-stat">+80%</p>
+      <p class="prensa-claim">de los compradores dicen que el video les ayudó a tomar la decisión de compra</p>
+    </a>
+    <a class="prensa-card" href="https://blog.hubspot.com/marketing/video-marketing-statistics" target="_blank" rel="noopener">
+      <div class="prensa-source">HubSpot</div>
+      <p class="prensa-stat">54%</p>
+      <p class="prensa-claim">de los consumidores quieren ver más video de las marcas que apoyan</p>
+    </a>
+    <a class="prensa-card" href="https://hbr.org/2024/01/the-right-way-to-build-your-brand" target="_blank" rel="noopener">
+      <div class="prensa-source">Harvard Business Review</div>
+      <p class="prensa-stat">5×</p>
+      <p class="prensa-claim">más efectivo construir marca con sistemas que con campañas de contenido sin arquitectura</p>
+    </a>
+  </div>
+</div>
+</section>
+
+
+<!-- ======================= GOOGLE REVIEWS ======================= -->
+<section class="sec" style="padding-block:clamp(50px,7vh,90px)">
+<div class="wrap">
+
+  <div class="sec-head reveal" style="margin-bottom:clamp(28px,3.5vh,44px)">
+    <p class="eyebrow"><span style="display:inline-flex;align-items:center;gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex:none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Reseñas verificadas en Google</span></p>
+    <h2>Lo que dicen los clientes <span class="mark">en Google.</span></h2>
+  </div>
+
+  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+
+    <!-- Marco Morales -->
+    <div style="background:var(--ux);border:1px solid var(--linea-2);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:11px">
+        <img src="/img/portfolio/portfolio-30.webp" alt="Marco Morales" loading="lazy" width="42" height="42" style="width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.1);flex:none">
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--niebla)">Marco Morales</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:2px"><span style="color:#FBBC04;font-size:14px;letter-spacing:1px">★★★★★</span><span style="font-family:var(--mono);font-size:10px;color:var(--humo)">hace 3 meses</span></div>
+        </div>
+        <div style="margin-left:auto"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex:none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
+      </div>
+      <p style="font-size:13px;line-height:1.7;color:rgba(242,243,245,.88);flex:1">Llevamos años buscando alguien que entendiera el mercado premium de real estate. Soul Lens no solo entiende — produce activos que cierran operaciones. El film habló solo.</p>
+      <div style="display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;color:#0E8060"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0E8060" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><polyline points="20 6 9 17 4 12"/></svg> Reseña verificada · Referente Real Estate · Mérida</div>
+    </div>
+
+    <!-- Bety Márquez -->
+    <div style="background:var(--ux);border:1px solid var(--linea-2);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:11px">
+        <img src="/img/portfolio/portfolio-31.webp" alt="Bety Márquez" loading="lazy" width="42" height="42" style="width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.1);flex:none">
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--niebla)">Bety Márquez</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:2px"><span style="color:#FBBC04;font-size:14px;letter-spacing:1px">★★★★★</span><span style="font-family:var(--mono);font-size:10px;color:var(--humo)">hace 2 meses</span></div>
+        </div>
+        <div style="margin-left:auto"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex:none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
+      </div>
+      <p style="font-size:13px;line-height:1.7;color:rgba(242,243,245,.88);flex:1">Soul Lens Studios llevó mi marca a otro nivel.</p>
+      <div style="display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;color:#0E8060"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0E8060" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><polyline points="20 6 9 17 4 12"/></svg> Reseña verificada · Marca personal · Mérida</div>
+    </div>
+
+    <!-- Foro AMPI Siglo XXI -->
+    <div style="background:var(--ux);border:1px solid var(--linea-2);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:11px">
+        <div style="width:42px;height:42px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.1);background:#fff;padding:3px;flex:none">
+          <img src="https://ampimerida.com/assets/img/logo.webp" alt="Foro AMPI Siglo XXI" loading="lazy" width="36" height="36" style="width:100%;height:100%;object-fit:contain">
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--niebla)">Foro AMPI Siglo XXI</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:2px"><span style="color:#FBBC04;font-size:14px;letter-spacing:1px">★★★★★</span><span style="font-family:var(--mono);font-size:10px;color:var(--humo)">hace 1 mes</span></div>
+        </div>
+        <div style="margin-left:auto"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex:none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
+      </div>
+      <p style="font-size:13px;line-height:1.7;color:rgba(242,243,245,.88);flex:1">La cobertura fue impecable. Gracias al equipo por su excelente dedicación.</p>
+      <div style="display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;color:#0E8060"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0E8060" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><polyline points="20 6 9 17 4 12"/></svg> Reseña verificada · Evento · AMPI Yucatán</div>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+<!-- ======================= LÍNEAS 00–12 ======================= -->
+<section class="sec" id="lineas" style="background:var(--ux);border-block:1px solid var(--linea-2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">12 líneas · 1 arquitectura</p>
+      <h2>Cada línea resuelve <span class="mark">un problema distinto.</span></h2>
+      <p>Elige una solución específica o combina varias dentro de un mismo proyecto.</p>
+    </div>
+    <div class="lines reveal">
+      <a class="line" href="soul-caps.html" style="cursor:pointer"><span class="n">01</span><span class="name">Soul Caps</span><span class="chip c-cast">Voz · Podcast</span><span class="line-meta"><span class="line-price">Desde $2,990 MXN</span><span class="line-promise">Tu voz como activo de autoridad</span><span class="line-cta">Ver línea →</span></span></a>
+      <a class="line" href="films-de-marca.html" style="cursor:pointer"><span class="n">02</span><span class="name">Films de Marca</span><span class="chip c-lens">Audiovisual</span><span class="line-meta"><span class="line-price">Desde $17,800 MXN</span><span class="line-promise">El video que cierra operaciones</span><span class="line-cta">Ver línea →</span></span></a>
+      <a class="line" href="spots-ia.html" style="cursor:pointer"><span class="n">03</span><span class="name">Spots IA</span><span class="chip c-labs">IA aplicada</span><span class="line-meta"><span class="line-price">Desde $2,990 MXN</span><span class="line-promise">Comerciales que venden mientras duermes</span><span class="line-cta">Ver línea →</span></span></a>
+      <div class="line coming"><span class="n">04</span><span class="name">Live Experience</span><span class="chip c-lens">En vivo</span><span class="cs-badge">Próximamente</span></div>
+      <div class="line coming"><span class="n">05</span><span class="name">Soul Stage</span><span class="chip c-lens">Set de autoridad</span><span class="cs-badge">Próximamente</span></div>
+      <div class="line coming"><span class="n">06</span><span class="name">Identidad · Soul Brand</span><span class="chip c-core">Marca</span><span class="cs-badge">Próximamente</span></div>
+      <div class="line coming"><span class="n">07</span><span class="name">Soul Engine</span><span class="chip c-labs">Automatización</span><span class="cs-badge">Próximamente</span></div>
+      <div class="line coming"><span class="n">08</span><span class="name">Hub Intelligence</span><span class="chip c-core">Inteligencia</span><span class="cs-badge">Próximamente</span></div>
+      <a class="line" href="smart-pass.html" style="cursor:pointer"><span class="n">09</span><span class="name">Smart Pass</span><span class="chip c-lens">Presencia</span><span class="line-meta"><span class="line-price">Desde $3,800 MXN</span><span class="line-promise">Tu presencia digital trabajando 24/7</span><span class="line-cta">Ver línea →</span></span></a>
+      <div class="line coming"><span class="n">10</span><span class="name">Soul Team Pack</span><span class="chip c-core">Equipo</span><span class="cs-badge">Próximamente</span></div>
+      <div class="line coming"><span class="n">11</span><span class="name">Proyectos</span><span class="chip c-lens">Integral</span><span class="cs-badge">Próximamente</span></div>
+      <a class="line" href="soul-story-kids.html" style="cursor:pointer"><span class="n">12</span><span class="name">Soul Story Kids</span><span class="chip c-cast">Familias</span><span class="line-meta"><span class="line-price">Desde $999 MXN</span><span class="line-promise">Contenido que conecta con las familias</span><span class="line-cta">Ver línea →</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= GARANTÍA ======================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="warranty reveal">
+      <p class="eyebrow">Respaldo</p>
+      <h3 style="margin-top:18px">Nuestro trabajo no termina el día de la entrega.</h3>
+      <p>Cada solución cuenta con una garantía de 90 días y, en los proyectos integrales, cada componente conserva su propia cobertura. Producimos convencidos de lo que construimos y respaldamos cada entrega con la misma confianza con la que fue creada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ HOME ======================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:700px;margin-bottom:clamp(32px,4vh,52px)">
+      <p class="eyebrow">Lo que siempre nos preguntan</p>
+      <h2>Preguntas directas. <span class="mark">Respuestas directas.</span></h2>
+    </div>
+    <div class="home-faq reveal">
+      <details>
+        <summary>¿Cuánto cuesta trabajar con Soul Lens?</summary>
+        <p class="fa">Depende del producto y el nivel. Los precios van desde $2,990 MXN (Spots IA Voice) hasta $49,800 MXN (Authority Film). El diagnóstico gratuito de 30 minutos te dice exactamente qué necesitas y cuánto cuesta. Sin sorpresas.</p>
+      </details>
+      <details>
+        <summary>¿Trabajan solo con marcas de Mérida?</summary>
+        <p class="fa">No. Operamos en CDMX, todo LATAM y con marcas en habla hispana. Mérida es nuestra base operativa, pero la producción va donde el proyecto lo necesite. La mayoría de nuestras sesiones estratégicas son en remoto.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto tarda en estar listo un proyecto?</summary>
+        <p class="fa">Voice Film: 7 días. Presence: 10 días. Authority: 15 días. Spots IA: 5–10 días. Todo con fecha de entrega fija desde el contrato. Si no cumplimos, tienes garantía de 90 días incluida sin letra chica.</p>
+      </details>
+      <details>
+        <summary>¿Qué pasa si no me gusta el resultado?</summary>
+        <p class="fa">Garantía 90 días: revisiones hasta que quedes satisfecho, o te regresamos tu inversión. Es una promesa real, no marketing. En 12 años de producción, no hemos tenido un solo proyecto sin solución.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= VSL ======================= -->
+<section class="sec vsl">
+  <div class="wrap">
+    <div class="vsl-head reveal">
+      <p class="eyebrow" style="display:inline-flex;align-items:center;gap:7px"><span class="vplay">▶</span> Video · 90 segundos</p>
+      <h2>Mira cómo convertimos <span class="mark">atención en clientes.</span></h2>
+      <p class="vsl-sub">El método Soul Lens en 90 segundos: percepción, sistema y resultado — explicado por quienes lo construyen.</p>
+    </div>
+    <div class="video-wrap reveal" data-yt-id="tZB-48eSRhI" role="button" tabindex="0" aria-label="Reproducir video de presentación">
+      <span class="vtag">▸ Soul Lens en 90s</span>
+      <div class="play" aria-hidden="true"></div>
+      <span class="vnote">Click para reproducir</span>
+    </div>
+    <div class="vsl-cta reveal">
+      <a class="btn btn-primary" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20vi%20el%20video%20y%20quiero%20un%20sistema%20as%C3%AD." target="_blank" rel="noopener">Quiero un sistema así →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3 PASOS ======================= -->
+<section class="sec pasos-sec">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:640px">
+      <p class="eyebrow">Sin sorpresas · Sin letra chica</p>
+      <h2>Así empieza todo. <span class="mark">Tres pasos.</span></h2>
+      <p>Desde que nos escribes hasta que tu primer entregable está listo. Claro, predecible y con garantía.</p>
+    </div>
+    <div class="pasos-grid">
+      <div class="paso-card reveal">
+        <div class="paso-n">01</div>
+        <div class="paso-title">Nos escribes — hablamos 30 min</div>
+        <p class="paso-body">Sin formularios. Sin presentaciones. Te escribimos de regreso en menos de 2 horas en horario de oficina. La primera llamada dura 30 minutos y no te cuesta nada.</p>
+      </div>
+      <div class="paso-card reveal">
+        <div class="paso-n">02</div>
+        <div class="paso-title">Entendemos tu marca — definimos el sistema</div>
+        <p class="paso-body">Analizamos tu marca, tu mercado y tus objetivos. Te decimos exactamente qué sistema de presencia necesitas — y cuánto cuesta. Sin rodeos.</p>
+      </div>
+      <div class="paso-card reveal">
+        <div class="paso-n">03</div>
+        <div class="paso-title">Arrancamos — con fechas y resultado</div>
+        <p class="paso-body">Aprobamos el plan y firmamos el proyecto. Precio fijo, fechas definidas y garantía 90 días incluida. Así de simple.</p>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:36px">
+      <a class="btn btn-primary" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20mi%20diagn%C3%B3stico%20gratuito%20de%2030%20min." target="_blank" rel="noopener">Quiero mis 30 minutos gratis →</a>
+      <p style="margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--humo)">Sin compromiso · Respuesta en &lt; 2 horas</p>
+    </div>
+  </div>
+</section>
+
+      <!-- 15-min strategy CTA -->
+      <div class="cta15-strip reveal">
+        <div class="cta15-txt">
+          <div class="cta15-label">Asesoría gratuita · 15 minutos</div>
+          <div class="cta15-h">¿No sabes por dónde empezar?</div>
+          <div class="cta15-sub">Escríbenos y agenda una sesión de 15 minutos. Sin compromiso. Saldrás con claridad sobre qué necesita tu marca.</div>
+        </div>
+        <a class="btn-15" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20agendar%20una%20asesor%C3%ADa%20estrat%C3%A9gica%20de%2015%20minutos." target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 00.613.613l6.058-1.466A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.373l-.36-.213-3.728.902.917-3.637-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
+          Agendar 15 min gratis
+        </a>
+      </div>
+<!-- ======================= CTA FINAL ======================= -->
+<section class="sec final">
+  <div class="wrap reveal">
+    <p class="eyebrow" style="display:block">Diagnóstico</p>
+    <h2>¿Listo para que tu negocio sea elegido <span class="mark">una y otra vez?</span></h2>
+    <p>En 30 minutos revisamos dónde estás, qué quieres lograr y qué sistema puede ayudarte a avanzar con más claridad. Sin compromiso. Sin costo.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico%20de%2030%20minutos." target="_blank" rel="noopener">Agendar diagnóstico · WhatsApp →</a>
+      <a class="btn btn-ghost" href="tel:+5215644844928">+52 1 56 4484 4928</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ======================= CLOSING ======================= -->
+<section class="closing">
+  <div class="wrap">
+    <h2>Tu cliente ya está tomando decisiones. La pregunta es: ¿te está eligiendo a ti?</h2>
+    <div class="links">
+      <a href="https://wa.me/5215644844928" target="_blank" rel="noopener">+52 1 56 4484 4928</a>
+      <a href="mailto:hola@soullensstudios.live">hola@soullensstudios.live</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">soul<span class="lens">lens</span><span class="st">studios</span></div>
+        <p>No producimos contenido. Construimos la razón por la que te eligen. Mérida · Yucatán · LATAM.</p>
+      </div>
+      <div><h4>Producción</h4><ul>
+        <li><a href="soul-caps.html">Soul Caps</a></li><li><a href="films-de-marca.html">Films de Marca</a></li>
+        <li><a href="spots-ia.html">Spots IA</a></li><li><a href="#lineas">Live Experience</a></li></ul></div>
+      <div><h4>Marca & Web</h4><ul>
+        <li><a href="#lineas">Soul Brand</a></li><li><a href="#lineas">Soul Engine</a></li>
+        <li><a href="#lineas">Soul Stage</a></li><li><a href="#lineas">Hub Intelligence</a></li></ul></div>
+      <div><h4>Sistemas & Más</h4><ul>
+        <li><a href="smart-pass.html">Smart Pass</a></li><li><a href="#lineas">Soul Team Pack</a></li>
+        <li><a href="soul-story-kids.html">Soul Story Kids</a></li>
+        <li><a href="https://wa.me/5215644844928" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Soul Lens Studios · Todos los derechos reservados. · <a href="aviso-de-privacidad.html">Aviso de Privacidad</a> · <a href="terminos.html">Términos</a></span>
+      <span>Designed by <a href="https://soullensstudios.live">Soul Lens</a> · Powered by <a href="https://xplorerstartups.ai">Xplorers Startups</a></span>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>
+/* ---- scroll reveal ---- */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---- video facade (R11) ---- */
+document.querySelectorAll('.video-wrap').forEach(v=>{
+  const play=()=>{const id=v.getAttribute('data-yt-id');if(!id)return;
+    v.innerHTML='<iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube.com/embed/'+id+'?autoplay=1" title="Testimonio Soul Lens" allow="autoplay;encrypted-media" allowfullscreen></iframe>';};
+  v.addEventListener('click',play);
+  v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}});
+});
+
+/* ---- aperture canvas (signature: el lente) ---- */
+(function(){
+  const c=document.getElementById('aperture');if(!c)return;
+  const rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ctx=c.getContext('2d');let w,h,dpr,t=0,mx=.78,my=.5,tmx=.78,tmy=.5;
+  function size(){dpr=Math.min(devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;
+    c.width=w*dpr;h=c.clientHeight;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size();addEventListener('resize',size);
+  addEventListener('pointermove',e=>{tmx=e.clientX/innerWidth;tmy=e.clientY/innerHeight;},{passive:true});
+  // particle field
+  const N=rm?60:120;const ps=[];for(let i=0;i<N;i++)ps.push({a:Math.random()*Math.PI*2,r:60+Math.random()*Math.max(w,h)*.55,s:.0008+Math.random()*.0016,z:Math.random()});
+  function draw(){
+    t+=1;mx+=(tmx-mx)*.04;my+=(tmy-my)*.04;
+    const cx=w*(.62+(mx-.5)*.10),cy=h*(.5+(my-.5)*.10);
+    ctx.clearRect(0,0,w,h);
+    // aperture rings
+    const base=Math.min(w,h)*.30;const breathe=Math.sin(t*0.012)*0.06+1;
+    for(let i=0;i<5;i++){
+      const rr=base*breathe*(1+i*.42);
+      ctx.beginPath();ctx.arc(cx,cy,rr,0,Math.PI*2);
+      ctx.strokeStyle='rgba(6,83,255,'+(0.30-i*0.05)+')';ctx.lineWidth=i===0?1.6:1;ctx.stroke();
+    }
+    // aperture blades (hexagon-ish glow)
+    const blades=7,ar=base*breathe*.92;
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(t*0.0012);
+    ctx.beginPath();
+    for(let i=0;i<=blades;i++){const a=i/blades*Math.PI*2;ctx.lineTo(Math.cos(a)*ar,Math.sin(a)*ar);}
+    const g=ctx.createRadialGradient(0,0,ar*.2,0,0,ar);
+    g.addColorStop(0,'rgba(6,83,255,0.22)');g.addColorStop(.7,'rgba(68,138,255,0.05)');g.addColorStop(1,'rgba(6,83,255,0)');
+    ctx.fillStyle=g;ctx.fill();
+    ctx.strokeStyle='rgba(68,138,255,0.35)';ctx.lineWidth=1;ctx.stroke();
+    ctx.restore();
+    // core glow
+    const cg=ctx.createRadialGradient(cx,cy,0,cx,cy,base*.6);
+    cg.addColorStop(0,'rgba(68,138,255,0.16)');cg.addColorStop(1,'rgba(6,83,255,0)');
+    ctx.fillStyle=cg;ctx.beginPath();ctx.arc(cx,cy,base*.6,0,Math.PI*2);ctx.fill();
+    // particles orbiting
+    for(const p of ps){p.a+=p.s;const x=cx+Math.cos(p.a)*p.r,y=cy+Math.sin(p.a)*p.r*.62;
+      ctx.beginPath();ctx.arc(x,y,p.z*1.6+.4,0,Math.PI*2);
+      ctx.fillStyle='rgba(242,243,245,'+(.10+p.z*.22)+')';ctx.fill();}
+    if(!rm)requestAnimationFrame(draw);else{/* draw one static frame */}
+  }
+  draw();
+})();
+</script>
+</BaseLayout>

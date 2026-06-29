@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/pages/404.css';
+---
+<BaseLayout
+  title={"Página no encontrada (404) · Soul Lens Studios"}
+  description={"Página no encontrada."}
+  canonical={"https://soullensstudios.live/"}
+  ogImage={"https://soullensstudios.live/og-image.webp"}
+  ogType={"website"}
+  themeColor={"#0A0A0B"}
+  robots={"index,follow"}>
+<div class="wrap">
+<a href="/" class="brand">soul<span class="l">lens</span> <span class="s">studios</span></a>
+<h1>Esta página no existe.</h1>
+<p class="lead">Error 404</p>
+<p>Pero tu próxima marca con presencia, sí puede existir. Volvamos al inicio y construyámosla.</p>
+<a class="cta" href="/">Volver al inicio →</a>
+<a class="back" href="/">← Volver al inicio</a>
+</div>
+</BaseLayout>

@@ -1,0 +1,111 @@
+---
+/**
+ * BaseLayout — Soul Lens Studios
+ * Centraliza <head> (SEO técnico), GTM, fuentes, favicons y UN solo Meta Pixel.
+ * El cuerpo de cada página (announce + header + main + closing + footer + scripts)
+ * se inyecta por <slot/> verbatim para fidelidad 1:1.
+ *
+ * Analítica:
+ *  - GTM-TLKNP8BJ es el contenedor único. Configura GA4 dentro de GTM.
+ *  - Meta Pixel 9289240721121438 va hardcodeado aquí (PageView + Contact en WhatsApp).
+ *    NO dupliques el Pixel dentro de GTM para evitar doble conteo.
+ */
+const {
+  title,
+  description,
+  canonical,
+  ogImage = 'https://soullensstudios.live/og-image.webp',
+  ogType = 'website',
+  themeColor = '#0A0A0B',
+  robots = 'index,follow,max-image-preview:large',
+  lang = 'es-MX',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+<!-- Google Tag Manager -->
+<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TLKNP8BJ');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="theme-color" content={themeColor} />
+<meta name="robots" content={robots} />
+<link rel="canonical" href={canonical} />
+<meta name="facebook-domain-verification" content="96htqcrkc44ycomylza91jtm57nyfi" />
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Soul Lens Studios" />
+<meta property="og:locale" content="es_MX" />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Soul Lens Studios" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Icons / PWA -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- JSON-LD por página -->
+<slot name="head" />
+
+<!-- Meta Pixel (único) -->
+<script is:inline>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,
+'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','9289240721121438');fbq('track','PageView');
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a[href*="wa.me"],a[href*="api.whatsapp"]');if(!a)return;
+  fbq('track','Contact');
+});
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=9289240721121438&ev=PageView&noscript=1" /></noscript>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLKNP8BJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skip" href="#main">Saltar al contenido</a>
+<slot />
+<!-- Poster global (lite-YouTube): al pegar el data-yt-id en una tarjeta, aparece
+     automáticamente la miniatura de YouTube como preview. El click→iframe lo maneja
+     el facade de cada página. Sin ID, la tarjeta conserva su placeholder con play. -->
+<script is:inline>
+(function(){
+  document.querySelectorAll('.video-wrap[data-yt-id]').forEach(function(v){
+    var id=v.getAttribute('data-yt-id');
+    if(!id) return;
+    v.style.backgroundImage="linear-gradient(180deg,rgba(10,10,11,.10),rgba(10,10,11,.55)),url(https://i.ytimg.com/vi/"+id+"/hqdefault.jpg)";
+    v.style.backgroundSize="cover";
+    v.style.backgroundPosition="center";
+    v.classList.add('has-poster');
+  });
+})();
+</script>
+</body>
+</html>

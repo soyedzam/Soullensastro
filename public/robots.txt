@@ -1,0 +1,49 @@
+# Soul Lens Studios — robots.txt
+# GEO/LLMO/AEO strategy: AI crawlers explicitly permitted
+
+# Standard crawlers
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Allow: /
+User-agent: Googlebot-Image
+Allow: /img/
+
+# AI / LLM crawlers — explicitly allowed (GEO/LLMO/AEO strategy)
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: YouBot
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: FacebookBot
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: DataForSeoBot
+Allow: /
+
+# Block only sensitive paths (none in this static site)
+# Disallow: /admin/
+
+Sitemap: https://soullensstudios.live/sitemap.xml
+Sitemap: https://soullensstudios.live/llms.txt
