@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/pages/hub.css';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://soullensstudios.live/#organization",
+  "name": "Soul Lens Studios",
+  "description": "Los primeros estudios de inteligencia artificial en LATAM. Marca, audiovisual e IA convertidos en sistemas que hacen que tu empresa sea elegida.",
+  "url": "https://soullensstudios.live/",
+  "logo": "https://soullensstudios.live/icon-512.png",
+  "image": "https://soullensstudios.live/og-image.webp",
+  "email": "hola@soullens.live",
+  "telephone": "+52-1-56-4484-4928",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle 18 #298, Fracc. Monterreal",
+    "addressLocality": "Mérida",
+    "addressRegion": "Yucatán",
+    "postalCode": "97133",
+    "addressCountry": "MX"
+  },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "22" },
+  "sameAs": [
+    "https://www.instagram.com/soullensstudios",
+    "https://www.tiktok.com/@soullensstudios",
+    "https://www.facebook.com/soullensstudios",
+    "https://www.youtube.com/@soullensstudios"
+  ]
+};
+---
+<BaseLayout
+  title={"Hub · Soul Lens Studios — Todo en un solo lugar"}
+  description={"El hub de Soul Lens Studios: mira el video, agenda tu diagnóstico gratuito, explora nuestros servicios y conéctate con nosotros. Los primeros estudios de IA en LATAM."}
+  canonical={"https://soullensstudios.live/hub.html"}
+  ogImage={"https://soullensstudios.live/og-image.webp"}
+  ogType={"website"}
+  themeColor={"#0A0A0B"}
+  robots={"index,follow,max-image-preview:large"}>
+  <Fragment slot="head" set:html={`<script type="application/ld+json">${JSON.stringify(schema)}</script>`} />
+
+<a class="skip" href="#main">Saltar al contenido</a>
+<main id="main" class="hub">
+
+  <!-- 1 · HERO -->
+  <header class="hb-hero">
+    <a href="index.html" class="hb-logo" aria-label="Soul Lens Studios — inicio">soul<span class="lens">lens</span><span class="st">studios</span></a>
+    <a class="gbadge" href="https://share.google/QYAmgKn9vYrwC1oPn" target="_blank" rel="noopener" aria-label="Ver reseñas en Google">
+      <span class="stars">★★★★★</span><b>5.0</b><span>· 22 reseñas en Google</span>
+    </a>
+    <p class="eyebrow">Los primeros estudios de IA en LATAM <span class="dot">·</span> Mérida <span class="dot">·</span> CDMX</p>
+    <h1>No producimos contenido. Construimos la <span class="mark">razón por la que te eligen.</span></h1>
+    <p class="sub">Marca, audiovisual e inteligencia artificial convertidos en sistemas que hacen que tu empresa sea la opción obvia.</p>
+  </header>
+
+  <!-- 2 · VSL -->
+  <section class="vsl" aria-label="Video">
+    <div class="hb-sec-h">
+      <p class="eyebrow">Mira esto primero <span class="dot">·</span> 90 segundos</p>
+      <h2>Cómo hacemos que te elijan a ti <span class="mark">(y no a tu competencia).</span></h2>
+    </div>
+    <div class="video-wrap" data-yt-id="tZB-48eSRhI" role="button" tabindex="0" aria-label="Reproducir video de presentación">
+      <span class="vtag"><span class="live">EN VIVO</span></span>
+      <div class="play"></div>
+      <span class="vnote">Soul Lens Studios · Presentación</span>
+    </div>
+    <p class="undertext">Si esto te hizo sentido, el siguiente paso es tu diagnóstico gratuito ↓</p>
+  </section>
+
+  <!-- 3 · CTA PRIMARIO -->
+  <section class="hb-cta" aria-label="Acciones principales">
+    <a class="btn btn-wa" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico%20gratuito." target="_blank" rel="noopener">
+      Agendar mi diagnóstico gratuito →
+    </a>
+    <a class="btn btn-primary" href="pulse.html">Hacer mi Pulse™ — 3 min, gratis</a>
+    <div class="risk">
+      <span><i>✓</i>Garantía 90 días</span>
+      <span><i>✓</i>Precio fijo</span>
+      <span><i>✓</i>Entrega en fecha</span>
+    </div>
+  </section>
+
+  <!-- 4 · SERVICIOS -->
+  <section class="svc" aria-label="Servicios">
+    <div class="hb-sec-h"><h2>Explora nuestros servicios</h2></div>
+    <a class="svc-card" href="soul-caps.html"><span class="svc-ico">🎙️</span><span class="svc-tx"><b>Soul Caps</b><span>Una voz que genera confianza</span></span><span class="arr">→</span></a>
+    <a class="svc-card" href="films-de-marca.html"><span class="svc-ico">🎬</span><span class="svc-tx"><b>Films de Marca</b><span>Arquitectura de persuasión en video</span></span><span class="arr">→</span></a>
+    <a class="svc-card" href="spots-ia.html"><span class="svc-ico">⚡</span><span class="svc-tx"><b>Spots IA</b><span>Comerciales de pantalla grande desde $2,990</span></span><span class="arr">→</span></a>
+    <a class="svc-card" href="smart-pass.html"><span class="svc-ico">🪪</span><span class="svc-tx"><b>Smart Pass</b><span>Tu presencia profesional, siempre actualizada</span></span><span class="arr">→</span></a>
+    <a class="svc-card" href="soul-story-kids.html"><span class="svc-ico">🧸</span><span class="svc-tx"><b>Soul Story Kids</b><span>Tu hijo, protagonista de su propia historia</span></span><span class="arr">→</span></a>
+    <a class="svc-card" href="navegador.html"><span class="svc-ico">🧭</span><span class="svc-tx"><b>Ver todo el ecosistema</b><span>El mapa completo de soluciones</span></span><span class="arr">→</span></a>
+  </section>
+
+  <!-- 5 · PRUEBA SOCIAL -->
+  <section aria-label="Prueba social">
+    <div class="hb-sec-h"><h2>Marcas que ya son elegidas con Soul Lens</h2></div>
+    <div class="marq" aria-hidden="true"><div class="marq-track">
+      <span>VICEROY</span><span>CIPRIANI</span><span>THOMPSON</span><span>WAYIL</span><span>MARENA</span><span>URBANA</span><span>GRUPO COPRI</span><span>ETANA</span>
+      <span>VICEROY</span><span>CIPRIANI</span><span>THOMPSON</span><span>WAYIL</span><span>MARENA</span><span>URBANA</span><span>GRUPO COPRI</span><span>ETANA</span>
+    </div></div>
+    <div class="reviews">
+      <div class="review"><div class="rtop"><span class="rg">MR</span><span class="rwho">Marcela Ramírez<small>Reseña verificada</small></span><span class="rstars">★★★★★</span></div><p>Producción impecable. La calidad de audio y el ritmo nos sorprendieron. Cada episodio trabaja para nosotros.</p></div>
+      <div class="review"><div class="rtop"><span class="rg">JG</span><span class="rwho">Jorge González<small>Reseña verificada</small></span><span class="rstars">★★★★★</span></div><p>El proceso fue claro desde el día uno y el entregable superó lo esperado. Nos abrió puertas en LATAM.</p></div>
+    </div>
+    <a class="btn btn-ghost" style="margin-top:14px" href="https://share.google/QYAmgKn9vYrwC1oPn" target="_blank" rel="noopener">Ver las 22 reseñas en Google →</a>
+  </section>
+
+  <!-- 6 · REDES -->
+  <section aria-label="Redes sociales">
+    <div class="hb-sec-h"><h2>Síguenos</h2><p>@soullensstudios</p></div>
+    <div class="redes">
+      <a class="red" href="https://www.instagram.com/soullensstudios" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.43-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5.01-4.74.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7C3.21 9.05 3.2 9.4 3.2 12s.01 2.95.07 4.19c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.06-1.24.07-1.59.07-4.19s-.01-2.95-.07-4.19c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 00-.68-1.06 2.85 2.85 0 00-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.5 4.01 15.15 4 12 4zm0 3.06A4.94 4.94 0 1112 17a4.94 4.94 0 010-9.88zm0 8.14A3.2 3.2 0 1012 8.8a3.2 3.2 0 000 6.4zm6.3-8.34a1.15 1.15 0 11-2.3 0 1.15 1.15 0 012.3 0z"/></svg></a>
+      <a class="red" href="https://www.tiktok.com/@soullensstudios" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 01-1.04-2.82h-3.1v12.4a2.6 2.6 0 11-2.6-2.6c.27 0 .53.04.78.12V9.7a5.7 5.7 0 00-.78-.05A5.66 5.66 0 105.5 21a5.66 5.66 0 005.66-5.66V9.01a7.34 7.34 0 004.3 1.38V7.28a4.28 4.28 0 01-2.56-1.46z"/></svg></a>
+      <a class="red" href="https://www.facebook.com/soullensstudios" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></a>
+      <a class="red" href="https://www.youtube.com/@soullensstudios" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.5a3 3 0 00-2.12-2.12C19.5 3.86 12 3.86 12 3.86s-7.5 0-9.38.52A3 3 0 00.5 6.5 31.3 31.3 0 000 12a31.3 31.3 0 00.5 5.5 3 3 0 002.12 2.12c1.88.52 9.38.52 9.38.52s7.5 0 9.38-.52a3 3 0 002.12-2.12A31.3 31.3 0 0024 12a31.3 31.3 0 00-.5-5.5zM9.6 15.6V8.4l6.2 3.6z"/></svg></a>
+    </div>
+  </section>
+
+  <!-- 7 · CONTACTO -->
+  <section class="contacto" aria-label="Contacto">
+    <div class="hb-sec-h"><h2>Hablemos</h2></div>
+    <a href="https://wa.me/5215644844928" target="_blank" rel="noopener"><span class="ci">💬</span>WhatsApp · +52 1 56 4484 4928</a>
+    <a href="mailto:hola@soullens.live"><span class="ci">✉️</span>hola@soullens.live</a>
+    <a href="https://maps.google.com/?q=Soul+Lens+Studios+Monterreal+Merida" target="_blank" rel="noopener"><span class="ci">📍</span>Calle 18 #298, Monterreal, Mérida, Yucatán</a>
+  </section>
+
+  <footer class="hb-foot">
+    © 2026 Soul Lens Studios · Los primeros estudios de IA en LATAM<br>
+    <a href="aviso-de-privacidad.html">Aviso de Privacidad</a> · <a href="terminos.html">Términos</a> · <a href="index.html">Ir al sitio →</a>
+  </footer>
+
+</main>
+
+<!-- VSL facade: poster lo pone BaseLayout; aquí el click->iframe -->
+<script is:inline>
+document.querySelectorAll('.vsl .video-wrap[data-yt-id]').forEach(function(v){
+  var play=function(){var id=v.getAttribute('data-yt-id');if(!id)return;
+    v.innerHTML='<iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" title="Soul Lens Studios" allow="autoplay;encrypted-media;picture-in-picture" allowfullscreen></iframe>';};
+  v.addEventListener('click',play);
+  v.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+});
+</script>
+</BaseLayout>

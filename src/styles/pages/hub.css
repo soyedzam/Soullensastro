@@ -1,0 +1,112 @@
+/* ===== Hub Soul Lens Studios — link-in-bio nivel estudio ===== */
+:root{
+  --tinta:#0A0A0B; --ux:#121212; --panel:#15151a;
+  --electrico:#0653FF; --flow:#448AFF;
+  --niebla:#F2F3F5; --humo:#8A8F98; --humo-2:#5b6068;
+  --linea:rgba(255,255,255,.10); --linea-2:rgba(255,255,255,.06);
+  --labs:#00E676;
+  --display:'Space Grotesk',sans-serif; --mono:'IBM Plex Mono',monospace;
+  --r:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:
+    radial-gradient(120% 60% at 50% -10%, rgba(6,83,255,.16), transparent 60%),
+    var(--tinta);
+  color:var(--niebla);font-family:var(--display);font-weight:400;line-height:1.55;
+  -webkit-font-smoothing:antialiased;min-height:100dvh;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--electrico);color:#fff}
+a:focus-visible,button:focus-visible{outline:2px solid var(--flow);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--electrico);color:#fff;padding:10px 16px;z-index:99}
+
+.hub{max-width:520px;margin:0 auto;padding:clamp(26px,7vw,46px) clamp(18px,5vw,26px) 60px;display:flex;flex-direction:column;gap:clamp(30px,6vw,44px)}
+.eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--humo)}
+.eyebrow .dot{color:var(--electrico)}
+.mark{color:var(--flow)}
+
+/* hero */
+.hb-hero{text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.hb-logo{font-weight:700;font-size:25px;letter-spacing:-.04em}
+.hb-logo .lens{font-weight:400;color:var(--humo)}
+.hb-logo .st{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--humo-2);text-transform:uppercase;margin-left:.35em}
+.gbadge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--niebla);border:1px solid var(--linea);background:rgba(255,255,255,.03);padding:7px 14px;border-radius:40px}
+.gbadge .stars{color:#FFC83D;letter-spacing:1px}
+.gbadge b{font-weight:600}
+.hb-hero h1{font-size:clamp(25px,6.4vw,33px);font-weight:700;line-height:1.08;letter-spacing:-.03em;margin-top:4px}
+.hb-hero .sub{color:#c7cbd1;font-size:15px;max-width:40ch}
+
+/* bloque genérico de sección */
+.hb-sec-h{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;text-align:center}
+.hb-sec-h h2{font-size:clamp(19px,4.6vw,23px);font-weight:600;letter-spacing:-.02em}
+.hb-sec-h p{color:var(--humo);font-size:13.5px}
+
+/* VSL */
+.vsl .video-wrap{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;border:1px solid var(--linea);background:linear-gradient(135deg,#0b1830,#0a0a0b);cursor:pointer;isolation:isolate}
+.vsl .video-wrap::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(6,83,255,.28),transparent 60%);z-index:0}
+.vsl .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;z-index:2;transition:.25s;box-shadow:0 12px 40px -8px rgba(6,83,255,.7)}
+.vsl .video-wrap:hover .play{transform:translate(-50%,-50%) scale(1.07);background:#fff}
+.vsl .play::after{content:"";border-left:22px solid var(--electrico);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:5px}
+.vsl .vtag{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(6,83,255,.85);padding:5px 12px;border-radius:30px}
+.vsl .vnote{position:absolute;bottom:14px;left:14px;z-index:2;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.85)}
+.vsl .live{display:inline-flex;align-items:center;gap:6px}
+.vsl .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#FF5252;box-shadow:0 0 0 0 rgba(255,82,82,.6);animation:pulseDot 1.6s infinite}
+@keyframes pulseDot{70%{box-shadow:0 0 0 7px rgba(255,82,82,0)}100%{box-shadow:0 0 0 0 rgba(255,82,82,0)}}
+.vsl .undertext{text-align:center;color:var(--humo);font-size:13px;margin-top:14px}
+
+/* CTAs */
+.hb-cta{display:flex;flex-direction:column;gap:12px}
+.btn{font-family:var(--mono);font-size:13.5px;letter-spacing:.05em;padding:17px 22px;border-radius:48px;display:flex;align-items:center;justify-content:center;gap:10px;transition:.22s;border:1px solid transparent;text-align:center;font-weight:500}
+.btn-wa{background:#25D366;color:#06311a;font-weight:600}
+.btn-wa:hover{filter:brightness(1.06);transform:translateY(-2px)}
+.btn-primary{background:var(--electrico);color:#fff;box-shadow:0 10px 36px -12px rgba(6,83,255,.9)}
+.btn-primary:hover{background:#0a47d6;transform:translateY(-2px)}
+.btn-ghost{border-color:var(--linea);color:var(--niebla);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--niebla);background:rgba(255,255,255,.05)}
+.risk{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;font-family:var(--mono);font-size:11.5px;color:var(--humo);margin-top:4px}
+.risk i{color:var(--labs);font-style:normal;font-weight:600;margin-right:5px}
+
+/* servicios */
+.svc{display:flex;flex-direction:column;gap:10px}
+.svc-card{display:flex;align-items:center;gap:14px;padding:15px 17px;border:1px solid var(--linea);border-radius:14px;background:var(--ux);transition:.22s}
+.svc-card:hover{border-color:rgba(6,83,255,.5);background:var(--panel);transform:translateX(3px)}
+.svc-ico{font-size:21px;flex:none;width:30px;text-align:center}
+.svc-tx b{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em}
+.svc-tx span{font-size:12.5px;color:var(--humo)}
+.svc-card .arr{margin-left:auto;color:var(--humo-2);font-family:var(--mono);transition:.22s}
+.svc-card:hover .arr{color:var(--flow);transform:translateX(3px)}
+
+/* prueba social */
+.marq{border-block:1px solid var(--linea-2);overflow:hidden;padding:13px 0;background:var(--ux);border-radius:10px}
+.marq-track{display:flex;white-space:nowrap;width:max-content;animation:slide 38s linear infinite;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--humo)}
+.marq-track span{padding:0 22px}
+.marq-track span::before{content:"◦";color:var(--electrico);margin-right:22px}
+@keyframes slide{to{transform:translateX(-50%)}}
+.reviews{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.review{border:1px solid var(--linea-2);border-radius:12px;padding:14px 16px;background:rgba(255,255,255,.02)}
+.review .rtop{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.review .rg{width:30px;height:30px;border-radius:50%;background:var(--electrico);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:600;flex:none}
+.review .rwho{font-size:13px;font-weight:600;line-height:1.2}
+.review .rwho small{display:block;color:var(--humo-2);font-weight:400;font-size:11px;font-family:var(--mono)}
+.review .rstars{margin-left:auto;color:#FFC83D;font-size:13px}
+.review p{font-size:13px;color:#c7cbd1;line-height:1.5}
+
+/* redes */
+.redes{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.red{width:54px;height:54px;border-radius:14px;border:1px solid var(--linea);background:var(--ux);display:grid;place-items:center;transition:.22s}
+.red:hover{border-color:rgba(6,83,255,.5);background:var(--panel);transform:translateY(-3px)}
+.red svg{width:23px;height:23px;fill:var(--niebla)}
+
+/* contacto / footer */
+.contacto{display:flex;flex-direction:column;gap:10px}
+.contacto a{display:flex;align-items:center;gap:12px;padding:13px 16px;border:1px solid var(--linea-2);border-radius:12px;font-size:14px;background:rgba(255,255,255,.02);transition:.2s}
+.contacto a:hover{border-color:var(--linea);background:rgba(255,255,255,.04)}
+.contacto .ci{font-size:17px;width:24px;text-align:center;flex:none}
+.hb-foot{text-align:center;font-family:var(--mono);font-size:11px;color:var(--humo-2);line-height:1.8;padding-top:8px;border-top:1px solid var(--linea-2)}
+.hb-foot a{color:var(--humo)}
+.hb-foot a:hover{color:var(--niebla)}
+
+@media(prefers-reduced-motion:reduce){.marq-track{animation:none}.vsl .live::before{animation:none}}
