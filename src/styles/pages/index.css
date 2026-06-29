@@ -290,7 +290,11 @@ footer{background:var(--ux);border-top:1px solid var(--linea-2);padding-block:cl
 .cotz-go[aria-disabled="true"]{opacity:.45;pointer-events:none}
 .cotz-note{font-family:var(--mono);font-size:12px;color:var(--humo);letter-spacing:.03em}
 /* === Google badge (hero) === */
-.hero .gbadge{display:inline-flex;align-items:center;gap:8px;margin-bottom:26px;text-decoration:none;padding:8px 15px;border-radius:40px;background:#fff;box-shadow:0 8px 26px rgba(0,0,0,.30);transition:.2s}
+.hero .gbadge{display:inline-flex;align-items:center;white-space:nowrap;gap:8px;margin-bottom:26px;text-decoration:none;padding:8px 15px;border-radius:40px;background:#fff;color:#1f1f1f;box-shadow:0 8px 26px rgba(0,0,0,.30);transition:.2s}
+.gbadge:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(0,0,0,.38)}
+.gbadge-score{font-weight:700;color:#1f1f1f;font-size:14px}
+.gbadge-stars{color:#FBBC05;letter-spacing:1px;font-size:14px}
+.gbadge-label{color:#5f6368;font-size:13px;font-family:var(--mono)}
 .hero .gbadge:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.40)}
 .gbadge svg{display:block;flex:none}
 .gbadge .gb-score{font-family:var(--mono);font-weight:700;font-size:15px;color:#1a1a1a}
@@ -403,7 +407,7 @@ footer{background:var(--ux);border-top:1px solid var(--linea-2);padding-block:cl
 .logo-hubspot-hex{width:18px;height:18px;display:inline-block}
 .logo-hbr{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:14px;color:#A11B20;letter-spacing:.08em;text-transform:uppercase;border:2px solid #A11B20;padding:3px 7px;display:inline-block;line-height:1.2}
 .prensa-stat{font-size:14px;color:var(--niebla);font-style:italic;line-height:1.5;flex:1}
-.prensa-stat strong{color:var(--et);font-style:normal}
+.prensa-stat strong{color:var(--electrico-text);font-style:normal}
 
 /* === Clientes / Social Proof Premium === */
 .clientes-sec{background:var(--ux);border-block:1px solid var(--linea-2);overflow:hidden;padding-block:clamp(50px,7vh,90px)}
@@ -479,7 +483,7 @@ footer{background:var(--ux);border-top:1px solid var(--linea-2);padding-block:cl
 /* === 15-min CTA === */
 .cta15-strip{background:linear-gradient(135deg,rgba(6,83,255,.1),rgba(6,83,255,.03));border:1px solid rgba(6,83,255,.22);border-radius:18px;padding:clamp(22px,3vh,32px) clamp(22px,4vw,36px);margin-block:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}
 .cta15-txt{flex:1;min-width:220px}
-.cta15-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--et);margin-bottom:6px}
+.cta15-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--electrico-text);margin-bottom:6px}
 .cta15-h{font-size:clamp(16px,2vw,20px);font-weight:700;letter-spacing:-.01em;margin-bottom:4px}
 .cta15-sub{font-size:14px;color:var(--humo);line-height:1.55}
 .btn-15{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;font-family:var(--mono);font-size:12.5px;letter-spacing:.07em;padding:13px 22px;border-radius:40px;text-decoration:none;transition:.2s;white-space:nowrap;font-weight:500;flex:none}
@@ -542,3 +546,23 @@ a.line:hover .line-cta{opacity:1}
 .gcard-footer{margin-top:10px;display:flex;align-items:center;gap:6px}
 .gcard-verified{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;color:#0E8060;letter-spacing:.05em}
 .gcard-verified svg{width:12px;height:12px}
+/* Fix WhatsApp: el HTML usa .msg/.bubble/.ts (no .wa-bubble) — burbujas visibles */
+.wa-body .msg{display:flex;flex-direction:column;max-width:92%;margin-bottom:7px}
+.wa-body .msg.in{align-self:flex-start}
+.wa-body .bubble{background:#fff;color:#111b21;border-radius:9px;border-top-left-radius:2px;padding:8px 11px;box-shadow:0 1px 1px rgba(0,0,0,.13);font-size:13.5px;line-height:1.45}
+.wa-body .ts{font-size:10px;color:#667781;align-self:flex-end;margin-top:2px}
+
+/* Founder Strip — layout editorial (clases que el bundle original dejó sin CSS) */
+.founder-strip{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:clamp(28px,5vw,64px);align-items:center;padding:clamp(26px,3.5vw,44px);border:1px solid var(--linea-2);border-radius:20px}
+@media(max-width:780px){.founder-strip{grid-template-columns:1fr;gap:26px;padding:0;border:0}}
+.founder-photo-wrap{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--linea);max-width:340px}
+.founder-photo-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,11,.5));pointer-events:none}
+img.founder-photo{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;filter:grayscale(14%) contrast(1.04)}
+.founder-body>.eyebrow{font-size:13px;letter-spacing:.14em;color:#e7eaee;margin-bottom:18px}
+.founder-stats{display:flex;flex-wrap:wrap;gap:22px 32px;margin:24px 0}
+.fstat{display:flex;flex-direction:column;gap:3px}
+.fstat b{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;color:var(--niebla);line-height:1}
+.fstat span{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--humo)}
+.founder-ampi{display:inline-flex;align-items:center;gap:12px;padding:11px 16px;border:1px solid var(--linea);border-radius:12px;background:rgba(255,255,255,.02)}
+.founder-ampi img{width:34px;height:34px;border-radius:6px;background:#fff;padding:3px;flex:none;object-fit:contain}
+.founder-ampi span{font-family:var(--mono);font-size:11.5px;color:var(--humo);line-height:1.4}
