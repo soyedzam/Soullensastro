@@ -429,3 +429,6 @@ a{color:var(--accent-text)}
 .wa-float:hover{transform:translateY(-2px) scale(1.03)}
 .wa-float-txt{font-family:var(--mono,monospace);font-size:13px;font-weight:600;color:#fff;letter-spacing:.04em;white-space:nowrap}
 @media(max-width:480px){.wa-float-txt{display:none}.wa-float{padding:14px}}
+/* Crew — foto del equipo completo */
+.crew-photo{margin:clamp(28px,4vh,46px) auto 0;max-width:1000px;border-radius:20px;overflow:hidden;border:1px solid var(--linea);box-shadow:0 30px 80px -42px rgba(0,0,0,.85)}
+.crew-photo img{width:100%;height:auto;display:block}
