@@ -593,3 +593,7 @@ a.svc-item:hover .svc-cta{transform:translateX(4px)}
 .casos-grid .story-stat{font-family:var(--display);font-size:clamp(27px,3.2vw,36px);font-weight:700;letter-spacing:-.025em;color:#fff;line-height:1;margin:2px 0}
 .casos-grid .story-stat span{display:block;font-family:var(--mono);font-size:11.5px;font-weight:400;color:var(--humo);letter-spacing:.03em;margin-top:7px}
 .casos-grid .caso p{color:var(--humo);font-size:13px;line-height:1.6;margin:0}
+
+/* Crew — foto del equipo completo (home) */
+.crew-photo{margin:clamp(26px,4vh,44px) auto 0;max-width:1000px;border-radius:20px;overflow:hidden;border:1px solid var(--linea);box-shadow:0 30px 80px -42px rgba(0,0,0,.85)}
+.crew-photo img{width:100%;height:auto;display:block}
