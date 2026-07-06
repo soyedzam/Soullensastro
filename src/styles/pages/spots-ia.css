@@ -429,3 +429,11 @@ a{color:var(--accent-text)}
 .wa-float:hover{transform:translateY(-2px) scale(1.03)}
 .wa-float-txt{font-family:var(--mono,monospace);font-size:13px;font-weight:600;color:#fff;letter-spacing:.04em;white-space:nowrap}
 @media(max-width:480px){.wa-float-txt{display:none}.wa-float{padding:14px}}
+/* Spots IA — tira de Shorts verticales (9:16) */
+.shorts-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:10px}
+@media(max-width:1000px){.shorts-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.shorts-grid{grid-template-columns:repeat(2,1fr)}}
+.video-wrap.short{aspect-ratio:9/16}
+.video-wrap.short .vtag{top:10px;left:10px;font-size:9.5px}
+.video-wrap.short .vnote{bottom:10px;left:10px}
+.video-wrap.short .play{width:52px;height:52px}
