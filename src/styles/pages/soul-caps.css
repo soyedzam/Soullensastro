@@ -429,3 +429,7 @@ a{color:var(--accent-text)}
 .wa-float:hover{transform:translateY(-2px) scale(1.03)}
 .wa-float-txt{font-family:var(--mono,monospace);font-size:13px;font-weight:600;color:#fff;letter-spacing:.04em;white-space:nowrap}
 @media(max-width:480px){.wa-float-txt{display:none}.wa-float{padding:14px}}
+/* Ejemplos: video dentro de la tarjeta */
+.caso2 .caso-media.video-wrap{border:0;border-radius:0;cursor:pointer;background-size:cover;background-position:center}
+.caso2 .caso-media.video-wrap .play{width:60px;height:60px}
+.caso2 .caso-media.video-wrap .play::after{border-left:15px solid #fff;border-block:9px solid transparent}

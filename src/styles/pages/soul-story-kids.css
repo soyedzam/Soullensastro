@@ -436,3 +436,8 @@ a{color:var(--accent-text)}
 .kids-card:hover img{transform:scale(1.06)}
 .kids-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 13px 11px;font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#fff;background:linear-gradient(to top,rgba(10,10,11,.88),rgba(10,10,11,.1) 70%,transparent)}
 @media(prefers-reduced-motion:reduce){.kids-card:hover img{transform:none}}
+
+/* Ejemplos: video montado dentro de la tarjeta (caso-media) */
+.caso2 .caso-media.video-wrap{border:0;border-radius:0;cursor:pointer;background-size:cover;background-position:center}
+.caso2 .caso-media.video-wrap .play{width:60px;height:60px}
+.caso2 .caso-media.video-wrap .play::after{border-left:15px solid #fff;border-block:9px solid transparent}
