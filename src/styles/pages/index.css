@@ -597,3 +597,6 @@ a.svc-item:hover .svc-cta{transform:translateX(4px)}
 /* Crew — foto del equipo completo (home) */
 .crew-photo{margin:clamp(26px,4vh,44px) auto 0;max-width:1000px;border-radius:20px;overflow:hidden;border:1px solid var(--linea);box-shadow:0 30px 80px -42px rgba(0,0,0,.85)}
 .crew-photo img{width:100%;height:auto;display:block}
+
+/* El trabajo habla solo — las 3 tarjetas en 16:9 con portada real */
+.vids-grid .vid-card:first-child,.vids-grid .vid-card:nth-child(2),.vids-grid .vid-card:last-child{aspect-ratio:16/9}
