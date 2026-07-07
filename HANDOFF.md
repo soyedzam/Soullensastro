@@ -1,5 +1,5 @@
 # 🤝 PASE / HANDOFF — Soul Lens Studios Web (Astro)
-_Última actualización: 2026-07-07 · commit `4b58a35` · 24 commits_
+_Última actualización: 2026-07-07 · commit `00e3ab9` · 26 commits_
 
 Documento de traspaso para otra sesión de Claude Code. Léelo completo antes de tocar nada.
 
@@ -33,7 +33,7 @@ Migración del sitio **Soul Lens Studios** (productora audiovisual + IA, Mérida
 - **Astro** `output: 'static'`, `build.format: 'file'`, `compressHTML`, `site: 'https://soullensstudios.live'`. Sin adapter (estático puro).
 - **Deploy:** Cloudflare Pages, auto en cada push a `main`. Config: preset **Astro**, build `npm run build`, output `dist`, env `NODE_VERSION=20`.
 - **`src/layouts/BaseLayout.astro`** centraliza: `<head>` (SEO por props, GTM, fuentes, favicons, **Meta Pixel único**, script global de poster de video lite-YouTube), y el shell del `<body>` (GTM noscript, skip link, `<slot/>`).
-- **Cada página es self-contained:** su CSS en `src/styles/pages/<page>.css` (importado en frontmatter), su cuerpo verbatim, su JSON-LD vía `<Fragment slot="head">`. El header/footer/announce viven en cada página (no componentizados aún — fase 2 opcional).
+- **Cada página es self-contained:** su CSS en `src/styles/pages/<page>.css` (importado en frontmatter), su cuerpo verbatim, su JSON-LD vía `<Fragment slot="head">`. El header/footer/announce de las **6 páginas interiores** (soul-caps, films-de-marca, spots-ia, smart-pass, soul-story-kids, nosotros) están componentizados en `src/components/SiteHeader.astro` (props `announce` HTML + `current` para `aria-current`) y `SiteFooter.astro` (sin props). **Index** mantiene header/footer propios (variante distinta: 8 enlaces, Pulse™, otra línea legal). Las páginas especiales (hub/aniversario/navegador/pulse/legales/404) tienen headers propios.
 - **14 páginas:** `index, soul-caps, films-de-marca, spots-ia, smart-pass, soul-story-kids, nosotros, pulse, navegador, aniversario, hub, aviso-de-privacidad, terminos, 404`.
 - **Imágenes:** todas WebP. `public/img/` (locales), `public/img/portfolio/` (31 webp q75). Optimizar nuevas con `sharp` (~1200-1600px, q75-82).
 - **URLs LIMPIAS** (sin `.html`) en canonicals, sitemap y enlaces internos. Cloudflare sirve `/soul-caps` y **redirige 308** las `.html`.
@@ -111,7 +111,7 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 5. 🎥 **VSL propio para `/hub`**: hoy usa `tZB-48eSRhI` (podcast de Marco) como stand-in; cambiar el `data-yt-id`.
 6. 🖼️ **Imágenes reales de casos** faltantes: tarjetas ◎ "Próximamente" en la 3ª tarjeta de soul-caps (Maova) y films (sin video). El cliente cambió las fotos "caricaturescas" de Kids (galería borrada) — puede mandar nuevas.
 7. 🧾 **Legal:** RFC pendiente (opcional). **GA4:** configurar dentro de GTM.
-8. 🔗 ✅ **`/hub` enlazada** discretamente desde la barra legal del footer (`… Términos · Hub`) en las 7 páginas de contenido (commit `4b58a35`) — ya no está huérfana. Nota: la idea previa de enlazar el texto "Hub Intelligence" → `/hub` se **descartó** (mismatch: "Hub Intelligence" es una línea de servicio "Próximamente", no la landing link-in-bio). Pendiente fase 2: componentizar header/footer.
+8. 🔗 ✅ **`/hub` enlazada** discretamente desde la barra legal del footer (`… Términos · Hub`) en las 7 páginas de contenido (commit `4b58a35`) — ya no está huérfana. Nota: la idea previa de enlazar el texto "Hub Intelligence" → `/hub` se **descartó** (mismatch: "Hub Intelligence" es una línea de servicio "Próximamente", no la landing link-in-bio). ✅ **Fase 2 hecha:** header/footer de las 6 interiores componentizados (`SiteHeader`/`SiteFooter`, commit `00e3ab9`). Verificado: `dist` byte-idéntico antes/después en las 14 páginas (cero cambio de output). Editar nav/footer interior = ahora 1 archivo.
 
 > **Confirmado por el cliente (2026-07-07):** las reseñas del hub (**Marcela Ramírez**, **Jorge González**) y **todas** las marcas del carrusel del hub (Viceroy, Cipriani, Thompson, Wayil, Marena, Urbana, Grupo Copri, Etana) son **clientes reales** → NO volver a marcarlas como falsas ni removerlas. El único stand-in real del hub es el VSL (§8.5).
 
