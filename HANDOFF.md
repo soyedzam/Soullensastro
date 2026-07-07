@@ -1,5 +1,5 @@
 # 🤝 PASE / HANDOFF — Soul Lens Studios Web (Astro)
-_Última actualización: 2026-07-07 · commit `d4f5338` · 22 commits_
+_Última actualización: 2026-07-07 · commit `4b58a35` · 24 commits_
 
 Documento de traspaso para otra sesión de Claude Code. Léelo completo antes de tocar nada.
 
@@ -111,7 +111,9 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 5. 🎥 **VSL propio para `/hub`**: hoy usa `tZB-48eSRhI` (podcast de Marco) como stand-in; cambiar el `data-yt-id`.
 6. 🖼️ **Imágenes reales de casos** faltantes: tarjetas ◎ "Próximamente" en la 3ª tarjeta de soul-caps (Maova) y films (sin video). El cliente cambió las fotos "caricaturescas" de Kids (galería borrada) — puede mandar nuevas.
 7. 🧾 **Legal:** RFC pendiente (opcional). **GA4:** configurar dentro de GTM.
-8. 🔗 (Opcional) Enlazar textos "Hub Intelligence" del sitio → `/hub`; componentizar header/footer (fase 2).
+8. 🔗 ✅ **`/hub` enlazada** discretamente desde la barra legal del footer (`… Términos · Hub`) en las 7 páginas de contenido (commit `4b58a35`) — ya no está huérfana. Nota: la idea previa de enlazar el texto "Hub Intelligence" → `/hub` se **descartó** (mismatch: "Hub Intelligence" es una línea de servicio "Próximamente", no la landing link-in-bio). Pendiente fase 2: componentizar header/footer.
+
+> **Confirmado por el cliente (2026-07-07):** las reseñas del hub (**Marcela Ramírez**, **Jorge González**) y **todas** las marcas del carrusel del hub (Viceroy, Cipriani, Thompson, Wayil, Marena, Urbana, Grupo Copri, Etana) son **clientes reales** → NO volver a marcarlas como falsas ni removerlas. El único stand-in real del hub es el VSL (§8.5).
 
 ---
 
