@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import '../styles/pages/nosotros.css';
 ---
 <BaseLayout
@@ -11,13 +13,7 @@ import '../styles/pages/nosotros.css';
   themeColor={"#0A0A0B"}
   robots={"index,follow,max-image-preview:large"}>
   <Fragment slot="head" set:html={"<script type=\"application/ld+json\">\n{\n \"@context\": \"https://schema.org\",\n \"@graph\": [\n  {\n   \"@type\": \"AboutPage\",\n   \"@id\": \"https://soullensstudios.live/nosotros#webpage\",\n   \"url\": \"https://soullensstudios.live/nosotros\",\n   \"name\": \"Nosotros · Las personas detrás de Soul Lens Studios\",\n   \"description\": \"Conoce a los fundadores, la misión y el método de Soul Lens Studios: IA de punta, criterio humano, energía renovable y propósito. Mérida · LATAM.\",\n   \"inLanguage\": \"es-MX\",\n   \"isPartOf\": {\n    \"@id\": \"https://soullensstudios.live/#website\"\n   },\n   \"about\": {\n    \"@id\": \"https://soullensstudios.live/#org\"\n   }\n  },\n  {\n   \"@type\": \"BreadcrumbList\",\n   \"itemListElement\": [\n    {\n     \"@type\": \"ListItem\",\n     \"position\": 1,\n     \"name\": \"Inicio\",\n     \"item\": \"https://soullensstudios.live/\"\n    },\n    {\n     \"@type\": \"ListItem\",\n     \"position\": 2,\n     \"name\": \"Nosotros\",\n     \"item\": \"https://soullensstudios.live/nosotros\"\n    }\n   ]\n  }\n ]\n}\n</script>"} />
-<div class="announce">Soul Lens · Un estudio con alma — IA, criterio humano y propósito</div>
-<header class="nav"><div class="nav-in">
-<a href="/" class="brand" aria-label="Soul Lens Studios — inicio">soul<span class="lens">lens</span><span class="st">studios</span></a>
-<nav class="nav-links" aria-label="Líneas de solución"><a href="/soul-caps"><span class="num">01</span>Soul Caps</a><a href="/films-de-marca"><span class="num">02</span>Films</a><a href="/spots-ia"><span class="num">03</span>Spots IA</a><a href="/smart-pass"><span class="num">09</span>Smart Pass</a><a href="/soul-story-kids"><span class="num">12</span>Kids</a><a href="/nosotros" aria-current="page"><span class="num"></span>Nosotros</a></nav>
-<a class="nav-cta" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico." target="_blank" rel="noopener">Agendar</a>
-<button class="burger" aria-label="Abrir menú" onclick="document.getElementById('precios').scrollIntoView({behavior:'smooth'})">≡</button>
-</div></header>
+<SiteHeader announce={"Soul Lens · Un estudio con alma — IA, criterio humano y propósito"} current="nosotros" />
 <main id="main"><a id="top"></a>
 <section class="sec"><div class="wrap"><div class="sec-head reveal"><p class="eyebrow">Nosotros · Soul Lens</p><h2>Detrás de cada sistema, <span class="mark">hay personas.</span></h2><p>No somos una fábrica de contenido ni un software sin rostro. Somos un equipo en Mérida y CDMX que une criterio humano, IA de punta y energía renovable para construir marcas que se eligen.</p></div></div></section>
 <section class="sec" id="fundadores"><div class="wrap"><div class="sec-head reveal"><p class="eyebrow">Fundadores</p><h2>Quién está detrás de <span class="mark">Soul Lens.</span></h2></div><div class="founders reveal"><div class="founder reveal"><img class="fphoto" src="img/ed-zam-director-soul-lens-studios-merida.webp" loading="lazy" alt="Ed Zam, Fundador &amp; Director de Soul Lens Studios."><div class="fbody"><h3>Ed Zam</h3><span class="frole">Fundador &amp; Director</span><p>&quot;No producimos contenido. Construimos la razón por la que te eligen.&quot; — Arquitecto de Realidades.</p></div></div><div class="founder reveal"><img class="fphoto" src="img/val-mosquera-fundadora-soul-lens-studios.webp" loading="lazy" alt="Val Mosquera, Co-Directora &amp; CEO de Soul Lens Studios."><div class="fbody"><h3>Val Mosquera</h3><span class="frole">Co-Directora &amp; CEO</span><p>Lidera la operación, la cultura y la experiencia de Soul Lens Studios.</p></div></div></div><div class="fmomentos reveal"><img src="img/val-mosquera-ed-zam-fundadores-soul-lens-studios.webp" loading="lazy" alt="Ed Zam y Val Mosquera, fundadores de Soul Lens Studios."><img src="img/ed-zam-soul-lens-escenario-conferencia.webp" loading="lazy" alt="Ed Zam en escenario ante audiencia."><img src="img/val-mosquera-soul-lens-conferencia.webp" loading="lazy" alt="Val Mosquera presentando en escenario."><img src="img/ed-zam-soul-lens-produccion-audiovisual.webp" loading="lazy" alt="Ed Zam en producción audiovisual."><img src="img/val-mosquera-ceo-soul-lens-studio-produccion.webp" loading="lazy" alt="Val Mosquera en el estudio Soul Lens."><img src="img/ed-zam-soul-lens-networking-merida.webp" loading="lazy" alt="Ed Zam en un encuentro de alto nivel."></div></div></section>
@@ -26,16 +22,7 @@ import '../styles/pages/nosotros.css';
 <section class="sec"><div class="wrap"><div class="sec-head reveal"><p class="eyebrow">Método Soul Lens</p><h2>Tecnología actual. <span class="mark">Criterio humano.</span></h2><p>Cámaras OBS de IA, sets virtuales y producción asistida por inteligencia artificial — guiados por dirección humana. La tecnología amplifica tu historia; nunca la reemplaza.</p></div><div class="fgrid reveal"><div class="fcard"><div class="lvl">01</div><h3>IA de punta</h3><p>Cámaras OBS de IA, sets virtuales y flujo de producción asistido por IA.</p></div><div class="fcard"><div class="lvl">02</div><h3>Criterio humano</h3><p>Dirección, estrategia y narrativa decididas por personas, no por algoritmos.</p></div><div class="fcard"><div class="lvl">03</div><h3>Sostenibilidad</h3><p>Energía 100% renovable y operaciones verdes para 2027.</p></div><div class="fcard"><div class="lvl">04</div><h3>Propósito</h3><p>11 centros educativos con IA en comunidades remotas para 2030.</p></div></div></div></section>
 <section class="sec"><div class="wrap"><div class="sec-head reveal" style="text-align:center"><h2>¿Listo para construir tu marca con un <span class="mark">estudio con alma?</span></h2><div class="hero-cta" style="justify-content:center;margin-top:22px"><a class="btn btn-primary" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20conocer%20m%C3%A1s." target="_blank" rel="noopener">Agendar diagnóstico →</a></div></div></div></section>
 </main>
-<footer><div class="wrap"><div class="foot-grid">
-<div class="foot-brand"><div class="brand">soul<span class="lens">lens</span><span class="st">studios</span></div>
-<p>No producimos contenido. Construimos la razón por la que te eligen. Mérida · Yucatán · LATAM.</p></div>
-<div><h4>Producción</h4><ul><li><a href="/soul-caps">Soul Caps</a></li><li><a href="/films-de-marca">Films de Marca</a></li><li><a href="/spots-ia">Spots IA</a></li><li><a href="/#lineas">Live Experience</a></li></ul></div>
-<div><h4>Marca & Web</h4><ul><li><a href="/#lineas">Soul Brand</a></li><li><a href="/#lineas">Soul Engine</a></li><li><a href="/#lineas">Soul Stage</a></li><li><a href="/#lineas">Hub Intelligence</a></li></ul></div>
-<div><h4>Sistemas & Más</h4><ul><li><a href="/smart-pass">Smart Pass</a></li><li><a href="/#lineas">Soul Team Pack</a></li><li><a href="/soul-story-kids">Soul Story Kids</a></li><li><a href="https://wa.me/5215644844928" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
-</div><div class="foot-bottom">
-<span>© 2026 Soul Lens Studios · Mérida · Yucatán · México · Operación LATAM · <a href="/aviso-de-privacidad">Aviso de Privacidad</a> · <a href="/terminos">Términos</a> · <a href="/hub">Hub</a></span>
-<span>Designed by <a href="https://soullensstudios.live">Soul Lens</a> · Powered by <a href="https://xplorerstartups.ai">Xplorers Startups</a></span>
-</div></div></footer>
+<SiteFooter />
 <script is:inline>
 /* ---- scroll reveal ---- */
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});

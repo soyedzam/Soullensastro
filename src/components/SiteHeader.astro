@@ -1,0 +1,22 @@
+---
+interface Props {
+  announce: string;
+  current?: string;
+}
+const { announce, current } = Astro.props;
+const links = [
+  { href: '/soul-caps', num: '01', label: 'Soul Caps', key: 'soul-caps' },
+  { href: '/films-de-marca', num: '02', label: 'Films', key: 'films-de-marca' },
+  { href: '/spots-ia', num: '03', label: 'Spots IA', key: 'spots-ia' },
+  { href: '/smart-pass', num: '09', label: 'Smart Pass', key: 'smart-pass' },
+  { href: '/soul-story-kids', num: '12', label: 'Kids', key: 'soul-story-kids' },
+  { href: '/nosotros', num: '', label: 'Nosotros', key: 'nosotros' },
+];
+---
+<div class="announce" set:html={announce}></div>
+<header class="nav"><div class="nav-in">
+<a href="/" class="brand" aria-label="Soul Lens Studios — inicio">soul<span class="lens">lens</span><span class="st">studios</span></a>
+<nav class="nav-links" aria-label="Líneas de solución">{links.map((l) => (<a href={l.href} aria-current={l.key === current ? 'page' : undefined}><span class="num">{l.num}</span>{l.label}</a>))}</nav>
+<a class="nav-cta" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico." target="_blank" rel="noopener">Agendar</a>
+<button class="burger" aria-label="Abrir menú" onclick="document.getElementById('precios').scrollIntoView({behavior:'smooth'})">≡</button>
+</div></header>
