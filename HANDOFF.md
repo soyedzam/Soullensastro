@@ -1,5 +1,5 @@
 # 🤝 PASE / HANDOFF — Soul Lens Studios Web (Astro)
-_Última actualización: 2026-07-07 · commit `00e3ab9` · 26 commits_
+_Última actualización: 2026-07-07 · commit `56fc7fa` · 28 commits_
 
 Documento de traspaso para otra sesión de Claude Code. Léelo completo antes de tocar nada.
 
@@ -114,6 +114,8 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 8. 🔗 ✅ **`/hub` enlazada** discretamente desde la barra legal del footer (`… Términos · Hub`) en las 7 páginas de contenido (commit `4b58a35`) — ya no está huérfana. Nota: la idea previa de enlazar el texto "Hub Intelligence" → `/hub` se **descartó** (mismatch: "Hub Intelligence" es una línea de servicio "Próximamente", no la landing link-in-bio). ✅ **Fase 2 hecha:** header/footer de las 6 interiores componentizados (`SiteHeader`/`SiteFooter`, commit `00e3ab9`). Verificado: `dist` byte-idéntico antes/después en las 14 páginas (cero cambio de output). Editar nav/footer interior = ahora 1 archivo.
 
 > **Confirmado por el cliente (2026-07-07):** las reseñas del hub (**Marcela Ramírez**, **Jorge González**) y **todas** las marcas del carrusel del hub (Viceroy, Cipriani, Thompson, Wayil, Marena, Urbana, Grupo Copri, Etana) son **clientes reales** → NO volver a marcarlas como falsas ni removerlas. El único stand-in real del hub es el VSL (§8.5).
+
+> **`/hub` — Guardar contacto (2026-07-07, commit `56fc7fa`):** botón primario que descarga `public/soul-lens.vcf` (vCard 3.0, logo embebido en base64, **SIN dirección** por decisión del cliente). Cloudflare lo sirve como `text/x-vcard` → iPhone (Safari) y Android (Chrome) lo agregan nativo. Datos: tel `+5215644844928`, email `hola@soullens.live`, URL `soullensstudios.live`, redes como X-SOCIALPROFILE. Si cambia algún dato, regenerar el `.vcf` (script en `git log` de ese commit). Pulse pasó a botón secundario (ghost). **Falta que el cliente lo pruebe en su teléfono.** Idea aprobada pero no ejecutada: reordenar redes arriba + versión "tarjeta corta" (quitar carrusel/reseñas) — se dejó completo para no borrar contenido confirmado.
 
 ---
 
