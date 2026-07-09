@@ -121,7 +121,32 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 
 ## 9. CONEXIÓN DE DOMINIO (EN CURSO — procedimiento)
 
-**Contexto:** `soullensstudios.live` está en **Hostinger** y **TIENE correos** que **NO se mueven** (se quedan en Hostinger). Método: **mover los nameservers a Cloudflare** (necesario para el apex sin www) **preservando los registros de correo**.
+> 🚨 **CORRECCIÓN (2026-07-09): la premisa original de esta sección era FALSA.**
+> `soullensstudios.live` **NO tiene correo**. Verificado con `dig` contra `1.1.1.1` y `8.8.8.8`, y confirmado dos veces por el propio Cloudflare: **cero MX, cero SPF, cero DKIM, cero DMARC**. Sin MX es imposible recibir correo ahí.
+> El correo `hola@soullens.live` vive en **`soullens.live`**, que es **OTRO dominio** (también en Hostinger, con `MX mx1/mx2.hostinger.com`, SPF, DMARC y DKIM `hostingermail-a/b/c`).
+> ⚠️ **Regla de oro: NUNCA tocar `soullens.live`.** Migrar `soullensstudios.live` **no tiene ningún riesgo para el correo.**
+
+**Contexto:** `soullensstudios.live` está en **Hostinger** (registro) y servía el **sitio viejo** desde ahí. Método: **mover los nameservers a Cloudflare** (necesario para el apex sin www).
+
+### Estado al 2026-07-09 (ejecutado por Claude vía navegador)
+
+| Paso | Estado |
+|---|---|
+| Zona `soullensstudios.live` en Cloudflare | ✅ Creada, plan **Free** |
+| Políticas IA (Search/Agent/Training) | ✅ Las 3 en **Allow** |
+| "Block training in robots.txt" | ✅ **OFF** (respeta el `robots.txt` pro-IA del sitio) |
+| DNS importado | ✅ 6 registros: A apex `148.135.128.243` + `147.79.120.148`, 2× AAAA, CNAME `www`→`cdn.hstgr.net`, A `ftp`→`213.190.5.244` |
+| `ftp` | ✅ Cambiado a **DNS only** (venía Proxied; el proxy es HTTP-only y habría roto FTP) |
+| Nameservers en Hostinger | ✅ Cambiados a `poppy.ns.cloudflare.com` / `rajeev.ns.cloudflare.com` |
+| Propagación en el registro `.live` | ⏳ **PENDIENTE** — sigue delegando a `ns1/ns2.dns-parking.com` |
+| Dominio en Cloudflare Pages | ❌ **Bloqueado**: Pages exige la zona **Active**; no se puede agregar hasta que propague |
+
+### Lo que falta (cuando la zona pase a Active)
+1. Cloudflare → **Workers & Pages → `soullensastro` → Custom domains** → agregar `soullensstudios.live` **y** `www.soullensstudios.live`.
+2. **Borrar los registros viejos de Hostinger** en la zona (A apex ×2, AAAA ×2, CNAME `www`) o el dominio seguirá sirviendo el sitio viejo. (`ftp` se puede dejar o borrar.)
+3. Verificar en vivo: `curl -sL https://soullensstudios.live` debe servir el sitio Astro, y SSL emitido.
+
+> 📌 **Aparte:** en Hostinger, `soullensstudios.live` tiene **renovación automática DESACTIVADA** y **caduca 2026-09-02**. Revisar.
 
 **El cliente estaba atorado buscando el botón "Add a site"** en Cloudflare (UI 2026). Rutas: `dash.cloudflare.com` → botón azul **`+ Add`** → "Existing/Connect a domain"; o **Workers & Pages → pestaña "Domains" → "Add existing domain"**; o **Websites → "Add a site"**.
 
