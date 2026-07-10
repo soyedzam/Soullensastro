@@ -1,5 +1,5 @@
 # 🤝 PASE / HANDOFF — Soul Lens Studios Web (Astro)
-_Última actualización: 2026-07-10 · dominio EN VIVO · commit `dd58d29` · 43 commits_
+_Última actualización: 2026-07-10 · dominio EN VIVO · commit `dd58d29` · 44 commits_
 
 > **Nota caché (2026-07-09):** si alguien reporta "veo el sitio viejo" en `soullensstudios.live`, es **caché del navegador/DNS del cliente**, NO el servidor. Verificado: el origen devuelve el sitio nuevo en 16/16 peticiones; pestaña nueva y limpia carga el sitio nuevo (9 Offers MXN, og-image.png, 0 USD, 0 service workers). Solución para el cliente: recarga forzada (⌘⇧R), incógnito, o flush DNS (`sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`).
 
@@ -194,7 +194,7 @@ Antes había **tres sistemas contradictorios**: JSON-LD en USD (otro modelo de n
 **Faltan KB (y por tanto precios) de:** **Soul Stage**, **Lanzamiento Total**, y los items legacy de Soul Caps (**Episodio Piloto**, **Plan Mensual**, **Series 20% off**) que estaban en el JSON-LD en USD. Se **retiraron sus cifras** del schema en vez de publicar precios sin respaldo (regla de oro de las KB: *nunca inventar precio*). Cuando el cliente dé los precios en MXN, se reponen en el JSON-LD del home y en `llms.txt`.
 
 ### Pendiente para pautar
-- Verificar el dominio en **Meta Business** (pedir el código y meterlo como meta-tag en `BaseLayout.astro` → aplica a las 14 páginas).
+- **Meta Business:** el meta-tag `facebook-domain-verification` **YA está en BaseLayout sirviendo en las 14 páginas** (código `96htqcrkc44ycomylza91jtm57nyfi`, heredado del bundle v4.1 en el commit inicial `c84a704`; verificado en vivo 2026-07-10). Falta solo que el cliente confirme en Business Manager → Seguridad de marca → Dominios que `soullensstudios.live` figura **Verificado** (botón "Verificar" si no lo está — Meta lee el tag al instante). ⚠️ Si su BM le muestra un código DISTINTO, es otro Business Manager: pedir ese código y **agregarlo como segundo meta-tag** en BaseLayout (pueden coexistir varios; NO borrar el existente). Se le pidió al cliente el 2026-07-10.
 - ✅ **GA4 dentro de GTM: hecho** (`G-Y0PV6X70P3` en el contenedor publicado y disparando en vivo; verificado 2026-07-10 leyendo `gtm.js` y `window.google_tag_manager` en la página. El pixel de Meta NO está duplicado en GTM: 0 menciones en el contenedor).
 - Dar de alta el sitio en **Google Search Console** + enviar `https://soullensstudios.live/sitemap.xml`.
 - ✅ **Sitemap automatizado** (2026-07-10, commit `dd58d29`): `npm run sitemap` → `scripts/gen-sitemap.mjs` regenera `public/sitemap.xml` con `lastmod` **real por página desde git** (fuentes: su `.astro` + su `.css` + SiteHeader/SiteFooter en las 6 interiores; BaseLayout excluido a propósito). Descubre páginas nuevas solo (defaults + warning). Se **descartó** `@astrojs/sitemap` (solo admite lastmod global = fecha de build para todas, señal falsa) y se quitó de `package.json` (dependencia muerta, nada la importaba). **Correrlo al tocar páginas, antes de commitear.** De paso corrigió 5 lastmod que se habían quedado en 06-29.
