@@ -155,6 +155,14 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 - Headers de seguridad ya venían en `public/_headers`: HSTS(preload), X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy.
 - `/llms.txt` ya existía y es muy bueno (servicios, precios, clientes, diferenciadores).
 
+### SEO / AEO — segunda pasada (2026-07-09, commit `70f7d4d`)
+- **`Offer` en MXN por página de producto.** Las 5 páginas tenían `Service` **sin ninguna `Offer`**: Google y los LLMs no veían un solo precio al leer `/soul-caps`, `/spots-ia`, `/films-de-marca`, `/smart-pass` ni `/soul-story-kids`. Ahora cada una expone sus tiers como `Offer` (con `description`, `availability` y `url`). **26 ofertas** en total (17 en producto + 9 en el home), todas `MXN`.
+- **`sameAs`** agregado al `Organization` del home (Instagram, TikTok, Facebook, YouTube) para que Google y los asistentes vinculen la entidad de marca. Antes solo `/hub` lo tenía.
+- **`og:image` y `twitter:image`: `.webp` → `.png`** (`og-image.png`, 1200×630, 39 KB). LinkedIn no renderiza WebP y WhatsApp falla de forma intermitente. El `.webp` sigue en `public/` por si algo lo referencia.
+- Verificado: los **8 schemas parsean sin error**, todas las ofertas en MXN, y **cero "USD"** en las 12 páginas + `llms.txt`.
+
+> ⚠️ **Único resto de Hostinger:** el registro `A ftp → 213.190.5.244` (DNS only). Si se cancela el hosting de Hostinger, **borrarlo**. El correo vive en `soullens.live` y no se toca.
+
 ### 💰 PRICING UNIFICADO — 2026-07-09 (commit `a0a980f`)
 
 **Fuente de verdad:** las KB en `Documents/2026/SLS Soul Lens Studio/Productos Servicios Pricing SLS v2.0/SLS_Bases_de_Conocimiento_Agente_v1.0/`. **Todo en MXN.** No inventar ni mover precios sin actualizar la KB primero.
