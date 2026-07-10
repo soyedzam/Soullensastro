@@ -1,5 +1,5 @@
 # 🤝 PASE / HANDOFF — Soul Lens Studios Web (Astro)
-_Última actualización: 2026-07-07 · commit `56fc7fa` · 28 commits_
+_Última actualización: 2026-07-09 · dominio EN VIVO en soullensstudios.live_
 
 Documento de traspaso para otra sesión de Claude Code. Léelo completo antes de tocar nada.
 
@@ -138,15 +138,31 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 | DNS importado | ✅ 6 registros: A apex `148.135.128.243` + `147.79.120.148`, 2× AAAA, CNAME `www`→`cdn.hstgr.net`, A `ftp`→`213.190.5.244` |
 | `ftp` | ✅ Cambiado a **DNS only** (venía Proxied; el proxy es HTTP-only y habría roto FTP) |
 | Nameservers en Hostinger | ✅ Cambiados a `poppy.ns.cloudflare.com` / `rajeev.ns.cloudflare.com` |
-| Propagación en el registro `.live` | ⏳ **PENDIENTE** — sigue delegando a `ns1/ns2.dns-parking.com` |
-| Dominio en Cloudflare Pages | ❌ **Bloqueado**: Pages exige la zona **Active**; no se puede agregar hasta que propague |
+| Propagación en el registro `.live` | ✅ Propagó |
+| Custom domains en Pages (`soullensastro`) | ✅ apex + `www` activos; Cloudflare borró sola los A/AAAA/CNAME viejos |
+| Registros finales en la zona | ✅ 3: `CNAME @`→`soullensastro.pages.dev` (Proxied), `CNAME www`→ idem (Proxied), `A ftp`→`213.190.5.244` (DNS only) |
+| SSL | ✅ Emitido (Google Trust Services, hasta 2026-10-07) |
+| Redirect `www` → apex | ✅ Regla 301 con **preserve query string** (los UTM sobreviven → atribución de pauta intacta) |
+| `http://` → `https://` | ✅ 301 en apex y www |
+| Renovación automática en Hostinger | ✅ **Activada** |
 
-### Lo que falta (cuando la zona pase a Active)
-1. Cloudflare → **Workers & Pages → `soullensastro` → Custom domains** → agregar `soullensstudios.live` **y** `www.soullensstudios.live`.
-2. **Borrar los registros viejos de Hostinger** en la zona (A apex ×2, AAAA ×2, CNAME `www`) o el dominio seguirá sirviendo el sitio viejo. (`ftp` se puede dejar o borrar.)
-3. Verificar en vivo: `curl -sL https://soullensstudios.live` debe servir el sitio Astro, y SSL emitido.
+**🎉 EL SITIO ESTÁ EN VIVO EN https://soullensstudios.live** (13 páginas 200, URLs limpias, `.html`→limpia, 404 correcto, `/soul-lens.vcf` OK).
 
-> 📌 **Aparte:** en Hostinger, `soullensstudios.live` tiene **renovación automática DESACTIVADA** y **caduca 2026-09-02**. Revisar.
+### SEO / GEO / LLMO — hecho el 2026-07-09 (commit `e07a71b`)
+- `robots.txt`: agregado **ClaudeBot** (el crawler actual de Anthropic; `Claude-Web`/`anthropic-ai` son legacy), **OAI-SearchBot** (ChatGPT Search), **Google-Extended** (Gemini), **Applebot-Extended**, `Claude-SearchBot`, `Claude-User`, `Perplexity-User`, `DuckAssistBot`, `MistralAI-User`, `meta-externalfetcher`, `Bingbot`.
+- Quitado `Sitemap: /llms.txt` (llms.txt **no es un sitemap**; Search Console lo marcaría como error). Quitado `Crawl-delay: 1` (solo frenaba a Bing).
+- `sitemap.xml`: `lastmod` real en las 8 páginas modificadas.
+- Headers de seguridad ya venían en `public/_headers`: HSTS(preload), X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy.
+- `/llms.txt` ya existía y es muy bueno (servicios, precios, clientes, diferenciadores).
+
+### ⚠️ Pendiente que necesita decisión del cliente
+**Inconsistencia de precios:** `/llms.txt` publica precios en **MXN** (Soul Caps Voice $2,990–3,990 MXN) mientras el **JSON-LD** de las páginas publica **USD** (Voice $249 USD). Google y los LLMs leen ambos y se contradicen. Hay que unificar.
+
+### Pendiente para pautar
+- Verificar el dominio en **Meta Business** (pedir el código y meterlo como meta-tag en `BaseLayout.astro` → aplica a las 14 páginas).
+- Configurar **GA4 dentro de GTM** (`GTM-TLKNP8BJ` ya está puesto).
+- Dar de alta el sitio en **Google Search Console** + enviar `https://soullensstudios.live/sitemap.xml`.
+- (Opcional) Migrar a `@astrojs/sitemap` para que `lastmod` se genere solo y no se vuelva a quedar viejo.
 
 **El cliente estaba atorado buscando el botón "Add a site"** en Cloudflare (UI 2026). Rutas: `dash.cloudflare.com` → botón azul **`+ Add`** → "Existing/Connect a domain"; o **Workers & Pages → pestaña "Domains" → "Add existing domain"**; o **Websites → "Add a site"**.
 
