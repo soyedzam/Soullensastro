@@ -7,7 +7,7 @@ Documento de traspaso para otra sesión de Claude Code. Léelo completo antes de
 
 ## 1. QUÉ ES Y EN QUÉ VAMOS
 
-Migración del sitio **Soul Lens Studios** (productora audiovisual + IA, Mérida/LATAM) de un bundle HTML estático (`v4.1`) a un **proyecto Astro** desplegado en **Cloudflare Pages vía GitHub**. El sitio ya está **EN VIVO** y funcional; estamos puliéndolo con contenido real del cliente (videos, fotos, reseñas) y a punto de **conectar el dominio propio**.
+Migración del sitio **Soul Lens Studios** (productora audiovisual + IA, Mérida/LATAM) de un bundle HTML estático (`v4.1`) a un **proyecto Astro** desplegado en **Cloudflare Pages vía GitHub**. El sitio está **EN VIVO en su dominio propio** desde el 2026-07-09: **https://soullensstudios.live**. Se sigue puliendo con contenido real del cliente (videos, fotos, reseñas).
 
 **Estado:** production-ready. 14 páginas. Se itera por feedback del cliente (Ed/Val, fundadores).
 
@@ -19,8 +19,8 @@ Migración del sitio **Soul Lens Studios** (productora audiovisual + IA, Mérida
 |---|---|
 | **Proyecto (código)** | `/Users/soyedzam/Developer/sls-astro/` ← **carpeta LOCAL, no sincronizada** |
 | **Repo GitHub** | https://github.com/soyedzam/Soullensastro (branch `main`, **PÚBLICO**) |
-| **Sitio EN VIVO** | https://soullensastro.pages.dev |
-| **Dominio destino** | `soullensstudios.live` (en Hostinger, migración a Cloudflare pendiente) |
+| **Sitio EN VIVO** | **https://soullensstudios.live** ✅ (el `soullensastro.pages.dev` sigue activo como origen de Pages) |
+| **Dominio** | `soullensstudios.live` — registro en Hostinger, **DNS en Cloudflare** (NS `poppy`/`rajeev`). ⚠️ `soullens.live` es OTRO dominio (el del correo): **no tocar** |
 | **Respaldo zip** | `/Users/soyedzam/Developer/SLS-Web-Astro-Backup-<hash>.zip` |
 | **Bundle original v4.1** | `Documents/2026/SLS Soul Lens Studio/Web SLS Soul Lens/SLS-Ecosistema-Deploy-v4.1-FINAL.zip` |
 
