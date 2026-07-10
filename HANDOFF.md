@@ -1,5 +1,7 @@
 # 🤝 PASE / HANDOFF — Soul Lens Studios Web (Astro)
-_Última actualización: 2026-07-09 · dominio EN VIVO en soullensstudios.live_
+_Última actualización: 2026-07-09 · dominio EN VIVO · commit `0b18663` · 39 commits_
+
+> **Nota caché (2026-07-09):** si alguien reporta "veo el sitio viejo" en `soullensstudios.live`, es **caché del navegador/DNS del cliente**, NO el servidor. Verificado: el origen devuelve el sitio nuevo en 16/16 peticiones; pestaña nueva y limpia carga el sitio nuevo (9 Offers MXN, og-image.png, 0 USD, 0 service workers). Solución para el cliente: recarga forzada (⌘⇧R), incógnito, o flush DNS (`sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`).
 
 Documento de traspaso para otra sesión de Claude Code. Léelo completo antes de tocar nada.
 
