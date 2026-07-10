@@ -1,5 +1,5 @@
 # 🤝 PASE / HANDOFF — Soul Lens Studios Web (Astro)
-_Última actualización: 2026-07-09 · dominio EN VIVO · commit `0b18663` · 39 commits_
+_Última actualización: 2026-07-10 · dominio EN VIVO · commit `dd58d29` · 42 commits_
 
 > **Nota caché (2026-07-09):** si alguien reporta "veo el sitio viejo" en `soullensstudios.live`, es **caché del navegador/DNS del cliente**, NO el servidor. Verificado: el origen devuelve el sitio nuevo en 16/16 peticiones; pestaña nueva y limpia carga el sitio nuevo (9 Offers MXN, og-image.png, 0 USD, 0 service workers). Solución para el cliente: recarga forzada (⌘⇧R), incógnito, o flush DNS (`sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`).
 
@@ -94,6 +94,7 @@ Migración del sitio **Soul Lens Studios** (productora audiovisual + IA, Mérida
 cd ~/Developer/sls-astro
 npm run build                 # 14 páginas, debe salir limpio
 # editar en src/pages/*.astro y src/styles/pages/*.css
+npm run sitemap               # si tocaste páginas: regenera el lastmod del sitemap desde git
 git add -A && git commit -m "..." && git push origin main   # auto-deploy Cloudflare (~1-2 min)
 # verificar EN VIVO:
 curl -sL "https://soullensastro.pages.dev/<pagina-limpia>"
@@ -196,7 +197,7 @@ Antes había **tres sistemas contradictorios**: JSON-LD en USD (otro modelo de n
 - Verificar el dominio en **Meta Business** (pedir el código y meterlo como meta-tag en `BaseLayout.astro` → aplica a las 14 páginas).
 - Configurar **GA4 dentro de GTM** (`GTM-TLKNP8BJ` ya está puesto).
 - Dar de alta el sitio en **Google Search Console** + enviar `https://soullensstudios.live/sitemap.xml`.
-- (Opcional) Migrar a `@astrojs/sitemap` para que `lastmod` se genere solo y no se vuelva a quedar viejo.
+- ✅ **Sitemap automatizado** (2026-07-10, commit `dd58d29`): `npm run sitemap` → `scripts/gen-sitemap.mjs` regenera `public/sitemap.xml` con `lastmod` **real por página desde git** (fuentes: su `.astro` + su `.css` + SiteHeader/SiteFooter en las 6 interiores; BaseLayout excluido a propósito). Descubre páginas nuevas solo (defaults + warning). Se **descartó** `@astrojs/sitemap` (solo admite lastmod global = fecha de build para todas, señal falsa) y se quitó de `package.json` (dependencia muerta, nada la importaba). **Correrlo al tocar páginas, antes de commitear.** De paso corrigió 5 lastmod que se habían quedado en 06-29.
 
 **El cliente estaba atorado buscando el botón "Add a site"** en Cloudflare (UI 2026). Rutas: `dash.cloudflare.com` → botón azul **`+ Add`** → "Existing/Connect a domain"; o **Workers & Pages → pestaña "Domains" → "Add existing domain"**; o **Websites → "Add a site"**.
 
