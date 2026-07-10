@@ -1,5 +1,5 @@
 # 🤝 PASE / HANDOFF — Soul Lens Studios Web (Astro)
-_Última actualización: 2026-07-10 · dominio EN VIVO · commit `dd58d29` · 42 commits_
+_Última actualización: 2026-07-10 · dominio EN VIVO · commit `dd58d29` · 43 commits_
 
 > **Nota caché (2026-07-09):** si alguien reporta "veo el sitio viejo" en `soullensstudios.live`, es **caché del navegador/DNS del cliente**, NO el servidor. Verificado: el origen devuelve el sitio nuevo en 16/16 peticiones; pestaña nueva y limpia carga el sitio nuevo (9 Offers MXN, og-image.png, 0 USD, 0 service workers). Solución para el cliente: recarga forzada (⌘⇧R), incógnito, o flush DNS (`sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`).
 
@@ -45,7 +45,7 @@ Migración del sitio **Soul Lens Studios** (productora audiovisual + IA, Mérida
 
 ## 4. DATOS CLAVE / CREDENCIALES
 
-- **GTM:** `GTM-TLKNP8BJ` (contenedor único; configura GA4 DENTRO de GTM, no hardcodeado).
+- **GTM:** `GTM-TLKNP8BJ` (contenedor único). ✅ **GA4 ya vive DENTRO de GTM: `G-Y0PV6X70P3`** — verificado disparando en vivo el 2026-07-10 (`google_tag_manager` registra contenedor + G- en la carga; dataLayer completa `gtm.js→dom→load` + `scrollDepth`). NO hardcodear GA4 en el sitio.
 - **Meta Pixel:** `9289240721121438` (en BaseLayout: PageView + Contact en clics de WhatsApp). NO duplicar el pixel en GTM.
 - **Webhook GHL (form Pulse, form-data):** `https://services.leadconnectorhq.com/hooks/Pk7lx6MEDetFV7K5y2nD/webhook-trigger/dcec687b-bd8c-4d16-884e-ebb4bf18b260`
 - **Contacto:** WhatsApp `+52 1 56 4484 4928` · email **`hola@soullens.live`** (OJO: dominio del correo ≠ dominio del sitio `soullensstudios.live`).
@@ -113,7 +113,7 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 4. 📹 **Demos de Smart Pass**: se quitaron las tarjetas de video vacías; remontar cuando lleguen.
 5. 🎥 **VSL propio para `/hub`**: hoy usa `tZB-48eSRhI` (podcast de Marco) como stand-in; cambiar el `data-yt-id`.
 6. 🖼️ **Imágenes reales de casos** faltantes: tarjetas ◎ "Próximamente" en la 3ª tarjeta de soul-caps (Maova) y films (sin video). El cliente cambió las fotos "caricaturescas" de Kids (galería borrada) — puede mandar nuevas.
-7. 🧾 **Legal:** RFC pendiente (opcional). **GA4:** configurar dentro de GTM.
+7. 🧾 **Legal:** RFC pendiente (opcional). ✅ **GA4:** ya configurado dentro de GTM (`G-Y0PV6X70P3`, verificado en vivo 2026-07-10).
 8. 🔗 ✅ **`/hub` enlazada** discretamente desde la barra legal del footer (`… Términos · Hub`) en las 7 páginas de contenido (commit `4b58a35`) — ya no está huérfana. Nota: la idea previa de enlazar el texto "Hub Intelligence" → `/hub` se **descartó** (mismatch: "Hub Intelligence" es una línea de servicio "Próximamente", no la landing link-in-bio). ✅ **Fase 2 hecha:** header/footer de las 6 interiores componentizados (`SiteHeader`/`SiteFooter`, commit `00e3ab9`). Verificado: `dist` byte-idéntico antes/después en las 14 páginas (cero cambio de output). Editar nav/footer interior = ahora 1 archivo.
 
 > **Confirmado por el cliente (2026-07-07):** las reseñas del hub (**Marcela Ramírez**, **Jorge González**) y **todas** las marcas del carrusel del hub (Viceroy, Cipriani, Thompson, Wayil, Marena, Urbana, Grupo Copri, Etana) son **clientes reales** → NO volver a marcarlas como falsas ni removerlas. El único stand-in real del hub es el VSL (§8.5).
@@ -195,7 +195,7 @@ Antes había **tres sistemas contradictorios**: JSON-LD en USD (otro modelo de n
 
 ### Pendiente para pautar
 - Verificar el dominio en **Meta Business** (pedir el código y meterlo como meta-tag en `BaseLayout.astro` → aplica a las 14 páginas).
-- Configurar **GA4 dentro de GTM** (`GTM-TLKNP8BJ` ya está puesto).
+- ✅ **GA4 dentro de GTM: hecho** (`G-Y0PV6X70P3` en el contenedor publicado y disparando en vivo; verificado 2026-07-10 leyendo `gtm.js` y `window.google_tag_manager` en la página. El pixel de Meta NO está duplicado en GTM: 0 menciones en el contenedor).
 - Dar de alta el sitio en **Google Search Console** + enviar `https://soullensstudios.live/sitemap.xml`.
 - ✅ **Sitemap automatizado** (2026-07-10, commit `dd58d29`): `npm run sitemap` → `scripts/gen-sitemap.mjs` regenera `public/sitemap.xml` con `lastmod` **real por página desde git** (fuentes: su `.astro` + su `.css` + SiteHeader/SiteFooter en las 6 interiores; BaseLayout excluido a propósito). Descubre páginas nuevas solo (defaults + warning). Se **descartó** `@astrojs/sitemap` (solo admite lastmod global = fecha de build para todas, señal falsa) y se quitó de `package.json` (dependencia muerta, nada la importaba). **Correrlo al tocar páginas, antes de commitear.** De paso corrigió 5 lastmod que se habían quedado en 06-29.
 
