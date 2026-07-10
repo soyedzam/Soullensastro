@@ -173,7 +173,8 @@ Antes había **tres sistemas contradictorios**: JSON-LD en USD (otro modelo de n
 **Bugs corregidos de paso:**
 - Los paquetes Authority de Soul Caps estaban en **dólares legacy** (`$1,857→$1,749`, "ahorras $108"). Nunca se migraron.
 - Los "Antes" de los packs (Soul Caps y Spots) no cuadraban con sus propios tiers. Recalculados.
-- ⚠️ **La KB de Soul Caps tiene un error aritmético:** su columna "Antes" ($37,140) sale de multiplicar **$12,380**, no de los **$12,490** que ella misma publica como precio de tier. Igual en 30 min ($41,940 = 3×$13,980). Los precios *finales* de paquete son correctos. **Conviene corregir la KB.**
+- ✅ **La KB de Soul Caps tenía un error aritmético** (columna "Antes" = $37,140 = 3×$12,380, cuando el tier publicado es $12,490). **Ya se corrigió el archivo de la KB** (`SLS_KB_SoulCaps_v1.0.md`): Antes = $37,470 / $74,940 / $41,970 / $83,940 y Ahorras = $2,480 / $7,350 / $2,580 / $7,550. Los precios *finales* de paquete no cambiaron.
+- ⚠️ **Observación de negocio (NO tocada):** el Campaign Pack de Spots da **22.1 % de descuento en Voice** contra **16.6 % en Presence y Authority** — el nivel de entrada regala más que los superiores, lo que desincentiva subir de tier. Igualarlo implicaría subir Voice de $6,990 a ~$7,490. **Decisión del cliente.**
 - `llms.txt` afirmaba **"o devolución de inversión"** en la garantía. Las KB dicen explícitamente que es garantía de **calidad y correcciones, NO de resultados**. Corregido (era riesgo legal/comercial).
 - `llms.txt` usaba URLs `.html` (que dan 308). Ahora limpias, y agregado `/hub`.
 - `terminos`: los servicios se cotizan en **MXN**.
