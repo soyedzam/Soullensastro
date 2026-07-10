@@ -155,8 +155,31 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 - Headers de seguridad ya venían en `public/_headers`: HSTS(preload), X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy.
 - `/llms.txt` ya existía y es muy bueno (servicios, precios, clientes, diferenciadores).
 
+### 💰 PRICING UNIFICADO — 2026-07-09 (commit `a0a980f`)
+
+**Fuente de verdad:** las KB en `Documents/2026/SLS Soul Lens Studio/Productos Servicios Pricing SLS v2.0/SLS_Bases_de_Conocimiento_Agente_v1.0/`. **Todo en MXN.** No inventar ni mover precios sin actualizar la KB primero.
+
+Antes había **tres sistemas contradictorios**: JSON-LD en USD (otro modelo de negocio), HTML visible en MXN con charm `-800/-980/-380`, y `llms.txt` en MXN con cifras distintas a ambos. Ya está todo alineado a la KB y verificado en vivo (cero "USD" en el sitio).
+
+| Producto | Canon (MXN) |
+|---|---|
+| Soul Caps | Voice desde $2,990 · Presence desde $4,590 · Authority desde $12,490 |
+| Paquetes Authority | 3ep15 $34,990 · 6ep15 $67,590 · 3ep30 $39,390 · 6ep30 $76,390 |
+| Films de Marca | $17,990 · $29,990 · $49,990 |
+| Spots IA | $2,990 · $5,990 · $11,990 · Influencer IA $3,790 · Gemelo IA $7,790 |
+| Smart Pass | $3,990+$399/m · $5,990+$599/m · $9,990+$999/m (anual = 10× mensual) |
+| Soul Story Kids | $999 · $1,999 · $2,999 · Pass $799 y $1,749/mes · escuelas $799/$749/$599 |
+
+**Bugs corregidos de paso:**
+- Los paquetes Authority de Soul Caps estaban en **dólares legacy** (`$1,857→$1,749`, "ahorras $108"). Nunca se migraron.
+- Los "Antes" de los packs (Soul Caps y Spots) no cuadraban con sus propios tiers. Recalculados.
+- ⚠️ **La KB de Soul Caps tiene un error aritmético:** su columna "Antes" ($37,140) sale de multiplicar **$12,380**, no de los **$12,490** que ella misma publica como precio de tier. Igual en 30 min ($41,940 = 3×$13,980). Los precios *finales* de paquete son correctos. **Conviene corregir la KB.**
+- `llms.txt` afirmaba **"o devolución de inversión"** en la garantía. Las KB dicen explícitamente que es garantía de **calidad y correcciones, NO de resultados**. Corregido (era riesgo legal/comercial).
+- `llms.txt` usaba URLs `.html` (que dan 308). Ahora limpias, y agregado `/hub`.
+- `terminos`: los servicios se cotizan en **MXN**.
+
 ### ⚠️ Pendiente que necesita decisión del cliente
-**Inconsistencia de precios:** `/llms.txt` publica precios en **MXN** (Soul Caps Voice $2,990–3,990 MXN) mientras el **JSON-LD** de las páginas publica **USD** (Voice $249 USD). Google y los LLMs leen ambos y se contradicen. Hay que unificar.
+**Faltan KB (y por tanto precios) de:** **Soul Stage**, **Lanzamiento Total**, y los items legacy de Soul Caps (**Episodio Piloto**, **Plan Mensual**, **Series 20% off**) que estaban en el JSON-LD en USD. Se **retiraron sus cifras** del schema en vez de publicar precios sin respaldo (regla de oro de las KB: *nunca inventar precio*). Cuando el cliente dé los precios en MXN, se reponen en el JSON-LD del home y en `llms.txt`.
 
 ### Pendiente para pautar
 - Verificar el dominio en **Meta Business** (pedir el código y meterlo como meta-tag en `BaseLayout.astro` → aplica a las 14 páginas).
