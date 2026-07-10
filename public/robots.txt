@@ -1,49 +1,104 @@
 # Soul Lens Studios — robots.txt
-# GEO/LLMO/AEO strategy: AI crawlers explicitly permitted
+# Estrategia GEO / LLMO / AEO / AIO: los crawlers de IA están explícitamente permitidos.
+# Queremos ser encontrados, citados y recomendados por buscadores y asistentes de IA.
 
-# Standard crawlers
+# ---------------------------------------------------------------------------
+# Crawlers estándar
+# ---------------------------------------------------------------------------
 User-agent: *
 Allow: /
-Crawl-delay: 1
 
-# Google
+# Buscadores
 User-agent: Googlebot
 Allow: /
-User-agent: Googlebot-Image
-Allow: /img/
 
-# AI / LLM crawlers — explicitly allowed (GEO/LLMO/AEO strategy)
-User-agent: GPTBot
+User-agent: Googlebot-Image
 Allow: /
-User-agent: ChatGPT-User
+
+User-agent: Bingbot
 Allow: /
-User-agent: Claude-Web
-Allow: /
-User-agent: anthropic-ai
-Allow: /
-User-agent: PerplexityBot
-Allow: /
-User-agent: cohere-ai
-Allow: /
-User-agent: YouBot
-Allow: /
-User-agent: CCBot
-Allow: /
-User-agent: meta-externalagent
-Allow: /
-User-agent: Amazonbot
-Allow: /
-User-agent: FacebookBot
-Allow: /
+
 User-agent: Applebot
 Allow: /
+
+# ---------------------------------------------------------------------------
+# Crawlers de IA — entrenamiento (GEO / LLMO)
+# ---------------------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 User-agent: Bytespider
 Allow: /
+
+# ---------------------------------------------------------------------------
+# Crawlers de IA — búsqueda y respuestas en vivo (AEO / AIO)
+# Estos son los que deciden si apareces citado en ChatGPT, Claude, Perplexity…
+# ---------------------------------------------------------------------------
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: meta-externalfetcher
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Herramientas SEO
+# ---------------------------------------------------------------------------
 User-agent: DataForSeoBot
 Allow: /
 
-# Block only sensitive paths (none in this static site)
-# Disallow: /admin/
-
+# ---------------------------------------------------------------------------
+# Sitemap (solo sitemaps XML válidos van en esta directiva)
+# Resumen legible por LLMs disponible en: https://soullensstudios.live/llms.txt
+# ---------------------------------------------------------------------------
 Sitemap: https://soullensstudios.live/sitemap.xml
-Sitemap: https://soullensstudios.live/llms.txt
