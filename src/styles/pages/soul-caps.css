@@ -433,3 +433,12 @@ a{color:var(--accent-text)}
 .caso2 .caso-media.video-wrap{border:0;border-radius:0;cursor:pointer;background-size:cover;background-position:center}
 .caso2 .caso-media.video-wrap .play{width:60px;height:60px}
 .caso2 .caso-media.video-wrap .play::after{border-left:15px solid #fff;border-block:9px solid transparent}
+
+/* ---------- menú móvil (fix: la clase .open del burger no tenía regla) ---------- */
+@media(max-width:1080px){
+  .nav-links.open{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;
+    background:var(--tinta,#0A0A0B);border-bottom:1px solid var(--linea);
+    padding:4px var(--mx) 12px;z-index:80;max-height:calc(100vh - 68px);overflow-y:auto}
+  .nav-links.open a{display:block;padding:14px 0;border-bottom:1px solid var(--linea-2);font-size:13px}
+  .nav-links.open a:last-child{border-bottom:0}
+}

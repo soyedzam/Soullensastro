@@ -601,3 +601,12 @@ a.svc-item:hover .svc-cta{transform:translateX(4px)}
 
 /* El trabajo habla solo — las 3 tarjetas en 16:9 con portada real */
 .vids-grid .vid-card:first-child,.vids-grid .vid-card:nth-child(2),.vids-grid .vid-card:last-child{aspect-ratio:16/9}
+
+/* ---------- menú móvil (fix: la clase .open del burger no tenía regla) ---------- */
+@media(max-width:1080px){
+  .nav-links.open{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;
+    background:var(--tinta,#0A0A0B);border-bottom:1px solid var(--linea);
+    padding:4px var(--mx) 12px;z-index:80;max-height:calc(100vh - 68px);overflow-y:auto}
+  .nav-links.open a{display:block;padding:14px 0;border-bottom:1px solid var(--linea-2);font-size:13px}
+  .nav-links.open a:last-child{border-bottom:0}
+}

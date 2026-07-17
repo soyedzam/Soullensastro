@@ -18,5 +18,5 @@ const links = [
 <a href="/" class="brand" aria-label="Soul Lens Studios — inicio">soul<span class="lens">lens</span><span class="st">studios</span></a>
 <nav class="nav-links" aria-label="Líneas de solución">{links.map((l) => (<a href={l.href} aria-current={l.key === current ? 'page' : undefined}><span class="num">{l.num}</span>{l.label}</a>))}</nav>
 <a class="nav-cta" href="https://wa.me/5215644844928?text=Hola%20Soul%20Lens%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico." target="_blank" rel="noopener">Agendar</a>
-<button class="burger" aria-label="Abrir menú" onclick="document.getElementById('precios').scrollIntoView({behavior:'smooth'})">≡</button>
+<button class="burger" aria-label="Abrir menú" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">≡</button>
 </div></header>
