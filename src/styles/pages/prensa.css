@@ -5,14 +5,14 @@
   --negro:#0A0A0B;
   --panel:#0F0F12;
   --panel-2:#141418;
-  --azul:#0052FE;
-  --azul-soft:rgba(0,82,254,.12);
+  --azul:#0653FF;
+  --azul-soft:rgba(6,83,255,.12);
   --blanco:#FFFFFF;
   --gris:#8C8C97;
   --gris-2:#5C5C66;
   --linea:rgba(255,255,255,.09);
   --linea-fuerte:rgba(255,255,255,.16);
-  --ok:#0F9D58;
+  --ok:#00E676;
   --r:4px;
   --max:1120px;
   --display:'Space Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
@@ -172,10 +172,26 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;line-height:1.15}
 .uso-card{border:1px solid var(--linea);border-radius:var(--r);padding:24px;background:var(--panel)}
 .uso-card h3{font-size:13px;font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;font-weight:500}
 .uso-si h3{color:var(--ok)}
-.uso-no h3{color:#FF5152}
+.uso-no h3{color:#FF5252}
 .uso-card ul{margin-top:16px;list-style:none;display:grid;gap:11px}
 .uso-card li{font-size:14.5px;color:var(--gris);padding-left:18px;position:relative;line-height:1.55}
 .uso-card li::before{content:"—";position:absolute;left:0;color:var(--gris-2)}
+
+/* ---------- LOGOS ---------- */
+.logos{margin-top:38px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:720px){.logos{grid-template-columns:1fr}}
+.logo-card{border:1px solid var(--linea);border-radius:var(--r);overflow:hidden}
+.logo-card img{width:100%;height:auto;padding:34px 30px;object-fit:contain}
+.logo-claro{background:#F2F3F5}
+.logo-oscuro{background:var(--panel-2)}
+.logo-card{display:flex;flex-direction:column}
+.logo-card img{flex:1}
+.logo-card figcaption{
+  padding:12px 15px;border-top:1px solid var(--linea);background:var(--panel);
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blanco);
+}
+.logo-card figcaption span{display:block;margin-top:5px;color:var(--gris-2);letter-spacing:.06em;text-transform:none}
 
 /* ---------- PALETA ---------- */
 .paleta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}

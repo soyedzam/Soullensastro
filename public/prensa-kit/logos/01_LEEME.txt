@@ -1,0 +1,46 @@
+SLS · SOUL LENS STUDIOS — PACK DE LOGOTIPOS
+===========================================
+Última actualización: julio 2026
+Contacto: hola@soullens.live · soullensstudios.live/prensa
+
+CONTENIDO
+---------
+SLS_logo_electrico.png   Logotipo en Azul Eléctrico (#0653FF). Fondos claros y neutros.
+SLS_logo_negro.png       Logotipo en negro. Fondos claros.
+SLS_logo_blanco.png      Logotipo en blanco. Fondos oscuros.
+
+Los tres archivos son PNG de 4500 × 4500 px con fondo transparente.
+
+USO CORRECTO
+------------
+- Usar el logotipo completo con el descriptor «studios» para uso institucional y general.
+- Usar la versión reducida, sin descriptor, en espacios donde la legibilidad se
+  compromete (thumbnails, favicons, móvil). Solicítala a hola@soullens.live.
+- Respetar la zona de protección: un margen libre en los cuatro lados equivalente
+  a la altura de la letra «o» de «soul» (unidad X).
+- Tamaños mínimos — digital: 120 px de ancho (logotipo completo), 100 px (versión
+  reducida). Impreso: 25 mm (completo), 18 mm (reducida).
+- Escribir el nombre completo en la primera mención —SLS · Soul Lens Studios— y
+  «Soul Lens» en las siguientes.
+
+USO INCORRECTO
+--------------
+- Aplicar sombras, contornos o efectos.
+- Estirar, comprimir o alterar sus proporciones.
+- Recolorearlo fuera de la paleta institucional.
+- Colocarlo sobre fondos sin contraste suficiente.
+- Introducir textos, íconos u otros logos dentro de la zona de protección.
+
+PALETA INSTITUCIONAL
+--------------------
+Eléctrico      #0653FF
+Negro UX/UI    #121212
+Flow           #448AFF
+Verde          #00E676
+Coral          #FF5252
+Púrpura        #7C4DFF
+
+CRÉDITO
+-------
+Uso editorial libre, con crédito: «Soul Lens Studios».
+Ante cualquier duda de uso o de dato, escribir a hola@soullens.live antes de publicar.
