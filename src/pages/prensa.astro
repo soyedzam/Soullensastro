@@ -1,0 +1,514 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/pages/prensa.css';
+
+// JSON-LD — Organization usa el MISMO @id (#org) que el Home para que los
+// motores fusionen las propiedades en una sola entidad, no dos en conflicto.
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://soullensstudios.live/#org',
+  name: 'Soul Lens Studios',
+  alternateName: 'SLS · Soul Lens Studios',
+  url: 'https://soullensstudios.live/',
+  logo: 'https://soullensstudios.live/icon-512.png',
+  description: 'Estudio creativo mexicano que integra tecnología, storytelling y diseño audiovisual para producir contenido que conecta, inspira y transforma.',
+  email: 'hola@soullens.live',
+  telephone: '+52-1-56-4484-4928',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Mérida',
+    addressRegion: 'Yucatán',
+    addressCountry: 'MX',
+  },
+  areaServed: ['MX', 'US', 'LATAM'],
+  founder: [
+    { '@type': 'Person', name: 'Val Mosquera', jobTitle: 'Fundadora' },
+    { '@type': 'Person', name: 'Ed Zam', jobTitle: 'Co-Fundador' },
+  ],
+  parentOrganization: { '@type': 'Organization', name: 'Xplorers Startups', url: 'https://xplorerstartups.ai' },
+  sameAs: [
+    'https://www.instagram.com/soullensstudios',
+    'https://www.tiktok.com/@soullensstudios',
+    'https://www.facebook.com/soullensstudios',
+    'https://www.youtube.com/@soullensstudios',
+  ],
+  slogan: 'No producimos contenido. Construimos la razón por la que te eligen.',
+  knowsAbout: ['producción audiovisual', 'inteligencia artificial aplicada', 'arquitectura de marca', 'podcasts de marca', 'marketing'],
+  brand: [
+    { '@type': 'Brand', name: 'Soul Caps' },
+    { '@type': 'Brand', name: 'Films de Marca' },
+    { '@type': 'Brand', name: 'Spots IA' },
+    { '@type': 'Brand', name: 'Smart Pass' },
+    { '@type': 'Brand', name: 'Soul Story Kids' },
+  ],
+  contactPoint: [{
+    '@type': 'ContactPoint',
+    contactType: 'media relations',
+    email: 'hola@soullens.live',
+    telephone: '+52-1-56-4484-4928',
+    availableLanguage: ['es', 'en'],
+  }],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: '¿Qué es Soul Lens Studios?', acceptedAnswer: { '@type': 'Answer', text: 'SLS · Soul Lens Studios es un estudio creativo mexicano con base en Mérida, Yucatán, que integra tecnología, storytelling y diseño audiovisual para real estate, hospitalidad, marcas personales y negocios en expansión, con proyectos en México, Estados Unidos y Latinoamérica.' } },
+    { '@type': 'Question', name: '¿Quiénes fundaron Soul Lens Studios?', acceptedAnswer: { '@type': 'Answer', text: 'Val Mosquera, Fundadora, y Ed Zam, Co-Fundador. El estudio opera bajo Xplorers Startups.' } },
+    { '@type': 'Question', name: '¿Dónde opera Soul Lens Studios?', acceptedAnswer: { '@type': 'Answer', text: 'Su base operativa está en Mérida, Yucatán, México, con proyectos en Ciudad de México, Miami y el resto de Latinoamérica.' } },
+    { '@type': 'Question', name: '¿Qué produce Soul Lens Studios?', acceptedAnswer: { '@type': 'Answer', text: 'Cinco líneas activas: Soul Caps (podcasts de marca), Films de Marca (piezas audiovisuales narrativas), Spots IA (comerciales producidos con inteligencia artificial), Smart Pass (tarjeta digital profesional con NFC) y Soul Story Kids (cuentos personalizados). El portafolio completo comprende doce líneas bajo una misma arquitectura.' } },
+    { '@type': 'Question', name: '¿Qué compromiso social tiene Soul Lens Studios?', acceptedAnswer: { '@type': 'Answer', text: 'El estudio destina el 11% de sus ingresos a causas sociales, ayuda comunitaria y formación de líderes; desarrolla El Arca, su plataforma de impacto social, y es responsable del marketing nacional de la Cumbre Global de Liderazgo en México.' } },
+  ],
+};
+
+const MAIL = 'hola@soullens.live';
+---
+<BaseLayout
+  title={"Sala de Prensa · Soul Lens Studios · Mérida, Yucatán"}
+  description={"Sala de prensa de Soul Lens Studios: boilerplate oficial ES/EN, ficha técnica, líneas de producto, compromiso social, logotipos, fotografías en alta resolución y contacto para medios. Mérida · Yucatán · LATAM."}
+  canonical={"https://soullensstudios.live/prensa"}
+  ogImage={"https://soullensstudios.live/og-image.png"}
+  ogType={"website"}
+  themeColor={"#0A0A0B"}
+  robots={"index,follow,max-image-preview:large"}>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(orgSchema)}></script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)}></script>
+  </Fragment>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/">soul<span>lens</span></a>
+    <div class="nav-links">
+      <a href="/soul-caps">Soul Caps</a>
+      <a href="/films-de-marca">Films</a>
+      <a href="/spots-ia">Spots IA</a>
+      <a href="/smart-pass">Smart Pass</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/prensa" style="color:#fff" aria-current="page">Prensa</a>
+    </div>
+    <a class="nav-cta" href={`mailto:${MAIL}?subject=Prensa%20·%20Soul%20Lens%20Studios`}>Contacto de prensa</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Sala de prensa · Soul Lens Studios</div>
+    <h1>Todo lo que un medio necesita, en un solo lugar.</h1>
+    <p>Boilerplate oficial en español e inglés, logotipos, fotografías en alta resolución y ficha técnica verificable. Material de uso libre para cobertura editorial, con crédito.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href={`mailto:${MAIL}?subject=Solicitud%20de%20Press%20Kit%20·%20Soul%20Lens%20Studios`}>✉ Solicitar Press Kit completo</a>
+      <a class="btn btn-ghost" href="#boilerplate">Ir al boilerplate</a>
+    </div>
+    <p class="hero-note">Logotipos, fotografías en alta, boilerplate ES/EN y ficha técnica · Se envía por correo en menos de 24 h hábiles · Última actualización: Q2 2026</p>
+  </div>
+</header>
+
+<!-- FICHA -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Ficha técnica</div>
+    <h2>Los datos, sin adornos.</h2>
+    <p class="sec-lead">Información verificable para redacción. Si un dato no aparece aquí, escríbenos antes de publicarlo.</p>
+
+    <div class="ficha">
+      <div class="ficha-row"><div class="ficha-k">Nombre oficial</div><div class="ficha-v">SLS · Soul Lens Studios</div></div>
+      <div class="ficha-row"><div class="ficha-k">Nombre corto</div><div class="ficha-v">Soul Lens</div></div>
+      <div class="ficha-row"><div class="ficha-k">Categoría</div><div class="ficha-v">Estudio creativo · Producción audiovisual, IA aplicada y arquitectura de marca</div></div>
+      <div class="ficha-row"><div class="ficha-k">Base operativa</div><div class="ficha-v">Mérida, Yucatán, México</div></div>
+      <div class="ficha-row"><div class="ficha-k">Mercados activos</div><div class="ficha-v">Yucatán · Ciudad de México · Miami · LATAM</div></div>
+      <div class="ficha-row"><div class="ficha-k">Fundadores</div><div class="ficha-v">Val Mosquera, Fundadora · Ed Zam, Co-Fundador</div></div>
+      <div class="ficha-row"><div class="ficha-k">Grupo</div><div class="ficha-v">Opera bajo Xplorers Startups</div></div>
+      <div class="ficha-row"><div class="ficha-k">Sectores atendidos</div><div class="ficha-v">Real estate · Hospitalidad · Marcas personales · Negocios en expansión</div></div>
+      <div class="ficha-row"><div class="ficha-k">Sitio oficial</div><div class="ficha-v"><a href="/" style="border-bottom:1px solid var(--linea-fuerte)">soullensstudios.live</a></div></div>
+      <div class="ficha-row"><div class="ficha-k">Contacto de prensa</div><div class="ficha-v"><a href={`mailto:${MAIL}`} style="border-bottom:1px solid var(--linea-fuerte)">{MAIL}</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOILERPLATE -->
+<section class="sec" id="boilerplate">
+  <div class="wrap">
+    <div class="eyebrow">Boilerplate oficial</div>
+    <h2>Copia. Pega. Publica.</h2>
+    <p class="sec-lead">Texto aprobado por el estudio. Puede usarse tal cual, sin solicitar permiso. Cada bloque se copia con un clic.</p>
+
+    <div class="copyblock">
+      <div class="cb-head">
+        <div class="cb-title"><b>Crédito de una línea</b> · pie de foto</div>
+        <button class="cb-btn" data-copy="cb1">Copiar</button>
+      </div>
+      <div class="cb-body" id="cb1">Producción: SLS · Soul Lens Studios — Mérida, Yucatán · soullensstudios.live</div>
+    </div>
+
+    <div class="copyblock">
+      <div class="cb-head">
+        <div class="cb-title"><b>Ficha de producción</b> · créditos</div>
+        <button class="cb-btn" data-copy="cb2">Copiar</button>
+      </div>
+      <div class="cb-body" id="cb2">Estudio: SLS · Soul Lens Studios
+Fundadores: Val Mosquera, Fundadora · Ed Zam, Co-Fundador
+Origen: Mérida, Yucatán, México
+Web: soullensstudios.live</div>
+    </div>
+
+    <div class="copyblock">
+      <div class="cb-head">
+        <div class="cb-title"><b>Boilerplate corto</b> · ES · 48 palabras</div>
+        <button class="cb-btn" data-copy="cb3">Copiar</button>
+      </div>
+      <div class="cb-body" id="cb3">SLS · Soul Lens Studios es un estudio creativo con base en Mérida, Yucatán, que integra tecnología, storytelling y diseño audiovisual para marcas de real estate, hospitalidad y negocios en expansión en México, Estados Unidos y Latinoamérica. Fue fundado por Val Mosquera y Ed Zam. soullensstudios.live</div>
+    </div>
+
+    <div class="copyblock">
+      <div class="cb-head">
+        <div class="cb-title"><b>Boilerplate largo</b> · ES · cierre de boletín</div>
+        <button class="cb-btn" data-copy="cb4">Copiar</button>
+      </div>
+      <div class="cb-body" id="cb4">Acerca de SLS · Soul Lens Studios
+
+SLS · Soul Lens Studios es un estudio creativo mexicano que integra tecnología, storytelling y diseño audiovisual para producir contenido que conecta, inspira y transforma.
+
+Con base en Mérida, Yucatán, el estudio desarrolla producción audiovisual y arquitectura de marca para real estate, hospitalidad, marcas personales y negocios en expansión, con proyectos en Yucatán, Ciudad de México, Miami y el resto de Latinoamérica.
+
+SLS fue fundado por Val Mosquera y Ed Zam, y opera bajo Xplorers Startups. El estudio destina el 11% de sus ingresos a causas sociales y a la formación de líderes.
+
+soullensstudios.live</div>
+    </div>
+
+    <div class="copyblock">
+      <div class="cb-head">
+        <div class="cb-title"><b>Boilerplate</b> · EN · medios bilingües</div>
+        <button class="cb-btn" data-copy="cb5">Copiar</button>
+      </div>
+      <div class="cb-body" id="cb5">About SLS · Soul Lens Studios
+
+SLS · Soul Lens Studios is a Mexican creative studio that brings together technology, storytelling and audiovisual design to produce content that connects, inspires and transforms.
+
+Based in Mérida, Yucatán, the studio develops audiovisual production and brand architecture for real estate, hospitality, personal brands and growing businesses, with projects across Yucatán, Mexico City, Miami and Latin America.
+
+SLS was founded by Val Mosquera and Ed Zam, and operates under Xplorers Startups. The studio allocates 11% of its revenue to social causes and leadership training.
+
+soullensstudios.live</div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDADORES -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Fundadores</div>
+    <h2>Quién habla por el estudio.</h2>
+    <p class="sec-lead">Fotografías disponibles en alta resolución dentro del Press Kit. Uso editorial libre, con crédito al estudio.</p>
+
+    <div class="funds">
+      <article class="fund">
+        <img src="/img/val-mosquera-fundadora-soul-lens-studios.webp" alt="Val Mosquera, Fundadora de Soul Lens Studios." loading="lazy" width="800" height="1000">
+        <div class="fund-body">
+          <div class="fund-name">Val Mosquera</div>
+          <div class="fund-role">Fundadora</div>
+          <a class="fund-dl" href={`mailto:${MAIL}?subject=Solicitud%20de%20retrato%20en%20alta%20·%20Val%20Mosquera`}>✉ Solicitar retrato en alta</a>
+        </div>
+      </article>
+      <article class="fund">
+        <img src="/img/ed-zam-director-soul-lens-studios-merida.webp" alt="Ed Zam, Co-Fundador de Soul Lens Studios." loading="lazy" width="800" height="1000">
+        <div class="fund-body">
+          <div class="fund-name">Ed Zam</div>
+          <div class="fund-role">Co-Fundador</div>
+          <a class="fund-dl" href={`mailto:${MAIL}?subject=Solicitud%20de%20retrato%20en%20alta%20·%20Ed%20Zam`}>✉ Solicitar retrato en alta</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HECHOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Hechos verificables</div>
+    <h2>Datos que puedes citar.</h2>
+    <p class="sec-lead">Cifras públicas y verificables al corte de julio de 2026.</p>
+
+    <div class="hechos">
+      <div class="hecho"><div class="hecho-n">5.0★</div><div class="hecho-l">22 reseñas verificadas en Google</div></div>
+      <div class="hecho"><div class="hecho-n">1,200</div><div class="hecho-l">Asistentes cubiertos como productora oficial del 8° Foro AMPI Mérida Siglo&nbsp;XXI</div></div>
+      <div class="hecho"><div class="hecho-n">3</div><div class="hecho-l">Mercados activos: Yucatán, CDMX y Miami</div></div>
+      <div class="hecho"><div class="hecho-n">2</div><div class="hecho-l">Países de operación: México y Estados Unidos</div></div>
+    </div>
+
+    <div class="copyblock">
+      <div class="cb-head">
+        <div class="cb-title"><b>Marcas que han trabajado con Soul Lens</b></div>
+        <button class="cb-btn" data-copy="cb6">Copiar</button>
+      </div>
+      <div class="cb-body" id="cb6">Viceroy · Cipriani · Thompson · Wayil · Marena · Urbana · Grupo Copri · Etana · Distum · Grupo Antham · Chihuahua Startups</div>
+    </div>
+  </div>
+</section>
+
+<!-- LINEAS DE PRODUCTO -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Líneas de producto</div>
+    <h2>Qué produce el estudio.</h2>
+    <p class="sec-lead">Cinco líneas activas dentro de una arquitectura de doce. Cada una resuelve un problema distinto de presencia de marca. La numeración corresponde al sistema oficial del estudio.</p>
+
+    <div class="lineas">
+      <article class="linea">
+        <div class="linea-num">01 · VOZ</div>
+        <div class="linea-name">Soul Caps</div>
+        <div class="linea-desc">Producción de podcasts de marca que posicionan a especialistas y negocios como referentes de su industria.</div>
+      </article>
+      <article class="linea">
+        <div class="linea-num">02 · AUDIOVISUAL</div>
+        <div class="linea-name">Films de Marca</div>
+        <div class="linea-desc">Piezas audiovisuales narrativas para marcas, real estate y hospitalidad.</div>
+      </article>
+      <article class="linea">
+        <div class="linea-num">03 · IA APLICADA</div>
+        <div class="linea-name">Spots IA</div>
+        <div class="linea-desc">Comerciales producidos con inteligencia artificial, listos para pauta digital.</div>
+      </article>
+      <article class="linea">
+        <div class="linea-num">09 · PRESENCIA</div>
+        <div class="linea-name">Smart Pass</div>
+        <div class="linea-desc">Tarjeta digital profesional con tecnología NFC para networking y presencia comercial.</div>
+      </article>
+      <article class="linea">
+        <div class="linea-num">12 · FAMILIAS</div>
+        <div class="linea-name">Soul Story Kids</div>
+        <div class="linea-desc">Cuentos personalizados donde cada niño es el protagonista de su propia historia.</div>
+      </article>
+    </div>
+
+    <p class="prox">Próximamente: Live Experience · Soul Stage · Soul Brand · Soul Engine · Hub Intelligence · Soul Team Pack · Proyectos integrales</p>
+
+    <div class="copyblock">
+      <div class="cb-head">
+        <div class="cb-title"><b>Descripción de portafolio</b> · para redacción</div>
+        <button class="cb-btn" data-copy="cb7">Copiar</button>
+      </div>
+      <div class="cb-body" id="cb7">Soul Lens Studios opera cinco líneas de producto activas: Soul Caps (podcasts de marca), Films de Marca (piezas audiovisuales narrativas), Spots IA (comerciales producidos con inteligencia artificial), Smart Pass (tarjeta digital profesional con NFC) y Soul Story Kids (cuentos personalizados para niños). El portafolio completo comprende doce líneas bajo una misma arquitectura de presencia de marca.</div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACTO -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Impacto y alianzas</div>
+    <h2>Lo que el estudio devuelve.</h2>
+    <p class="sec-lead">Compromisos públicos del estudio más allá de la producción comercial.</p>
+
+    <div class="imp">
+      <div class="imp-card">
+        <div class="imp-t">Cumbre Global de Liderazgo</div>
+        <div class="imp-x">Soul Lens es responsable del marketing nacional de la Cumbre Global de Liderazgo en México.</div>
+      </div>
+      <div class="imp-card">
+        <div class="imp-t">El Arca · Plataforma social</div>
+        <div class="imp-x">El estudio desarrolla El Arca, su plataforma de impacto social sin fines de lucro.</div>
+      </div>
+      <div class="imp-card">
+        <div class="imp-t">11% con causa</div>
+        <div class="imp-x">El 11% de los ingresos del estudio se destina a causas sociales, ayuda comunitaria y formación de líderes.</div>
+      </div>
+    </div>
+
+    <div class="copyblock">
+      <div class="cb-head">
+        <div class="cb-title"><b>Compromiso social</b> · para redacción</div>
+        <button class="cb-btn" data-copy="cb8">Copiar</button>
+      </div>
+      <div class="cb-body" id="cb8">Soul Lens Studios destina el 11% de sus ingresos a causas sociales, ayuda comunitaria y formación de líderes. El estudio desarrolla El Arca, su plataforma de impacto social, y es responsable del marketing nacional de la Cumbre Global de Liderazgo en México.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RECURSOS VISUALES -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Recursos visuales</div>
+    <h2>Imágenes listas para publicar.</h2>
+    <p class="sec-lead">Todas las versiones en alta resolución vienen dentro del Press Kit. Crédito obligatorio: Soul Lens Studios.</p>
+
+    <div class="recursos">
+      <figure class="rec">
+        <img src="/img/equipo-crew-completo-soul-lens-studios-merida.webp" alt="Equipo completo de Soul Lens Studios en Mérida, Yucatán." loading="lazy" width="800" height="500">
+        <figcaption class="rec-cap">El crew de Soul Lens Studios · Mérida, Yucatán</figcaption>
+      </figure>
+      <figure class="rec">
+        <img src="/img/team-soul-lens-foro-ampi-siglo-xxi-merida.webp" alt="Equipo Soul Lens en el 8° Foro AMPI Mérida Siglo XXI." loading="lazy" width="800" height="500">
+        <figcaption class="rec-cap">Productora oficial · 8° Foro AMPI Mérida Siglo XXI</figcaption>
+      </figure>
+      <figure class="rec">
+        <img src="/img/val-mosquera-ed-zam-fundadores-soul-lens-studios.webp" alt="Val Mosquera y Ed Zam, fundadores de Soul Lens Studios." loading="lazy" width="800" height="500">
+        <figcaption class="rec-cap">Val Mosquera y Ed Zam, fundadores</figcaption>
+      </figure>
+      <figure class="rec">
+        <img src="/img/soul-lens-productora-oficial-foro-ampi-merida.webp" alt="Soul Lens Studios en cobertura audiovisual del Foro AMPI Mérida." loading="lazy" width="800" height="500">
+        <figcaption class="rec-cap">Cobertura audiovisual en vivo · Foro AMPI Mérida</figcaption>
+      </figure>
+      <figure class="rec">
+        <img src="/img/ed-zam-soul-lens-produccion-audiovisual.webp" alt="Ed Zam durante una producción audiovisual de Soul Lens Studios." loading="lazy" width="800" height="500">
+        <figcaption class="rec-cap">Producción en set</figcaption>
+      </figure>
+      <figure class="rec">
+        <img src="/img/val-mosquera-ceo-soul-lens-studio-produccion.webp" alt="Val Mosquera en el estudio de producción de Soul Lens Studios." loading="lazy" width="800" height="500">
+        <figcaption class="rec-cap">Estudio de producción · Mérida</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- USO DE MARCA -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Logotipo y uso de marca</div>
+    <h2>Cómo usar la marca correctamente.</h2>
+    <p class="sec-lead">El pack de logotipos incluye versión principal y reducida, en SVG y PNG, para fondos claros y oscuros.</p>
+
+    <div class="hero-actions" style="margin-top:28px">
+      <a class="btn btn-ghost" href={`mailto:${MAIL}?subject=Solicitud%20de%20pack%20de%20logotipos%20·%20Soul%20Lens%20Studios`}>✉ Solicitar pack de logotipos</a>
+    </div>
+
+    <div class="uso">
+      <div class="uso-card uso-si">
+        <h3>Sí</h3>
+        <ul>
+          <li>Usar el logotipo completo con el descriptor «studios» para uso institucional y general.</li>
+          <li>Usar la versión reducida, sin descriptor, en espacios donde la legibilidad se compromete: thumbnails, favicons, móvil.</li>
+          <li>Respetar la zona de protección: un margen libre equivalente a la altura de la letra «o» de «soul» en todos los lados.</li>
+          <li>Escribir el nombre completo en la primera mención —SLS · Soul Lens Studios— y «Soul Lens» en las siguientes.</li>
+        </ul>
+      </div>
+      <div class="uso-card uso-no">
+        <h3>No</h3>
+        <ul>
+          <li>Aplicar sombras, contornos o efectos al logotipo.</li>
+          <li>Estirar, comprimir o alterar sus proporciones.</li>
+          <li>Recolorearlo fuera de la paleta institucional.</li>
+          <li>Colocarlo sobre fondos sin contraste suficiente, ni introducir textos, íconos u otros logos dentro de su zona de protección.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="paleta">
+      <div class="chip"><span class="dot" style="background:#0052FE"></span>Azul Eléctrico · #0052FE</div>
+      <div class="chip"><span class="dot" style="background:#0A0A0B"></span>Negro · #0A0A0B</div>
+      <div class="chip"><span class="dot" style="background:#8B4CFF"></span>Púrpura · #8B4CFF</div>
+      <div class="chip"><span class="dot" style="background:#0F9D58"></span>Verde · #0F9D58</div>
+      <div class="chip"><span class="dot" style="background:#FF5152"></span>Coral · #FF5152</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ MEDIOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Preguntas de medios</div>
+    <h2>Respuestas listas para citar.</h2>
+    <p class="sec-lead">Respuestas breves y verificadas, redactadas para citarse tal cual.</p>
+
+    <div class="faq">
+      <details>
+        <summary>¿Qué es Soul Lens Studios?</summary>
+        <div class="faq-a">SLS · Soul Lens Studios es un estudio creativo mexicano con base en Mérida, Yucatán, que integra tecnología, storytelling y diseño audiovisual para real estate, hospitalidad, marcas personales y negocios en expansión, con proyectos en México, Estados Unidos y Latinoamérica.</div>
+      </details>
+      <details>
+        <summary>¿Quiénes fundaron Soul Lens Studios?</summary>
+        <div class="faq-a">Val Mosquera, Fundadora, y Ed Zam, Co-Fundador. El estudio opera bajo Xplorers Startups.</div>
+      </details>
+      <details>
+        <summary>¿Dónde opera Soul Lens Studios?</summary>
+        <div class="faq-a">Su base operativa está en Mérida, Yucatán, México, con proyectos en Ciudad de México, Miami y el resto de Latinoamérica.</div>
+      </details>
+      <details>
+        <summary>¿Qué produce Soul Lens Studios?</summary>
+        <div class="faq-a">Cinco líneas activas: Soul Caps (podcasts de marca), Films de Marca (piezas audiovisuales narrativas), Spots IA (comerciales producidos con inteligencia artificial), Smart Pass (tarjeta digital profesional con NFC) y Soul Story Kids (cuentos personalizados). El portafolio completo comprende doce líneas bajo una misma arquitectura.</div>
+      </details>
+      <details>
+        <summary>¿Qué compromiso social tiene Soul Lens Studios?</summary>
+        <div class="faq-a">El estudio destina el 11% de sus ingresos a causas sociales, ayuda comunitaria y formación de líderes; desarrolla El Arca, su plataforma de impacto social, y es responsable del marketing nacional de la Cumbre Global de Liderazgo en México.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Contacto para medios</div>
+    <h2>Entrevistas, datos y solicitudes.</h2>
+    <p class="sec-lead">Respondemos solicitudes de prensa en menos de 24 horas hábiles. Para verificar un dato antes de publicar, escríbenos: preferimos una llamada de dos minutos a una fe de erratas.</p>
+
+    <div class="contacto">
+      <div class="contacto-grid">
+        <div>
+          <div class="ct-k">Correo de prensa</div>
+          <div class="ct-v"><a href={`mailto:${MAIL}`}>{MAIL}</a></div>
+        </div>
+        <div>
+          <div class="ct-k">Teléfono · WhatsApp</div>
+          <div class="ct-v"><a href="https://wa.me/5215644844928" target="_blank" rel="noopener">+52 1 56 4484 4928</a></div>
+        </div>
+        <div>
+          <div class="ct-k">Ubicación</div>
+          <div class="ct-v">Mérida, Yucatán, México</div>
+        </div>
+        <div>
+          <div class="ct-k">Sitio oficial</div>
+          <div class="ct-v"><a href="/">soullensstudios.live</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    © 2026 Soul Lens Studios · Mérida · Yucatán · México · Operación LATAM ·
+    <a href="/aviso-de-privacidad">Aviso de Privacidad</a> ·
+    <a href="/terminos">Términos</a> ·
+    <a href="/hub">Hub</a><br>
+    Designed by <a href="/">Soul Lens</a> · Powered by <a href="https://xplorerstartups.ai" rel="noopener">Xplorers Startups</a>
+  </div>
+</footer>
+
+<script is:inline>
+document.querySelectorAll('.cb-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.getAttribute('data-copy'));
+    if(!el) return;
+    var text = el.innerText;
+    var done = function(){
+      btn.textContent = 'Copiado';
+      btn.setAttribute('data-done','1');
+      setTimeout(function(){ btn.textContent = 'Copiar'; btn.removeAttribute('data-done'); }, 1800);
+    };
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(text, done); });
+    } else {
+      fallback(text, done);
+    }
+  });
+});
+function fallback(text, cb){
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); cb(); } catch(e){}
+  document.body.removeChild(ta);
+}
+</script>
+</BaseLayout>

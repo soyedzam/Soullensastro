@@ -37,6 +37,7 @@ const PAGES = [
   { slug: 'soul-story-kids', priority: '0.9', changefreq: 'monthly', shared: INTERIOR_SHARED },
   { slug: 'pulse', priority: '0.8', changefreq: 'monthly' },
   { slug: 'nosotros', priority: '0.7', changefreq: 'monthly', shared: INTERIOR_SHARED },
+  { slug: 'prensa', priority: '0.6', changefreq: 'monthly' },
   { slug: 'navegador', priority: '0.6', changefreq: 'monthly' },
   { slug: 'aniversario', priority: '0.5', changefreq: 'yearly' },
   { slug: 'aviso-de-privacidad', priority: '0.3', changefreq: 'yearly' },
