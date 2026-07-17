@@ -416,6 +416,7 @@ footer{background:var(--ux);border-top:1px solid var(--linea-2);padding-block:cl
 .halo-name:hover{color:#fff;opacity:1}
 .halo-sep{font-size:clamp(18px,2vw,28px);color:var(--electrico);opacity:.5;font-weight:300}
 /* Marquee */
+.marquee-wrap,.marquee{overflow:hidden;max-width:100%}
 .marquee-outer{overflow:hidden;padding-block:10px;mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)}
 .marquee-inner{display:flex;width:max-content;animation:scroll-left 28s linear infinite}
 .marquee-outer.rev .marquee-inner{animation:scroll-right 32s linear infinite}
