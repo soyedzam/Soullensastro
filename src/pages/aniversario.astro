@@ -112,7 +112,7 @@ import '../styles/pages/aniversario.css';
 </footer>
 
 <script is:inline>
-function openY(id){var m=document.getElementById("ym");m.style.display="flex";document.getElementById("yif").src="https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0";}
+function openY(id){var m=document.getElementById("ym");m.style.display="flex";document.getElementById("yif").src="https://www.youtube-nocookie.com/embed/"+id+"?autoplay=1&rel=0";}
 function closeY(e){if(!e||e.target.id==="ym"||e.target.tagName==="BUTTON"){var m=document.getElementById("ym");m.style.display="none";document.getElementById("yif").src="";}}
 document.addEventListener("keydown",function(e){if(e.key==="Escape")closeY();});
 </script>

@@ -76,7 +76,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 /* ---- video facade (R11) ---- */
 document.querySelectorAll('.video-wrap').forEach(v=>{
   const play=()=>{const id=v.getAttribute('data-yt-id');if(!id)return;
-    v.innerHTML='<iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube.com/embed/'+id+'?autoplay=1" title="Testimonio Soul Lens" allow="autoplay;encrypted-media" allowfullscreen></iframe>';};
+    v.innerHTML='<iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" title="Testimonio Soul Lens" allow="autoplay;encrypted-media" allowfullscreen></iframe>';};
   v.addEventListener('click',play);
   v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}});
 });

@@ -105,6 +105,32 @@ document.addEventListener('click',function(e){
     v.style.backgroundPosition="center";
     v.classList.add('has-poster');
   });
+
+  /* Salida a YouTube. YouTube a veces exige iniciar sesión DENTRO del reproductor
+     embebido ("Accede a tu cuenta · Esto ayuda a proteger a la comunidad"): es una
+     verificación anti-bot que depende de la red/navegador del visitante, no del
+     video ni del sitio, y no se puede detectar desde aquí (el iframe es de otro
+     dominio). Al reproducir, aparece este enlace: en la app de YouTube el visitante
+     ya trae sesión y el video corre siempre. */
+  var linkTexto='¿No se reproduce? Verlo en YouTube ↗';
+  new MutationObserver(function(muts){
+    muts.forEach(function(m){
+      var wrap=m.target.closest ? m.target.closest('.video-wrap[data-yt-id]') : null;
+      if(!wrap || !wrap.querySelector('iframe')) return;
+      if(wrap.nextElementSibling && wrap.nextElementSibling.classList.contains('yt-escape')) return;
+      var id=wrap.getAttribute('data-yt-id');
+      var a=document.createElement('a');
+      a.className='yt-escape';
+      a.href='https://www.youtube.com/watch?v='+id;
+      a.target='_blank';
+      a.rel='noopener';
+      a.textContent=linkTexto;
+      a.style.cssText='display:block;margin-top:9px;font-family:var(--mono,monospace);font-size:11.5px;letter-spacing:.02em;color:#8A8F98;text-decoration:none';
+      a.addEventListener('mouseenter',function(){a.style.color='#F2F3F5';});
+      a.addEventListener('mouseleave',function(){a.style.color='#8A8F98';});
+      wrap.insertAdjacentElement('afterend',a);
+    });
+  }).observe(document.body,{childList:true,subtree:true});
 })();
 </script>
 </body>

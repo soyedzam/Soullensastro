@@ -212,7 +212,7 @@ import '../styles/pages/index.css';
   <div class="vid-modal-inner"><button class="vid-modal-close" onclick="closeVid()" aria-label="Cerrar video">✕</button>
   <iframe id="vid-iframe" src="" allow="autoplay; fullscreen" allowfullscreen title="Soul Lens Studios — Video"></iframe></div>
 </div>
-<script is:inline>function openVid(id){document.getElementById("vid-modal").classList.add("open");document.getElementById("vid-iframe").src="https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0";}
+<script is:inline>function openVid(id){document.getElementById("vid-modal").classList.add("open");document.getElementById("vid-iframe").src="https://www.youtube-nocookie.com/embed/"+id+"?autoplay=1&rel=0";}
 function closeVid(e){if(!e||e.target.id==="vid-modal"||e.target.classList.contains("vid-modal-close")){document.getElementById("vid-modal").classList.remove("open");document.getElementById("vid-iframe").src="";}}
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeVid();});</script>
 
@@ -534,7 +534,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 /* ---- video facade (R11) ---- */
 document.querySelectorAll('.video-wrap').forEach(v=>{
   const play=()=>{const id=v.getAttribute('data-yt-id');if(!id)return;
-    v.innerHTML='<iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube.com/embed/'+id+'?autoplay=1" title="Testimonio Soul Lens" allow="autoplay;encrypted-media" allowfullscreen></iframe>';};
+    v.innerHTML='<iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" title="Testimonio Soul Lens" allow="autoplay;encrypted-media" allowfullscreen></iframe>';};
   v.addEventListener('click',play);
   v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}});
 });
