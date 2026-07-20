@@ -106,29 +106,45 @@ document.addEventListener('click',function(e){
     v.classList.add('has-poster');
   });
 
-  /* Salida a YouTube. YouTube a veces exige iniciar sesión DENTRO del reproductor
-     embebido ("Accede a tu cuenta · Esto ayuda a proteger a la comunidad"): es una
-     verificación anti-bot que depende de la red/navegador del visitante, no del
-     video ni del sitio, y no se puede detectar desde aquí (el iframe es de otro
-     dominio). Al reproducir, aparece este enlace: en la app de YouTube el visitante
-     ya trae sesión y el video corre siempre. */
+  function escapeLink(wrap,texto){
+    if(wrap.nextElementSibling && wrap.nextElementSibling.classList.contains('yt-escape')) return;
+    var a=document.createElement('a');
+    a.className='yt-escape';
+    a.href='https://www.youtube.com/watch?v='+wrap.getAttribute('data-yt-id');
+    a.target='_blank';
+    a.rel='noopener';
+    a.textContent=texto;
+    a.style.cssText='display:block;margin-top:9px;font-family:var(--mono,monospace);font-size:11.5px;letter-spacing:.02em;color:#8A8F98;text-decoration:none';
+    a.addEventListener('mouseenter',function(){a.style.color='#F2F3F5';});
+    a.addEventListener('mouseleave',function(){a.style.color='#8A8F98';});
+    wrap.insertAdjacentElement('afterend',a);
+  }
+
+  /* Video que YouTube NO deja embeber (restricción de edad → LOGIN_REQUIRED: el
+     reproductor sale con "Accede a tu cuenta"). Ningún parámetro lo evita, es
+     política de YouTube. Con data-yt-external el clic lleva al video en YouTube
+     en vez de montar un reproductor que va a fallar.
+     ⚠️ Al levantar la restricción en YouTube Studio, QUITAR el atributo y el
+     video vuelve a reproducirse dentro del sitio. Verificar con:
+     curl -s "https://www.youtube.com/watch?v=<ID>" | grep -o '"status":"[A-Z_]*"' | head -1  → debe decir OK */
+  document.querySelectorAll('.video-wrap[data-yt-external][data-yt-id]').forEach(function(v){
+    v.addEventListener('click',function(e){
+      e.stopPropagation();
+      window.open('https://www.youtube.com/watch?v='+v.getAttribute('data-yt-id'),'_blank','noopener');
+    },true);
+    escapeLink(v,'Ver en YouTube ↗');
+  });
+
+  /* Salida a YouTube en los videos normales: si el reproductor embebido falla por
+     la red o el navegador del visitante (VPN, bloqueo de rastreo), el enlace le da
+     salida — en la app de YouTube ya trae sesión. No se puede detectar el fallo
+     desde aquí (el iframe es de otro dominio), así que aparece siempre al dar play. */
   var linkTexto='¿No se reproduce? Verlo en YouTube ↗';
   new MutationObserver(function(muts){
     muts.forEach(function(m){
       var wrap=m.target.closest ? m.target.closest('.video-wrap[data-yt-id]') : null;
       if(!wrap || !wrap.querySelector('iframe')) return;
-      if(wrap.nextElementSibling && wrap.nextElementSibling.classList.contains('yt-escape')) return;
-      var id=wrap.getAttribute('data-yt-id');
-      var a=document.createElement('a');
-      a.className='yt-escape';
-      a.href='https://www.youtube.com/watch?v='+id;
-      a.target='_blank';
-      a.rel='noopener';
-      a.textContent=linkTexto;
-      a.style.cssText='display:block;margin-top:9px;font-family:var(--mono,monospace);font-size:11.5px;letter-spacing:.02em;color:#8A8F98;text-decoration:none';
-      a.addEventListener('mouseenter',function(){a.style.color='#F2F3F5';});
-      a.addEventListener('mouseleave',function(){a.style.color='#8A8F98';});
-      wrap.insertAdjacentElement('afterend',a);
+      escapeLink(wrap,linkTexto);
     });
   }).observe(document.body,{childList:true,subtree:true});
 })();
