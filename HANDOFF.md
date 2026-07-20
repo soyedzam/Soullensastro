@@ -84,7 +84,16 @@ Migración del sitio **Soul Lens Studios** (productora audiovisual + IA, Mérida
 5. **Herramienta de screenshot** captura desde arriba y es poco fiable para secciones a media página; usa `preview_eval` / `curl` para verificar.
 6. **Imágenes lazy** reportan `naturalWidth 0` en eval headless aunque estén bien; verifica con `fetch`/`new Image()` o curl.
 7. **git es la red de seguridad** — todo commiteado/pusheado. Si algo local desaparece: `git restore <archivo>`.
-8. **Video facade:** el poster lo pone el script global de BaseLayout (`.video-wrap[data-yt-id]` → `i.ytimg.com/.../hqdefault.jpg`), el click→iframe lo hace el facade por página. Las tarjetas de ejemplo usan `.caso-media.video-wrap` con `data-yt-id`. Para portadas 16:9 usa `maxresdefault` con fallback a `hqdefault` (algunos videos no tienen maxres → 404 o placeholder 120px).
+8. **"No me deja reproducir el video / me pide iniciar sesión":** NO es el sitio ni el video.
+   YouTube muestra dentro del reproductor *"Accede a tu cuenta · Esto ayuda a proteger a la
+   comunidad"* como verificación **anti-bot**, y depende de la red/navegador/IP del visitante
+   (VPN, algunos datos móviles, Safari con bloqueo de rastreo, modo privado). El sitio no puede
+   detectarlo: el iframe es de otro dominio. Antes de tocar nada, **verifica el video**:
+   `curl -s "https://www.youtube.com/watch?v=<ID>" | grep -o '"playableInEmbed":[a-z]*\|"status":"[A-Z_]*"' | head -2`
+   → si sale `OK` + `true`, el video está bien y no hay bug que arreglar. Mitigación ya activa:
+   el **enlace de escape** (BaseLayout, MutationObserver global) le da salida al visitante hacia la app de YouTube, donde
+   siempre trae sesión. (Nota: `curl` SÍ alcanza YouTube desde este entorno aunque WebFetch no.)
+9. **Video facade:** el poster lo pone el script global de BaseLayout (`.video-wrap[data-yt-id]` → `i.ytimg.com/.../hqdefault.jpg`), el click→iframe lo hace el facade por página. Las tarjetas de ejemplo usan `.caso-media.video-wrap` con `data-yt-id`. Para portadas 16:9 usa `maxresdefault` con fallback a `hqdefault` (algunos videos no tienen maxres → 404 o placeholder 120px).
 
 ---
 
