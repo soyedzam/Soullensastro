@@ -84,7 +84,17 @@ Migración del sitio **Soul Lens Studios** (productora audiovisual + IA, Mérida
 5. **Herramienta de screenshot** captura desde arriba y es poco fiable para secciones a media página; usa `preview_eval` / `curl` para verificar.
 6. **Imágenes lazy** reportan `naturalWidth 0` en eval headless aunque estén bien; verifica con `fetch`/`new Image()` o curl.
 7. **git es la red de seguridad** — todo commiteado/pusheado. Si algo local desaparece: `git restore <archivo>`.
-8. **"No me deja reproducir el video / me pide iniciar sesión":** NO es el sitio ni el video.
+8. **"No me deja reproducir el video / me pide iniciar sesión":** primero **diagnostica el video**, no el sitio:
+   ```
+   curl -s "https://www.youtube.com/watch?v=<ID>" | grep -o '"playabilityStatus":{"status":"[A-Z_]*"' | head -1
+   ```
+   - Devuelve `OK` → el video está bien; si un visitante concreto ve el aviso, es la verificación anti-bot de YouTube (su red/navegador: VPN, datos móviles, Safari con bloqueo de rastreo). El sitio no puede detectarlo (iframe cross-origin); ya hay enlace de escape al reproducir.
+   - Devuelve **`LOGIN_REQUIRED`** → el video tiene **restricción de edad** en YouTube y **NO se puede embeber en ningún sitio** (política de YouTube, ningún parámetro lo evita). Pasó con **Kids Ejemplo 2 (`zaNCdoc90c8`)** el 2026-07-17.
+     - **Parche del sitio (ya aplicado):** marcar el contenedor con `data-yt-external` → el clic abre YouTube y aparece "Ver en YouTube ↗" desde la carga, en vez de un reproductor con error. Es global (BaseLayout), sirve en cualquier página.
+     - **Cura real (la hace el cliente en YouTube Studio):** Contenido → el video → Editar → Restricciones/Público → quitar "Restricción de edad (+18)"; si la puso YouTube automáticamente, apelar. **Urgente también por alcance:** un video con esa marca no sale en recomendaciones ni lo ve nadie sin sesión.
+     - Al levantarla: verificar que el curl dé `OK`, **quitar `data-yt-external`**, build + push → vuelve a reproducirse dentro del sitio.
+   - Auditar TODOS los videos de golpe (14 hoy, 13 en OK): ver el comando en el commit `83d0686`.
+   - (`curl` SÍ alcanza YouTube desde este entorno aunque WebFetch no.)
    YouTube muestra dentro del reproductor *"Accede a tu cuenta · Esto ayuda a proteger a la
    comunidad"* como verificación **anti-bot**, y depende de la red/navegador/IP del visitante
    (VPN, algunos datos móviles, Safari con bloqueo de rastreo, modo privado). El sitio no puede
