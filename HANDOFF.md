@@ -1,5 +1,5 @@
 # 🤝 PASE / HANDOFF — Soul Lens Studios Web (Astro)
-_Última actualización: 2026-07-10 · dominio EN VIVO · commit `dd58d29` · 44 commits_
+_Última actualización: 2026-07-17 · dominio EN VIVO · commit `bdeed32` · 52 commits_
 
 > **Nota caché (2026-07-09):** si alguien reporta "veo el sitio viejo" en `soullensstudios.live`, es **caché del navegador/DNS del cliente**, NO el servidor. Verificado: el origen devuelve el sitio nuevo en 16/16 peticiones; pestaña nueva y limpia carga el sitio nuevo (9 Offers MXN, og-image.png, 0 USD, 0 service workers). Solución para el cliente: recarga forzada (⌘⇧R), incógnito, o flush DNS (`sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`).
 
@@ -95,14 +95,6 @@ Migración del sitio **Soul Lens Studios** (productora audiovisual + IA, Mérida
      - Al levantarla: verificar que el curl dé `OK`, **quitar `data-yt-external`**, build + push → vuelve a reproducirse dentro del sitio.
    - Auditar TODOS los videos de golpe (14 hoy, 13 en OK): ver el comando en el commit `83d0686`.
    - (`curl` SÍ alcanza YouTube desde este entorno aunque WebFetch no.)
-   YouTube muestra dentro del reproductor *"Accede a tu cuenta · Esto ayuda a proteger a la
-   comunidad"* como verificación **anti-bot**, y depende de la red/navegador/IP del visitante
-   (VPN, algunos datos móviles, Safari con bloqueo de rastreo, modo privado). El sitio no puede
-   detectarlo: el iframe es de otro dominio. Antes de tocar nada, **verifica el video**:
-   `curl -s "https://www.youtube.com/watch?v=<ID>" | grep -o '"playableInEmbed":[a-z]*\|"status":"[A-Z_]*"' | head -2`
-   → si sale `OK` + `true`, el video está bien y no hay bug que arreglar. Mitigación ya activa:
-   el **enlace de escape** (BaseLayout, MutationObserver global) le da salida al visitante hacia la app de YouTube, donde
-   siempre trae sesión. (Nota: `curl` SÍ alcanza YouTube desde este entorno aunque WebFetch no.)
 9. **Video facade:** el poster lo pone el script global de BaseLayout (`.video-wrap[data-yt-id]` → `i.ytimg.com/.../hqdefault.jpg`), el click→iframe lo hace el facade por página. Las tarjetas de ejemplo usan `.caso-media.video-wrap` con `data-yt-id`. Para portadas 16:9 usa `maxresdefault` con fallback a `hqdefault` (algunos videos no tienen maxres → 404 o placeholder 120px).
 
 ---
@@ -126,7 +118,7 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 
 ## 8. PENDIENTES (próximos pasos accionables)
 
-1. 🌐 **Conectar dominio `soullensstudios.live`** (ver §9 — EN CURSO, prioridad).
+1. ✅ **Dominio conectado** (2026-07-09) — ver §9. Nada pendiente aquí.
 2. 🎬 **Marena · Video Mapping**: falta URL de YouTube; montar (posible línea Live Experience o caso destacado).
 3. 🏷️ **Nombres reales de clientes de Spots IA** (hoy códigos REV/PLI/GRE/PM/MB en `spots-ia.astro` `.shorts-grid`).
 4. 📹 **Demos de Smart Pass**: se quitaron las tarjetas de video vacías; remontar cuando lleguen.
@@ -134,6 +126,22 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 6. 🖼️ **Imágenes reales de casos** faltantes: tarjetas ◎ "Próximamente" en la 3ª tarjeta de soul-caps (Maova) y films (sin video). El cliente cambió las fotos "caricaturescas" de Kids (galería borrada) — puede mandar nuevas.
 7. 🧾 **Legal:** RFC pendiente (opcional). ✅ **GA4:** ya configurado dentro de GTM (`G-Y0PV6X70P3`, verificado en vivo 2026-07-10).
 8. 🔗 ✅ **`/hub` enlazada** discretamente desde la barra legal del footer (`… Términos · Hub`) en las 7 páginas de contenido (commit `4b58a35`) — ya no está huérfana. Nota: la idea previa de enlazar el texto "Hub Intelligence" → `/hub` se **descartó** (mismatch: "Hub Intelligence" es una línea de servicio "Próximamente", no la landing link-in-bio). ✅ **Fase 2 hecha:** header/footer de las 6 interiores componentizados (`SiteHeader`/`SiteFooter`, commit `00e3ab9`). Verificado: `dist` byte-idéntico antes/después en las 14 páginas (cero cambio de output). Editar nav/footer interior = ahora 1 archivo.
+
+### 🗓️ SESIÓN 2026-07-16/17 — lo que se hizo (todo en vivo y verificado)
+
+- **Sitemap automatizado:** `npm run sitemap` (`scripts/gen-sitemap.mjs`) genera `lastmod` real por página desde git. Correrlo **al tocar páginas, antes de commitear**. Se descartó `@astrojs/sitemap` (solo admite lastmod global) y se quitó de package.json.
+- **GA4:** ✅ ya vivía dentro de GTM (`G-Y0PV6X70P3`), verificado disparando en producción. Pendiente cerrado.
+- **Meta Business:** el meta-tag `facebook-domain-verification` (`96htqcrkc44…`) **ya está** en BaseLayout desde el commit inicial. Falta solo que **Ro Cerdeño** (experto en Ads de SLS) confirme el estado "Verificado" en el Business Manager. Si su BM muestra OTRO código → agregarlo como **segundo** meta-tag, sin borrar el existente.
+- **Sala de prensa `/prensa`** nueva (commits `0753d66`, `5b98981`): paleta oficial del brandbook + pack de logotipos. **15 páginas** ahora (no 14).
+- **Bugs de móvil corregidos** (auditoría en 375/768/1280 con navegador real):
+  - `1755c6c` **el menú ≡ del header nunca abría** en <1080px. En el home la clase `.open` no tenía regla CSS en ninguna hoja; en las 6 interiores el botón hacía `scrollIntoView` a #precios. Fix en las 7 hojas + ambos botones con `aria-expanded`.
+  - `45bf611` **scroll lateral en el home**: `.marquee-wrap`/`.marquee` sin `overflow:hidden` (la regla existente era de `.marquee-outer`, clase que el home no usa) + grid de reseñas con 3 columnas fijas inline → ahora `auto-fit minmax(240px,1fr)`.
+- **Videos** (`5feee54`, `83d0686`): los 10 embeds pasaron a `youtube-nocookie.com` + `rel=0`; enlace de escape global "¿No se reproduce? Verlo en YouTube ↗" al dar play; y `data-yt-external` para videos que YouTube no deja embeber (ver gotcha §6.8).
+
+### ⏳ ESPERANDO AL CLIENTE (bloqueado, no es trabajo de código)
+
+1. **Kids Ejemplo 2 (`zaNCdoc90c8`) con restricción de edad.** El sitio ya está parchado (`data-yt-external`). La cura la hace Ed en **YouTube Studio del canal @SoulLensStudios** — ⚠️ esa cuenta **NO está iniciada** en el Chrome de trabajo (se probaron las 4 que sí: soyedzam, eortegazamora, eduzam88, Elemental488; ninguna tiene acceso). Cuando inicie sesión: quitar restricción → verificar `OK` con el curl del §6.8 → **quitar `data-yt-external`** de `soul-story-kids.astro` → build + push.
+2. **Ro Cerdeño / Meta Business** (arriba).
 
 > **Confirmado por el cliente (2026-07-07):** las reseñas del hub (**Marcela Ramírez**, **Jorge González**) y **todas** las marcas del carrusel del hub (Viceroy, Cipriani, Thompson, Wayil, Marena, Urbana, Grupo Copri, Etana) son **clientes reales** → NO volver a marcarlas como falsas ni removerlas. El único stand-in real del hub es el VSL (§8.5).
 
