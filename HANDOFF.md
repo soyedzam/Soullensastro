@@ -1,5 +1,5 @@
 # 🤝 PASE / HANDOFF — Soul Lens Studios Web (Astro)
-_Última actualización: 2026-07-17 · dominio EN VIVO · commit `bdeed32` · 52 commits_
+_Última actualización: 2026-07-17 · dominio EN VIVO · commit `cdba7d6` · 54 commits_
 
 > **Nota caché (2026-07-09):** si alguien reporta "veo el sitio viejo" en `soullensstudios.live`, es **caché del navegador/DNS del cliente**, NO el servidor. Verificado: el origen devuelve el sitio nuevo en 16/16 peticiones; pestaña nueva y limpia carga el sitio nuevo (9 Offers MXN, og-image.png, 0 USD, 0 service workers). Solución para el cliente: recarga forzada (⌘⇧R), incógnito, o flush DNS (`sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`).
 
@@ -92,7 +92,7 @@ Migración del sitio **Soul Lens Studios** (productora audiovisual + IA, Mérida
    - Devuelve **`LOGIN_REQUIRED`** → el video tiene **restricción de edad** en YouTube y **NO se puede embeber en ningún sitio** (política de YouTube, ningún parámetro lo evita). Pasó con **Kids Ejemplo 2 (`zaNCdoc90c8`)** el 2026-07-17.
      - **Parche del sitio (ya aplicado):** marcar el contenedor con `data-yt-external` → el clic abre YouTube y aparece "Ver en YouTube ↗" desde la carga, en vez de un reproductor con error. Es global (BaseLayout), sirve en cualquier página.
      - **Cura real (la hace el cliente en YouTube Studio):** Contenido → el video → Editar → Restricciones/Público → quitar "Restricción de edad (+18)"; si la puso YouTube automáticamente, apelar. **Urgente también por alcance:** un video con esa marca no sale en recomendaciones ni lo ve nadie sin sesión.
-     - Al levantarla: verificar que el curl dé `OK`, **quitar `data-yt-external`**, build + push → vuelve a reproducirse dentro del sitio.
+     - Al levantarla: verificar que el curl dé `OK`, **quitar `data-yt-external`**, build + push → vuelve a reproducirse dentro del sitio. ✅ **Resuelto el 2026-07-17** (Ed la quitó; commit `cdba7d6`). El mecanismo `data-yt-external` **se queda en BaseLayout** para el próximo caso.
    - Auditar TODOS los videos de golpe (14 hoy, 13 en OK): ver el comando en el commit `83d0686`.
    - (`curl` SÍ alcanza YouTube desde este entorno aunque WebFetch no.)
 9. **Video facade:** el poster lo pone el script global de BaseLayout (`.video-wrap[data-yt-id]` → `i.ytimg.com/.../hqdefault.jpg`), el click→iframe lo hace el facade por página. Las tarjetas de ejemplo usan `.caso-media.video-wrap` con `data-yt-id`. Para portadas 16:9 usa `maxresdefault` con fallback a `hqdefault` (algunos videos no tienen maxres → 404 o placeholder 120px).
@@ -140,8 +140,9 @@ Recibir imágenes del cliente: pide que las guarde en `~/Downloads` o en `public
 
 ### ⏳ ESPERANDO AL CLIENTE (bloqueado, no es trabajo de código)
 
-1. **Kids Ejemplo 2 (`zaNCdoc90c8`) con restricción de edad.** El sitio ya está parchado (`data-yt-external`). La cura la hace Ed en **YouTube Studio del canal @SoulLensStudios** — ⚠️ esa cuenta **NO está iniciada** en el Chrome de trabajo (se probaron las 4 que sí: soyedzam, eortegazamora, eduzam88, Elemental488; ninguna tiene acceso). Cuando inicie sesión: quitar restricción → verificar `OK` con el curl del §6.8 → **quitar `data-yt-external`** de `soul-story-kids.astro` → build + push.
-2. **Ro Cerdeño / Meta Business** (arriba).
+1. **Ro Cerdeño / Meta Business** — confirmar estado "Verificado" (arriba).
+2. **Google Search Console** — dar de alta el dominio + enviar sitemap. **Es el pendiente más urgente del sitio.**
+
 
 > **Confirmado por el cliente (2026-07-07):** las reseñas del hub (**Marcela Ramírez**, **Jorge González**) y **todas** las marcas del carrusel del hub (Viceroy, Cipriani, Thompson, Wayil, Marena, Urbana, Grupo Copri, Etana) son **clientes reales** → NO volver a marcarlas como falsas ni removerlas. El único stand-in real del hub es el VSL (§8.5).
 
